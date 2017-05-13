@@ -3369,9 +3369,6 @@
 			-webkit-pointer-events: auto;
 			-ms-pointer-events: auto;
 			pointer-events: auto;
-			border-style: solid;
-			border-color: #ffffff;
-			border-width: 5px !important;
 			font-family: "Source Sans Pro", Helvetica, sans-serif;
 			font-size: 2.25rem;
 			font-weight: 900;
@@ -3382,10 +3379,7 @@
 			visibility: visible;
 		}
 
-			#header .logo:hover {
-				border-color: #18bfef !important;
-				color: #18bfef !important;
-			}
+		
 
 		@media screen and (max-width: 980px) {
 
@@ -3402,10 +3396,6 @@
 				padding-bottom: 3rem;
 			}
 
-				#header .logo {
-					font-size: 1.75rem;
-					border-width: 3px !important;
-				}
 
 		}
 
