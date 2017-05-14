@@ -1749,7 +1749,7 @@
 	}
 
 	sub {
-		font-size: 0.8rem;
+		font-size: 0.6rem;
 		position: relative;
 		top: 0.5rem;
 	}
@@ -2528,7 +2528,6 @@
 		}
 
 			ul.divided li {
-				border-top: solid 1px;
 				padding: 0.5rem 0;
 			}
 
