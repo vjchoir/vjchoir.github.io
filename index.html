@@ -15,19 +15,9 @@
 		<link rel="stylesheet" type="text/css" href="css/component.css" />
 		<link rel="stylesheet" type="text/css" href="css/animations.css" />
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 		
-		<script src="js/modernizr.custom.js"></script>
-		<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-7243260-2']);
-		_gaq.push(['_trackPageview']);
-		(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-		</script>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/carousel.css" />
 		
 	</head>
 	<body class="is-loading">
@@ -69,8 +59,15 @@
 
 						<!-- Featured Post -->
 							<article class="post featured">
+								<div class="carousel carousel-slider" data-indicators="true">
+    <a class="carousel-item" href="#one!"><img src="images/photos/header1.jpg"></a>
+    <a class="carousel-item" href="#two!"><img src="images/photos/header2.jpg"></a>
+    <a class="carousel-item" href="#three!"><img src="images/photos/header3.jpg"></a>
+    <a class="carousel-item" href="#four!"><img src="images/photos/header4.jpg"></a>
+  </div>	
+								<br />
 								<header class="major">
-									<a href ="#" onclick="return false"; class="image fit"><img src="images/photos/header1.jpg" width=80% height=auto alt="" /></img></a>
+									
 
 									<h2>WHAT IS THIS?</h2>
 									<p>This is a project created back in 2014 to act as an archival for any VJChoir related material to make it easily accesible. </p>
@@ -150,7 +147,12 @@
 			<script src="assets/js/jquery.scrolly.min.js"></script>
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+			<script src="assets/js/main.js"></script
+			<script type="text/javascript" src="assets/js/jquery.min"></script>
+			<script src="assets/js/materialize.js"></script>
+			<script type="text/javascript" language="javascript">
+            $('.carousel.carousel-slider').carousel({fullWidth: true});
+        </script>
 
 	</body>
 </html>
