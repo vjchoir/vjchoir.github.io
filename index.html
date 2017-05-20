@@ -17,7 +17,7 @@
 		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
 		
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="assets/css/carousel.css" />
+		<link rel="stylesheet" type="text/css" href="assets/css/carousel.css" />
 		
 	</head>
 	<body class="is-loading">
@@ -59,16 +59,22 @@
 
 						<!-- Featured Post -->
 							<article class="post featured">
-								<div class="carousel carousel-slider" data-indicators="true">
-    <a class="carousel-item" href="#one!"><img src="images/photos/header1.jpg"></a>
-    <a class="carousel-item" href="#two!"><img src="images/photos/header2.jpg"></a>
-    <a class="carousel-item" href="#three!"><img src="images/photos/header3.jpg"></a>
-    <a class="carousel-item" href="#four!"><img src="images/photos/header4.jpg"></a>
-  </div>	
+								
 								<br />
 								<header class="major">
 									
+									<div id="slider" class="slider">
+									<figure>
+									<img src="images/photos/header1.jpg" alt>
+									<img src="images/photos/header2.jpg" alt>
+									<img src="images/photos/header3.jpg" alt>
+									<img src="images/photos/header4.jpg" alt>
+									</figure>
 
+									</div>
+
+									<ul></ul>
+									
 									<h2>WHAT IS THIS?</h2>
 									<p>This is a project created back in 2014 to act as an archival for any VJChoir related material to make it easily accesible. </p>
 								</header>
@@ -80,6 +86,7 @@
 
 									<header class="major">
 									<h2>WHAT CAN I FIND HERE?</h2>
+									<p> Keep scrolling and you'll see that we have...</p>
 									</header>
 
 							</article>
@@ -149,10 +156,7 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script
 			<script type="text/javascript" src="assets/js/jquery.min"></script>
-			<script src="assets/js/materialize.js"></script>
-			<script type="text/javascript" language="javascript">
-            $('.carousel.carousel-slider').carousel({fullWidth: true});
-        </script>
+
 
 	</body>
 </html>
