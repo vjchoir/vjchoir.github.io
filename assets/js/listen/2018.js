@@ -59,8 +59,77 @@ jQuery(function ($) {
                 "name": "Leonardo Dreams Of His Flying Machine (by Eric Whitacre)",
                 "duration": "8:30",
                 "file": "leonardo"
+            },
+			
+			{
+                "track": 8,
+                "name": "Phoenix (by Ola Gjeilo)",
+                "duration": "5:08",
+                "file": "phoenix"
             }, 
 			
+			{
+                "track": 9,
+                "name": "Among The Leaves So Green, O (by John Byrt)",
+                "duration": "02:32",
+                "file": "leaves"
+            }, 
+			
+			{
+                "track": 10,
+                "name": "The Teddy Bear's Picnic (by John W. Bratton)",
+                "duration": "02:03",
+                "file": "teddy"
+            }, 
+			
+			{
+                "track": 11,
+                "name": "Unicornis Captivatur (by Ola Gjeilo)",
+                "duration": "06:05",
+                "file": "unicorn"
+            },
+			
+			{
+                "track": 12,
+                "name": "Double, Double Toil and Trouble (by Jaakko Mantyjarvi)",
+                "duration": "02:58",
+                "file": "trouble"
+            },
+			
+			{
+                "track": 13,
+                "name": "The Goslings (by Frederick Bridge)",
+                "duration": "02:57",
+                "file": "goslings"
+            },
+			
+			{
+                "track": 14,
+                "name": "The Mermaid (arranged by John Whitworth)",
+                "duration": "03:35",
+                "file": "mermaid"
+            },
+			
+			{
+                "track": 15,
+                "name": "Africa (by David Paich and Jeff Porcaro, arranged by Phillip Lawson)",
+                "duration": "04:01",
+                "file": "africa"
+            },
+			
+			{
+                "track": 16,
+                "name": "The Circle of Life",
+                "duration": "04:15",
+                "file": "circle"
+            },
+			
+			{
+                "track": 17,
+                "name": "No Man Is An Island",
+                "duration": "03:24",
+                "file": "no"
+            }
 			
 			],
             buildPlaylist = $(tracks).each(function(key, value) {
