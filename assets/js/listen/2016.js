@@ -14,6 +14,7 @@ jQuery(function ($) {
         var index = 0,
             playing = false,
             mediaPath = '../music/2016/',
+			sovTitle = 'SOV2016',
             extension = '',
             tracks = [
 			{ "track": "1", "name": "Hallelujah (by George Frideric Handel)", "duration": "04:18", "file": "1 Hallelujah" },
@@ -51,9 +52,11 @@ jQuery(function ($) {
             audio = $('#audio1').on('play', function () {
                 playing = true;
                 npAction.text('Now Playing...');
+				document.title = sovTitle + (' - ') + tracks[index].name;
             }).on('pause', function () {
                 playing = false;
                 npAction.text('Paused...');
+				document.title = sovTitle + (' - Paused...');
             }).on('ended', function () {
                 npAction.text('Paused...');
                 if ((index + 1) < trackCount) {
@@ -102,6 +105,7 @@ jQuery(function ($) {
                 $('.plSel').removeClass('plSel');
                 $('#plList li:eq(' + id + ')').addClass('plSel');
                 npTitle.text(tracks[id].name);
+				document.title = tracks[id].name;
                 index = id;
                 audio.src = mediaPath + tracks[id].file + extension;
             },

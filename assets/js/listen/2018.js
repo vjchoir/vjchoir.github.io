@@ -14,6 +14,7 @@ jQuery(function ($) {
         var index = 0,
             playing = false,
             mediaPath = '../music/2018/',
+			sovTitle = 'SOV2018',
             extension = '',
             tracks = [{
                 "track": 1,
@@ -144,12 +145,14 @@ jQuery(function ($) {
             trackCount = tracks.length,
             npAction = $('#npAction'),
             npTitle = $('#npTitle'),
-            audio = $('#audio1').on('play', function () {
+            audio = $('#audio1').on('play', function (id) {
                 playing = true;
                 npAction.text('Now Playing...');
+				document.title = sovTitle + (' - ') + tracks[index].name;
             }).on('pause', function () {
                 playing = false;
                 npAction.text('Paused...');
+				document.title = sovTitle + (' - Paused...');
             }).on('ended', function () {
                 npAction.text('Paused...');
                 if ((index + 1) < trackCount) {
@@ -197,7 +200,6 @@ jQuery(function ($) {
             loadTrack = function (id) {
                 $('.plSel').removeClass('plSel');
                 $('#plList li:eq(' + id + ')').addClass('plSel');
-                npTitle.text(tracks[id].name);
                 index = id;
                 audio.src = mediaPath + tracks[id].file + extension;
             },

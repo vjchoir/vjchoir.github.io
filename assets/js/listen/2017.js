@@ -14,6 +14,7 @@ jQuery(function ($) {
         var index = 0,
             playing = false,
             mediaPath = '../music/2017/',
+			sovTitle = 'SOV2017',
             extension = '',
             tracks = [
 			{ "track": "1", "name": "I Carry Your Heart (by Connor Koppin)", "duration": "05:03", "file": "carry" },
@@ -52,9 +53,11 @@ jQuery(function ($) {
             audio = $('#audio1').on('play', function () {
                 playing = true;
                 npAction.text('Now Playing...');
+				document.title = sovTitle + (' - ') + tracks[index].name;
             }).on('pause', function () {
                 playing = false;
                 npAction.text('Paused...');
+				document.title = sovTitle + (' - Paused...');
             }).on('ended', function () {
                 npAction.text('Paused...');
                 if ((index + 1) < trackCount) {
