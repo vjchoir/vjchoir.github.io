@@ -1,4 +1,4 @@
-// Dependencies:
+﻿// Dependencies:
 // https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
 // https://cdnjs.cloudflare.com/ajax/libs/html5media/1.1.8/html5media.min.js
 // https://cdnjs.cloudflare.com/ajax/libs/plyr/2.0.18/plyr.js
@@ -36,7 +36,7 @@ jQuery(function ($) {
 		{ "track": "17", "name": "Pseudo Yoik (by Jaakko Mäntyjärvi)", "duration": "02:05", "file": "17 Pseudo Yoik" },
 		{ "track": "18", "name": "Northern Lights (by Ēriks Ešenvalds)", "duration": "06:49", "file": "18 Northern Lights" },
 		{ "track": "19", "name": "Yagi Bushi (by Ko Matsushita)", "duration": "03:45", "file": "19 Yagi Bushi" },
-		{ "track": "20", "name": "Entreat Me Not To Leave Youb (by Dan Forrest)", "duration": "06:29", "file": "20 Entreat Me" },
+		{ "track": "20", "name": "Entreat Me Not To Leave You (by Dan Forrest)", "duration": "06:29", "file": "20 Entreat Me" },
 		{ "track": "21", "name": "No Man Is An Island", "duration": "03:15", "file": "21 No Man" }
 			
 			],
