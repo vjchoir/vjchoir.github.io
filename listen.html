@@ -1,0 +1,99 @@
+<script src='/res/js/redirect.js'></script>
+
+<div id="text-content">
+        <link rel="stylesheet" type="text/css" href="res/css/listen.css">
+        <link rel="stylesheet" href="res/css/plyr.css">
+    <div class="albums-holder">
+        <button id="SOV2018-btn" class="album" autofocus>
+            <img src="/assets/images/sov/SOV2018.png"></img>
+            <p>SOV2018</p>
+        </button>
+
+        <button id="SOV2017-btn" class="album">
+            <img src="/assets/images/sov/SOV2017.jpg"></img>
+            <p>SOV2017</p>
+        </button>
+
+        <button id="SOV2016-btn" class="album">
+            <img src="/assets/images/sov/SOV2016.png"></img>
+            <p>SOV2016</p>
+        </button>
+
+        <button id="SOV2015-btn" class="album">
+            <img src="/assets/images/sov/SOV2015.jpg"></img>
+            <p>SOV2015</p>
+        </button>
+
+        <button id="SOV2014-btn" class="album">
+            <img src="/assets/images/sov/SOV2014.jpg"></img>
+            <p>SOV2014</p>
+        </button>
+
+        <button id="SOV2013-btn" class="album">
+            <img src="/assets/images/sov/SOV2013.jpg"></img>
+            <p>SOV2013</p>
+        </button>
+    </div>
+
+    <div class="player-holder">
+        <div class="album-info-holder">
+            <img id="selected-album-img" src="/assets/images/sov/SOV2018.png">
+            
+            <div id="album-info-text-holder">
+                <h2 id="album-title">Symphony of Voices 2018</h2>
+                <p>
+                    <span id="album-description"></span>
+                    <span id="sov-theme"></span>
+                </p>
+
+                <p id="album-more-info">
+                    <span id="album-song-count"></span>
+                    <span id="album-runtime"></span>
+                </p>
+
+                <div id="album-button-holder"><button id="album-play"><i class="material-icons">play_arrow</i>PLAY</button></div>
+                
+            </div>
+        </div>
+
+        <div class="playlist-container">
+            <div class="column add-bottom">
+                <div id="mainwrap">
+                    <div id="nowPlay">
+                        <span id="npCount">1 / 17</span>
+                        <div id = "npTrack">
+                                <span id="npTitle"></span>
+                                <span id="npComposer"></span>
+                            </div>
+                    </div>
+                    <div id="audiowrap">
+                        <div id="audio0">
+                            <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
+                        </div>
+                        <div id="tracks">
+                            <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
+                        </div>
+                    </div>
+
+                    <div id="plwrap">
+                        <ul id="plTitles" class="playlist">
+                            <li>
+                                <span class="plNum">#</span>
+                                <span class="plTitle">TITLE</span>
+                                <span id="plComposerTitle" class="plComposer">COMPOSER</span>
+                                <span class="plLength">DUR</span>
+                            </li>
+                        </ul>
+                        <div class="plDiv"></div>
+                        <ul id="plList" class="playlist">
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
+</div>
+

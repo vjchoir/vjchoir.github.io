@@ -1,174 +1,93 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>VJChoir</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/multilevelmenu.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<link rel="stylesheet" type="text/css" href="css/animations.css" />
-		<link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico" />
-		
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" type="text/css" href="assets/css/carousel.css" />
-		
-	</head>
-	<body class="is-loading">
 
-		<!-- Wrapper -->
-			<div id="wrapper" class="fade-in">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-				<!-- Intro -->
-					<div id="intro">
-						<img src="images/vjchoir.png" width=100% height=auto alt="VJChoir logo" /></img>
-						<h1>Welcome</h1>
-						<p>to the Victoria Junior College Choir's archival website.</a></p>
-						<ul class="actions">
-							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
-						</ul>
-					</div>
+    <title>The VJChoir Archives</title>
 
-				<!-- Header -->
-					<header id="header">
-						<img src="images/mainheader.png" height=65% width=auto alt="" class="logo"/></img>
-					</header>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+        crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="res/css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="res/css/general.css">
 
-				<!-- Nav -->
-					<nav id="nav">
-						<ul class="links">
-							<li class="active"><a href="index">Home</a></li>
-							<li><a href="about">About</a></li>
-							<li><a href="batches/main">Batches</a></li>
-							<li><a href="sov/main">Symphony of Voices</a></li>
-							<li><a href="listen/main">Listen</a></li>
-							<li><a href="misc">Miscellaneous</a></li>
-						</ul>
-						<ul class="icons">
-							<li><a href="https://www.instagram.com/vjchoir/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-						</ul>
-					</nav>
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/plyr/3.3.21/plyr.min.js"></script>
 
-				<!-- Main -->
-					<div id="main">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
 
-						<!-- Featured Post -->
-							<article class="post featured">
-								
-								<br />
-								<header class="major">
-									
-									<div id="slider" class="slider">
-									<figure>
-									<img src="images/photos/header1.jpg" alt>
-									<img src="images/photos/header2.jpg" alt>
-									<img src="images/photos/header3.jpg" alt>
-									<img src="images/photos/header6.jpg" alt>
-									</figure>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-									</div>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+    <script>
+        $(document).ready(function () {
+            $('.sidebar-holder').load("/sidebar.html");
+            $('.navbar-holder').load("/navbar.html");
+        });
+    </script>
 
-									<ul></ul>
-									
-									<h2>WHAT IS THIS?</h2>
-									<p>This is a project created back in 2014 to act as an archival for any VJChoir related material to make it easily accesible. </p>
-								</header>
-								<ul class="actions">
-									<li><a href="about" class="button big">READ MORE<br /></a></li>
-								</ul>
-								<br /><br /><br />
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <div id="sidebar-holder" class="sidebar-holder">
 
 
-									<header class="major">
-									<h2>WHAT CAN I FIND HERE?</h2>
-									<p> Keep scrolling and you'll see that we have...</p>
-									</header>
+        </div>
 
-							</article>
+        <!-- Page Content Holder -->
+        <div id="content">
+            <div class="navbar-holder">
+
+
+            </div>
+
+
+            <div id="text-content-holder">
+                
+            </div>
+
+            <div class="section-line"></div>
+
+            <div id="footer">
+                <img src="/assets/mainheader.png" id="footer-image"></img>
+    
+            </div>
+            
+        </div>
+        
+    </div>
 
 
 
-						<!-- Links -->
-								<section class="posts">
-								
-								<article>
-								
-									<header>
-										<h2>BATCH PAGES<br /></h2>
-									</header>
-									<a href ="#" onclick="return false;" class="image fit"><img src="images/photos/batchpages.jpg" alt="" /></a>
-									<p>Pages archiving the members of the previous batches and any unglamorous pictures they may have.</p>
-									<ul class="actions">
-										<li><a href="../batches/main" class="button">SEE MORE</a></li>
-									</ul>
-								</article>
-								
-								<article>
-									<header>
-										<h2>SOV Recordings</h2>
-									</header>
-									<a href ="#" onclick="return false;" class="image fit"><img src="images/photos/sovone.jpg" alt="" /></a>
-									<p>Recordings for the past few SOVs (with download links) are included here.</p>
-									<ul class="actions">
-										<li><a href="../sov/main" class="button">See more</a></li>
-									</ul>
-								</article>
-								
-								<article>
-									<header>
-										<h2>SOV Music Player</h2>
-									</header>
-									<a href ="#" onclick="return false;" class="image fit"><img src="images/photos/sov/SOV2018.png" alt="" /></a>
-									<p>Listen to previous SOVs in this link below.</p>
-									<ul class="actions">
-										<li><a href="../listen/main" class="button">Listen</a></li>
-									</ul>
-								</article>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
-								<article>
-									<header>
-										<h2>Miscellaneous</a></h2>
-									</header>
-									<a href="#" class="image fit" onclick="return false;"><img src="images/photos/idkwhat.jpg" alt="" /></a>
-									<p>Everything else under the sun that does not lie under the aforementioned sections.</p>
-									<ul class="actions">
-										<li><a href="misc" class="button">SEE MORE?</a></li>
-									</ul>
-								</article>
-							</div>
+            $('#sidebarCollapse').on('click', function () {
 
-							
-				<!-- Footer -->
+                $('#sidebar').toggleClass('active');
+                $('#content').toggleClass('active');
+                $(this).toggleClass('active');
 
-						<footer id="footer">
-						<section>
-							<h2 class="major" text-align=centre>Want to contribute to the archival project? Drop an email to the creators using your VJ email at:</h2>
-							<p1 > Daniel Hoe (14S61) - hoe.chan.wei.daniel.2014@vjc.sg <br /><br /></p1>
-						</footer>
-						
-
-					
-				<!-- Copyright -->
-					<div id="copyright">
-						<ul><li>&copy; VJChoir 2017</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Unaffiliated with the school itself.</li></ul>
-					</div>
-
-			</div>
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/skel.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script
-			<script type="text/javascript" src="assets/js/jquery.min"></script>
+            });
+        });
+    </script>
 
 
-	</body>
+
+
+</body>
+
 </html>
