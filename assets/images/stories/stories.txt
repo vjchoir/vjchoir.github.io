@@ -1,0 +1,61 @@
+[
+{"title": "The 19 00 00 photo",
+"author": "Daniel Hoe",
+"photo_taken": "17 May 2015",
+"story": "So for some reason, there always has been this tradition of taking a 19 00 00 photo in the Esplanade before concert. This was our year's version, we scrambled to get into position then got someone to just spam the camera to get this shot."},
+
+{"title": "???",
+"author": "Daniel Hoe",
+"photo_taken": "26 Nov 2014",
+"story": "Funny photo of shenanigans on choir trips???"},
+
+{"title": "Jubilate",
+"author": "Daniel Hoe",
+"photo_taken": "27 Nov 2014",
+"story": "Choir back in 2014 in Jubilate in Malaysia. It was quite a memorable trip, we celebrated one of our batch mate's birthday by writing him a song."},
+
+{"title": "Night Games",
+"author": "Daniel Hoe",
+"photo_taken": "19 Mar 2015",
+"story": "Oddly enough I have a polaroid of this moment in my wallet. It's been there for a good 3 years."},
+
+{"title": "SMU Hoboing",
+"author": "Daniel Hoe",
+"photo_taken": "30 Aug 2014",
+"story": "End of years was coming up and we had one last performance to go, so everyone was just mugging near SOTA at SMU for like half the day while we waited."},
+
+{"title": "Changi Airport T3 Basement",
+"author": "Daniel Hoe",
+"photo_taken": "20 Mar 2015",
+"story": "This photo was taken post choir camp back in 2015. We weren't strangers to this basement, and since we needed a place to gather to like end off the camp, we just came here. OGs had always come here since there was enough space, why not us? :)"},
+
+{"title": "Vietnam",
+"author": "Daniel Hoe",
+"photo_taken": "29 Apr 2015",
+"story": "The glamorous side of VJChoir, being televised live to the rest of Vietnam from a stage in Hoi An. Acoustics were pretty lousy, and it was hot as hell but it was a wonderful trip."},
+
+{"title": "Vietnam (the unseen less glamorous part)",
+"author": "Daniel Hoe",
+"photo_taken": "29 Apr 2015",
+"story": "I thought it'd be funny to snap a photo of everyone being quiet and nervous and waiting for the competition. I was right, it was quite funny."},
+
+{"title": "Vietnam Parade",
+"author": "Daniel Hoe",
+"photo_taken": "02 May 2015",
+"story": "No idea what's going on in this photo actually"},
+
+{"title": "Exploring Vietnam?",
+"author": "Daniel Hoe",
+"photo_taken": "03 May 2015",
+"story": "Just a pleasant photo."},
+
+{"title": "Exploring Vietnam?",
+"author": "Daniel Hoe",
+"photo_taken": "03 May 2015",
+"story": "Another pleasant photo."},
+
+{"title": "Post-Vietname, pre-SOV",
+"author": "Daniel Hoe",
+"photo_taken": "17 May 2015",
+"story": "Basses wore the same shirt to SOV that day."}
+]
