@@ -82,7 +82,7 @@ var SOV2016 = [{"track":1, "name": "Hallelujah", "composer": "George Frideric Ha
 ]
 
 var SOV2015 = [{"track":1, "name": "There is Sweet Music Here", "composer": "Z. Randall Stroope", "duration": "3:08", "file": "01 Sweet Music"},
-{"track":2, "name": "Stopping by Woods On A Snowy Evening", "composer": "Ruth Artman", "duration": "2:26", "file": "02 Stopping by Woods"},
+{"track":2, "name": "Stopping by Woods On A Snowy Evening", "composer": "Ruth Artman", "duration": "2:26", "file": "02 Stopping By Woods"},
 {"track":3, "name": "Trees", "composer": "Oscar Rasbach", "duration": "1:57", "file": "03 Trees"},
 {"track":4, "name": "Full Fathom Five", "composer": "R. Vaughan Williams", "duration": "3:29", "file": "04 Full Fathom Five"},
 {"track":5, "name": "Linden Lea", "composer": "R. Vaughan Williams", "duration": "2:35", "file": "05 Linden Lea"},
@@ -386,7 +386,7 @@ jQuery(function ($) {
                 document.title = prefix + " - " + tracks[id].name;
             },
             playTrack = function (id) {
-                
+                document.title = prefix + " - " + tracks[id].name;
                 loadTrack(id);
                 audio.play();
             };
