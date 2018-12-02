@@ -331,6 +331,8 @@ jQuery(function ($) {
                     index = 0;
                     loadTrack(index);
                 }
+
+                document.title = prefix + " - " + tracks[index].name;
             }).get(0),
 
             albumPlay = $('#album-play').on('click', function() {
