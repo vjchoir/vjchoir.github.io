@@ -413,6 +413,10 @@ iframe {
         flex: 0 0 100%;
         padding: 10px;
     }
+
+    #text-content-holder {
+        font-size: 0.8em;
+    }
 }
 
 @media (max-width: 768px) {
