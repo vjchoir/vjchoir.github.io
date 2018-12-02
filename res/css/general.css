@@ -414,8 +414,8 @@ iframe {
         padding: 10px;
     }
 
-    #text-content-holder {
-        font-size: 0.8em;
+    #text-content-holder > p {
+        font-size: 0.9em;
     }
 }
 
