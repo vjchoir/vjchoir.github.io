@@ -383,9 +383,10 @@ jQuery(function ($) {
                 index = id;
                 npTrackCount.text((id + 1) + ' / ' + tracks.length);
                 audio.src = mediaPath + tracks[id].file + extension;
+                document.title = prefix + " - " + tracks[id].name;
             },
             playTrack = function (id) {
-                document.title = prefix + " - " + tracks[id].name;
+                
                 loadTrack(id);
                 audio.play();
             };
