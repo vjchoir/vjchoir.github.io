@@ -2,7 +2,7 @@
     {
         "section": "sop",
         "names": [
-            "Cherylene (SL)","Shivaane","Dora","Nicolette","Michelle","Ye Won","Lynnette","Bao Rong","Pei Jing","Qiu Ru","Payaal","Shi Chao"]
+            "Cherylene (SL)","Shivaane","Dora","Michelle","Ye Won","Lynnette","Bao Rong","Pei Jing","Qiu Ru","Payaal","Shi Chao"]
     },
 
     {

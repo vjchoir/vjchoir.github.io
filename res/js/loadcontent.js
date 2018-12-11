@@ -69,8 +69,8 @@ function init() {
         curr_loaded = "SYMPH OF VOICES";
         rehighlight_sidebar();
 
-        var sov_array = ["2018", "2017", "2016", "2015", "2014", "2013"];
-        var sov_title_array = ["SOV2018", "SOV2017", "SOV2016", "SOV2015", "SOV2014", "SOV2013"];
+        var sov_array = ["2018", "2017", "2016", "2015", "2014", "2013", "2012"];
+        var sov_title_array = ["SOV2018", "SOV2017", "SOV2016", "SOV2015", "SOV2014", "SOV2013", "SOV2012"];
         for(var i = 0; i < sov_array.length; i ++) {
             if(end.includes(sov_array[i])) {
                 document.getElementById("navtitle").innerHTML = sov_title_array[i];
@@ -245,13 +245,14 @@ ul.onclick = function (event) {
 };
 
 // handling items with submenu
-var sov_array = ["2018", "2017", "2016", "2015", "2014", "2013"];
-var sov_title_array = ["SOV2018", "SOV2017", "SOV2016", "SOV2015", "SOV2014", "SOV2013"];
+var sov_array = ["2018", "2017", "2016", "2015", "2014", "2013", "2012"];
+var sov_title_array = ["SOV2018", "SOV2017", "SOV2016", "SOV2015", "SOV2014", "SOV2013", "SOV2012"];
 document.getElementById("sov-submenu").addEventListener("click", function(e) {
     console.log(e.target.id + "Submenu clicked!");
     var new_link = "/sov/" + sov_array[e.target.id];
     $('#text-content-holder').load(new_link + ' > #text-content');
     window.history.replaceState("Test2", "Title", new_link);
+    document.title = sov_title_array[e.target.id];
     document.getElementById("navtitle").innerHTML = sov_title_array[e.target.id];
     window.scrollTo(0,0); 
 });
@@ -267,6 +268,7 @@ document.getElementById("batch-submenu").addEventListener("click", function(e) {
         $.getScript("/res/js/batches.js");
     });
     window.history.replaceState("Test2", "Title", new_link);
+    document.title = batch_title_array[e.target.id]
     document.getElementById("navtitle").innerHTML = batch_title_array[e.target.id];
     window.scrollTo(0,0);
 });

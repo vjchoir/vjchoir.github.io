@@ -148,7 +148,25 @@ var SOV2013 = [{"track":1, "name": "Magnificat", "composer": "Giles Swayne", "du
 {"track":19, "name": "No Man Is An Island", "composer": "Roy Ringwald", "duration": "3:07", "file": "19 No Man Is An Island"}
 ]
 
-var arrays_of_SOV = [SOV2018, SOV2017, SOV2016, SOV2015, SOV2014, SOV2013];
+var SOV2012 = [
+    {"track":1, "name": "Magnificat Gloria", "composer": "Alberto Gran", "duration": "6:49", "file": "1 Magnificat Gloria"},
+{"track":2, "name": "Hear My Prayer, O Lord", "composer": "Henry Purcell", "duration": "2:28", "file": "2 Hear My Prayer, O Lord"},
+{"track":3, "name": "Kyrie", "composer": "unknown", "duration": "2:46", "file": "3 Kyrie"},
+{"track":4, "name": "Die Capelle", "composer": "Robert Schumann", "duration": "3:11", "file": "4 Die Capelle"},
+{"track":5, "name": "Kotoba-asobi Uta", "composer": "Ko Matsushita", "duration": "3:36", "file": "5 Kotoba-asobi Uta"},
+{"track":6, "name": "Yagi Bushi", "composer": "Ko Matsushita", "duration": "3:49", "file": "6 Yagi Bushi"},
+{"track":7, "name": "Japanese Game", "composer": "Ko Matsushita", "duration": "3:50", "file": "7 Japanese Game"},
+{"track":8, "name": "Levavi Oculos Meos", "composer": "Vytautas Miškinis", "duration": "4:05", "file": "8 Levavi Oculos Meos"},
+{"track":9, "name": "De Profundis Clamavi", "composer": "Piotr Janczak", "duration": "3:08", "file": "9 De Profundis Clamavi"},
+{"track":10, "name": "Journey with Wild Horses", "composer": "Darius Lim", "duration": "3:46", "file": "10 Journey With Wild Horses"},
+{"track":11, "name": "A Puppet's Dream", "composer": "Darius Lim", "duration": "2:25", "file": "11 A Puppet's Dream"},
+{"track":12, "name": "Exercitus Grandis", "composer": "Zechariah Goh Toh Chai", "duration": "4:51", "file": "12 Exercitus Grandis"},
+{"track":13, "name": "Kalejs Kala Debesis", "composer": "Selga Mence", "duration": "2:09", "file": "13 Kalejs Kala Debesis"},
+{"track":14, "name": "Mate Saule", "composer": "Péteris Vasks", "duration": "5:31", "file": "14 Mate Saule"},
+{"track":15, "name": "My Love Is Like A Red, Red Rose", "composer": "Simon Carrington", "duration": "3:07", "file": "15 My Love Is Like A Red, Red Rose"}
+]
+
+var arrays_of_SOV = [SOV2018, SOV2017, SOV2016, SOV2015, SOV2014, SOV2013, SOV2012];
 
 jQuery(function ($) {
     'use strict'
@@ -216,6 +234,13 @@ jQuery(function ($) {
             init();
         })
 
+        $('#SOV2012-btn').on('click', function() {
+            selected_playlist = 6;
+            selected_path = "/assets/audio/SOV2012/";
+            get_album_info(6);
+            init();
+        })
+
         function get_album_info(index) {
             var album_info = [{
                     "title": "Symphony of Voices 2018",
@@ -271,6 +296,16 @@ jQuery(function ($) {
                     "runtime": "1 hour and 7 minutes",
                     "songcount": "20",
                     "image": "/assets/images/sov/SOV2013.jpg"
+                },
+            
+                {
+                    "title": "Symphony of Voices 2012",
+                    "pref": "SOV2012",
+                    "description": "Held on 24th April 2012, at the Esplanade Concert Hall, with the theme ",
+                    "theme": "Tales from the Vienna Woods",
+                    "runtime": "56 minutes",
+                    "songcount": "15",
+                    "image": "/assets/images/sov/SOV2012.png"
                 }];
 
             $('#album-title').text(album_info[index].title);
