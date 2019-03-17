@@ -11,7 +11,9 @@ function init() {
     
     if (oldURL.includes('home')) {
         console.log("Coming from refresh / back / direct link");
-        $('#text-content-holder').load('/home.html > #text-content');
+        $('#text-content-holder').load('/home.html > #text-content', function() {
+            $.getScript("/res/js/home.js");
+        });
         $('subitem-home').removeClass("inactive");
         $('subitem-home').addClass("active");
         window.history.replaceState("Test", "Title", "/home");

@@ -160,9 +160,6 @@
 }
 
 @media (max-width:991px) {
-    #items-holder > .text-holder {
-        font-size: 0.8em;
-    }
 
     #items-holder > .text-holder > .stories-content > button {
         font-size: 1.0em;

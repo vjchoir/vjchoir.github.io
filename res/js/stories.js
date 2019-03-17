@@ -4,7 +4,7 @@ console.log('Loading stories.js...');
 var stories_holder = $('#stories-images-holder');
 var stored_scroll = 200;
 var is_loaded = [false];
-var curr_index = 0;
+var curr_index = 12;
 
 var stories = [];
 
@@ -13,45 +13,27 @@ init();
 function init() {
     add_click_events(0);
     retrieve_data();
-    curr_index = 9;
+    add_photos();
+    add_click_events();
 
     $('#stories-enlarged-image').hide();
     $('#stories-text-holder').hide();
-
-    stories_holder.scroll(function() {
-        var scroll_value = stories_holder.scrollTop();
-    
-        if(scroll_value > stored_scroll) {
-            stored_scroll += 500;
-            console.log('hello');
-            
-            for(var i = 0; i < is_loaded.length; i ++) {
-                if(!is_loaded[i]) {
-                    add_photos();
-                    is_loaded[i] = true;
-                    break;
-                } 
-            }
-        } else {}
-    });
 }
 
 function add_photos() {
     var photo_col1 = $('#col1');
     var photo_col2 = $('#col2');
+    
+    console.log(stories.length);
 
-    for(var i = 0; i < 4; i ++) {
-        var curr = curr_index + i;
+    for(let i = stories.length; i > 0; i --) {
+        var curr = i;
         if(i % 2 !== 0) {
             photo_col2.append('<img src="assets/images/stories/s (' + curr + ').jpg">');
         } else {
             photo_col1.append('<img src="assets/images/stories/s (' + curr + ').jpg">');
         }
     }
-
-    add_click_events((curr_index-1)/2);
-    curr_index += 4;
-    
 }
 // back button listener
 $('#enlarged-back-button').on("click", function() {
@@ -64,20 +46,43 @@ $('#enlarged-back-button').on("click", function() {
 })
 
 // on click functions 
-function add_click_events(curr_index) {
+function add_click_events() {
     var column_one = document.getElementById("col1").children;
     var column_two = document.getElementById("col2").children;  
 
-    for(let i = curr_index; i < column_one.length; i ++) {
+    let col1_index = 0;
+    let col2_index = 0;
+
+    for(let i = 0; i < stories.length; i ++) {
+        let curr_story = stories[i];
+        console.log(curr_story.title + " has been added!");
+        if(i % 2 !== 0) {
+            // column_two
+            column_two[col2_index].addEventListener('click', function() {
+                get_story(curr_story);
+            });
+
+            col2_index ++;
+        } else {
+            // column_one
+            column_one[col1_index].addEventListener('click', function() {
+                get_story(curr_story);
+            });
+
+            col1_index ++;
+        }
+    }
+
+    for(let i = stories.length / 2; i < column_one.length; i ++) {
         column_one[i].addEventListener('click', function() {
-            get_story(2 * i + 1);
+            get_story(curr_story);
         }
         );
     }
 
-    for(let i = curr_index; i < column_two.length; i ++) {
+    for(let i = stories.length - stories.length / 2; i < column_two.length; i ++) {
         column_two[i].addEventListener('click', function() {
-            get_story(2 * i + 2);
+            get_story(curr_story);
         }
         );
     }
@@ -112,10 +117,7 @@ function retrieve_data() {
 
 // get story from an index
 
-function get_story(index) {
-    var curr = index - 1;
-    var story = stories[curr];
-    console.log("curr" + curr);
+function get_story(story) {
     $('#stories-title > h3').text(story.title);
     $('#stories-author').text(story.author);
     $('#stories-content').text(story.story);
@@ -125,7 +127,7 @@ function get_story(index) {
     $('#stories-enlarged-image').hide();
     $('#default-text-holder').hide();
 
-    $('#enlarged-image').attr("src", "assets/images/stories/s (" +  index + ").jpg");
+    $('#enlarged-image').attr("src", "assets/images/stories/s (" + story.index + ").jpg");
     $('#stories-text-holder').fadeIn(500);
     $('#stories-enlarged-image').fadeIn(500);
 

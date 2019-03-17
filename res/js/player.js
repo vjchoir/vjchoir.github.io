@@ -106,7 +106,7 @@ var SOV2015 = [{"track":1, "name": "There is Sweet Music Here", "composer": "Z. 
 ]
 
 var SOV2014 = [{"track":1, "name": "Pastime with Good Company", "composer": "Henry VIII", "duration": "1:43", "file": "1 Pastime with Good Company"},
-{"track":2, "name": "Die mit Tränen säen", "composer": "Heinrich Schütz", "duration": "3:42", "file": "2 Die mit Tranen saen mit freuden ernten"},
+{"track":2, "name": "Die mit Tränen säen", "composer": "Heinrich Schütz", "duration": "3:42", "file": "2 Die mit"},
 {"track":3, "name": "Crucifixus", "composer": "Antonio Lotti", "duration": "3:18", "file": "3 Crucifixus"},
 {"track":4, "name": "Io Piango", "composer": "Morten Lauridsen", "duration": "2:15", "file": "4 Io Piango"},
 {"track":5, "name": "Ciao, Bella Ciao", "composer": "Ben Parry", "duration": "3:18", "file": "5 Ciao, Bella Ciao"},
