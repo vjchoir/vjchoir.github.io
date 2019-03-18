@@ -1,7 +1,6 @@
 console.log("Loading home.js...");
 
-$(document).ready(function () {
-    if($("#sov-countdown").is(":visible")) { 
+$(document).ready(function () { 
         // Set the date we're counting down to
     var countDownDate = new Date("May 22, 2019 19:30:00").getTime();
 
@@ -24,7 +23,5 @@ $(document).ready(function () {
     document.getElementById("sov-countdown").innerHTML = "<b>" + days + " days, " + hours + " hours, "
     + minutes + " minutes and " + seconds + " seconds</b></a>";
     }, 1000);
-    }
-    
     
 });
