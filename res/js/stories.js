@@ -11,10 +11,8 @@ var stories = [];
 init();
 
 function init() {
-    add_click_events(0);
     retrieve_data();
     add_photos();
-    add_click_events();
 
     $('#stories-enlarged-image').hide();
     $('#stories-text-holder').hide();
@@ -23,15 +21,14 @@ function init() {
 function add_photos() {
     var photo_col1 = $('#col1');
     var photo_col2 = $('#col2');
-    
-    console.log(stories.length);
 
-    for(let i = stories.length; i > 0; i --) {
-        var curr = i;
+    for(let i = 0; i < stories.length; i ++) {
+        var curr_story = stories[i];
+        var asset = 'assets/images/stories/' + curr_story.asset + '.jpg';
         if(i % 2 !== 0) {
-            photo_col2.append('<img src="assets/images/stories/s (' + curr + ').jpg" onclick="get_story("' + curr + ')>');
+            photo_col2.append('<img src="' + asset + '" onclick="get_story(' + i + ')">');
         } else {
-            photo_col1.append('<img src="assets/images/stories/s (' + curr + ').jpg" onclick="get_story("' + curr + ')>');
+            photo_col1.append('<img src="' + asset + '" onclick="get_story(' + i + ')">');
         }
     }
 }
@@ -46,47 +43,47 @@ $('#enlarged-back-button').on("click", function() {
 })
 
 // on click functions 
-function add_click_events() {
-    var column_one = document.getElementById("col1").children;
-    var column_two = document.getElementById("col2").children;  
+// function add_click_events() {
+//     var column_one = document.getElementById("col1").children;
+//     var column_two = document.getElementById("col2").children;  
 
-    let col1_index = 0;
-    let col2_index = 0;
+//     let col1_index = 0;
+//     let col2_index = 0;
 
-    for(let i = 0; i < stories.length; i ++) {
-        let curr_story = stories[i];
-        console.log(curr_story.title + " has been added!");
-        if(i % 2 !== 0) {
-            // column_two
-            column_two[col2_index].addEventListener('click', function() {
-                get_story(curr_story);
-            });
+//     for(let i = 0; i < stories.length; i ++) {
+//         let curr_story = stories[i];
+//         console.log(curr_story.title + " has been added!");
+//         if(i % 2 !== 0) {
+//             // column_two
+//             column_two[col2_index].addEventListener('click', function() {
+//                 get_story(curr_story);
+//             });
 
-            col2_index ++;
-        } else {
-            // column_one
-            column_one[col1_index].addEventListener('click', function() {
-                get_story(curr_story);
-            });
+//             col2_index ++;
+//         } else {
+//             // column_one
+//             column_one[col1_index].addEventListener('click', function() {
+//                 get_story(curr_story);
+//             });
 
-            col1_index ++;
-        }
-    }
+//             col1_index ++;
+//         }
+//     }
 
-    // for(let i = stories.length / 2; i < column_one.length; i ++) {
-    //     column_one[i].addEventListener('click', function() {
-    //         get_story(curr_story);
-    //     }
-    //     );
-    // }
+//     // for(let i = stories.length / 2; i < column_one.length; i ++) {
+//     //     column_one[i].addEventListener('click', function() {
+//     //         get_story(curr_story);
+//     //     }
+//     //     );
+//     // }
 
-    // for(let i = stories.length - stories.length / 2; i < column_two.length; i ++) {
-    //     column_two[i].addEventListener('click', function() {
-    //         get_story(curr_story);
-    //     }
-    //     );
-    // }
-}
+//     // for(let i = stories.length - stories.length / 2; i < column_two.length; i ++) {
+//     //     column_two[i].addEventListener('click', function() {
+//     //         get_story(curr_story);
+//     //     }
+//     //     );
+//     // }
+// }
 
 // loads stories from txt
 function retrieve_data() {
@@ -116,8 +113,8 @@ function retrieve_data() {
 }
 
 // get story from an index
-
-function get_story(story) {
+function get_story(index) {
+    var story = stories[index];
     $('#stories-title > h3').text(story.title);
     $('#stories-author').text(story.author);
     $('#stories-content').text(story.story);
@@ -127,7 +124,7 @@ function get_story(story) {
     $('#stories-enlarged-image').hide();
     $('#default-text-holder').hide();
 
-    $('#enlarged-image').attr("src", "assets/images/stories/s (" + story.index + ").jpg");
+    $('#enlarged-image').attr("src", "assets/images/stories/"+ story.asset + ".jpg");
     $('#stories-text-holder').fadeIn(500);
     $('#stories-enlarged-image').fadeIn(500);
 
