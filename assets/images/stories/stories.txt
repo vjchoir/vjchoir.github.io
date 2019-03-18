@@ -22,7 +22,7 @@
    },
    {  
       "index":17,
-      "title":"VJChoir18 in Ocean Park",
+      "title":"Farewell Assembly 2018",
       "author":"Dayne Teng",
       "photo_taken":"5 Oct 2018",
       "story":"VJChoir18 on our last day of school!"

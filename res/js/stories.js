@@ -29,9 +29,9 @@ function add_photos() {
     for(let i = stories.length; i > 0; i --) {
         var curr = i;
         if(i % 2 !== 0) {
-            photo_col2.append('<img src="assets/images/stories/s (' + curr + ').jpg">');
+            photo_col2.append('<img src="assets/images/stories/s (' + curr + ').jpg" onclick="get_story("' + curr + ')>');
         } else {
-            photo_col1.append('<img src="assets/images/stories/s (' + curr + ').jpg">');
+            photo_col1.append('<img src="assets/images/stories/s (' + curr + ').jpg" onclick="get_story("' + curr + ')>');
         }
     }
 }
@@ -73,19 +73,19 @@ function add_click_events() {
         }
     }
 
-    for(let i = stories.length / 2; i < column_one.length; i ++) {
-        column_one[i].addEventListener('click', function() {
-            get_story(curr_story);
-        }
-        );
-    }
+    // for(let i = stories.length / 2; i < column_one.length; i ++) {
+    //     column_one[i].addEventListener('click', function() {
+    //         get_story(curr_story);
+    //     }
+    //     );
+    // }
 
-    for(let i = stories.length - stories.length / 2; i < column_two.length; i ++) {
-        column_two[i].addEventListener('click', function() {
-            get_story(curr_story);
-        }
-        );
-    }
+    // for(let i = stories.length - stories.length / 2; i < column_two.length; i ++) {
+    //     column_two[i].addEventListener('click', function() {
+    //         get_story(curr_story);
+    //     }
+    //     );
+    // }
 }
 
 // loads stories from txt
