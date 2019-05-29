@@ -41,6 +41,7 @@ var currIndex = 0;
 var myPlayer = null;
 var isShuffle = false;
 var shuffledArray = [];
+var isPlaying = false;
 
 
 $(document).ready(function () {
@@ -90,6 +91,17 @@ $(document).ready(function () {
             currTrack = initSOV.abbr + "-1";
             currSOV = sovJSON[0];
         },
+        loadeddata: function(event) {
+            $(".load-bar").hide();
+            $(".jp-play-bar").show();
+            $(".jp-play-bar-bg").show();
+        },
+        play: function(event) {
+            isPlaying = true;
+            $(".load-bar").hide();
+            $(".jp-play-bar").show();
+            $(".jp-play-bar-bg").show();
+        },
         swfPath: "/js/jplayer",
         supplied: "mp3, oga",
         wmode: "window",
@@ -112,6 +124,8 @@ $(document).ready(function () {
             }
         },
         ended: function (event) {
+            isPlaying = false;
+
             // add next item in playlist
             currIndex++;
 
@@ -142,6 +156,13 @@ $(document).ready(function () {
                 } else {
                     trackClickEvent(listId, currPlaylistIndex, currIndex, false);
                 }
+            }
+        },
+        progress: function(event) {
+            if(!isPlaying) {
+                $(".load-bar").show();
+                $(".jp-play-bar").hide();
+                $(".jp-play-bar-bg").hide();
             }
         }
     });
@@ -294,8 +315,8 @@ $(document).ready(function () {
             <div class="playlist-info-text">\
                 <h2>${name}</h2>\
                 <div class="playlist-info-header">\
-                    <button id="${playlistId}-button" onclick="togglePlaylistVisibility('${playlistHolderId}', '${playlistId}-button')" class="playlist-button">Show playlist</button>
-                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, false)" class="playlist-button">Play</button>
+                    <button id="${playlistId}-button" onclick="togglePlaylistVisibility('${playlistHolderId}', '${playlistId}-button')" class="nav-button">Show playlist</button>
+                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, false)" class="nav-button">Play</button>
                 </div>\
                 <p>This playlist contains <b id="playlist-track-count">${playlist.length} tracks</b>, with a total runtime of <b id="playlist-runtime">${runtimeStr}</b>.</p>
                 <p>${description}</p>\
@@ -363,6 +384,10 @@ $(document).ready(function () {
             $('.playlists-holder').append(line);
         }
     }
+
+    myPlayer.on("canplay", function(event) {
+        console.log("We can probably play through this!");
+    });
 
     // favourites playlist handler
     initFavPlaylist();
