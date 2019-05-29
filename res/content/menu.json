@@ -1,0 +1,67 @@
+{
+    "tag": "menu",
+    "items": [
+        {
+            "title": "Home",
+            "icon": "home",
+            "tag": "home",
+            "layout": "/home.html",
+            "js": "/res/js/home.js",
+            "subitems": []
+        },
+
+        {
+            "title": "About",
+            "icon": "info",
+            "tag": "about",
+            "layout": "/about.html",
+            "js": "/res/js/about.js",
+            "subitems": []
+        },
+
+        {
+            "title": "Batches",
+            "icon": "supervised_user_circle",
+            "tag": "batches",
+            "layout": "/batches.html",
+            "js": "/res/js/batches.js",
+            "subitems": [
+            ]
+        },
+
+        {
+            "title": "Symphony of Voices",
+            "icon": "album",
+            "tag": "sov",
+            "layout": "/sov.html",
+            "js": "/res/js/sov.js",
+            "subitems": []
+        },
+
+        {
+            "title": "Listen",
+            "icon": "play_arrow",
+            "tag": "listen",
+            "layout": "/listen.html",
+            "js": "/res/js/listen.js",
+            "subitems": []
+        },
+
+        {
+            "title": "Contribute",
+            "icon": "create",
+            "tag": "contribute",
+            "layout": "/contribute.html",
+            "subitems": []
+        },
+
+        {
+            "title": "Misc",
+            "icon": "category",
+            "tag": "misc",
+            "layout": "/misc.html",
+            "js": "/res/js/misc.js",
+            "subitems": []
+        }
+    ]
+}

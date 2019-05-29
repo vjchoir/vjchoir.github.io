@@ -27,15 +27,17 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
         crossorigin="anonymous"></script>
 
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- jPlayer JS -->
+    <script type="text/javascript" src="/res/js/jplayer/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="/res/js/jplayer/jplayer.playlist.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
-    <script>
-        $(document).ready(function () {
-            $('.sidebar-holder').load("/sidebar.html");
-            $('.navbar-holder').load("/navbar.html");
-        });
-    </script>
+
+    
+    <script src="/res/js/index.js"></script>
+    
 
 </head>
 
@@ -48,42 +50,24 @@
         </div>
 
         <!-- Page Content Holder -->
-        <div id="content">
+        <div id="content" class="content-holder">
             <div class="navbar-holder">
-
 
             </div>
 
-
-            <div id="text-content-holder">
+            <div id="actual-content-holder">
                 
             </div>
 
             <div class="section-line"></div>
 
-            <div id="footer">
-                <img src="/assets/mainheader.png" id="footer-image"></img>
-    
+            <div class="footer-holder">
             </div>
             
         </div>
+
         
     </div>
-
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-
-            $('#sidebarCollapse').on('click', function () {
-
-                $('#sidebar').toggleClass('active');
-                $('#content').toggleClass('active');
-                $(this).toggleClass('active');
-
-            });
-        });
-    </script>
 
 
 

@@ -129,6 +129,7 @@ a, a:hover, a:focus {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    cursor: pointer;
 }
 
 #sidebar ul li a i {
@@ -210,6 +211,13 @@ a.article, a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 
+#sidebar-img {
+    width: 80%;
+}
+
+#sidebar-img:hover {
+    cursor: pointer;
+}
 
 #sidebarCollapse {
     width: 40px;

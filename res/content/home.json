@@ -1,0 +1,10 @@
+{
+    "header_photo": "/assets/VJChoir-black.png",
+    "intro_msg": "Welcome to the unofficial official webpage for the Victoria Junior College Choir. In this website, there is a repository of batch information, songs and other cool stuff that you can peruse. Enjoy!",
+    "creator_msg": "Hello! I'm looking for the batch information for the 2019-2020 batch, as well as someone to contact for next year when SOV comes around once again. If you know someone like this or are interested in contributing to the website, please contact me (Daniel) at <b>hoe.chan.wei.daniel.2014@vjc.sg!</b> :)",
+    "carousel_photos": [
+        "/assets/images/header1.jpg", 
+        "/assets/images/header2.jpg", 
+        "/assets/images/header3.jpg", 
+        "/assets/images/header4.jpg"]
+} 

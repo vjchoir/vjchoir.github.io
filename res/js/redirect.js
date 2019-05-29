@@ -1,2 +1,2 @@
-var curr_path = window.location.pathname;
+var load_page = window.location.pathname;
 window.location.replace('/index');

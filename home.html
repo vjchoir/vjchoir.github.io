@@ -1,95 +1,36 @@
-<script src ='/res/js/redirect.js'></script>
-<div id="text-content">
-    <h2>Welcome to the...</h2>
-    <img src="assets/VJChoir-black.png" class="img-logo-header"></img>
-    <p>Welcome to the unofficial official webpage for the Victoria Junior College Choir. In this website, there is a repository
-            of batch information, songs and other cool stuff that you can peruse. Enjoy!  </br></br>
-        <b>Special announcement / appeal:</b> Hi, so you've come back to this home page and found that oh wow there's a lot of content here so I'm gonna go and browse. BUT WAIT. I need your help. If you belong to the current batch of VJChoir (2019 - 2020) you'll have heard me and Pei Jing advertising for NUSChoir the other day probably, and I really do need your help in keeping the website updated. 
-    </br></br> Another important thing is about SOV. The problem with SOV now is that all the previous recordings exist somewhere but I need to get to the teachers in charge to access the info. If any of y'all are able to liaise with any of them, drop me an email at <b>hoe.chan.wei.daniel.2014@vjc.sg</b> or <b>danielhoe97@gmail.com</b> to get in touch. Thanks a lot :)</p>
+<script src="res/js/redirect.js"></script>
+<div id="actual-content">
+    <div id="home-content">
+        <h2>Welcome to the...</h2>
+        <img id="home-header-logo"></img>
+        <p id="home-header-intro-msg"></p>
 
-    <div class="section-line"></div>
+        <div class="section-line"></div>
 
-    <h2>Featured Photos</h2>
-    <div class="carousel-container">
-        <div id="photo-carousel" class="carousel slide" data-ride="carousel">
+        <h2>Creators' Message</h2>
+        <p id="home-header-creator-msg"></p>
 
-            <!-- Indicators -->
-            <ul class="carousel-indicators">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
-                <li data-target="#demo" data-slide-to="3"></li>
-            </ul>
+        <div class="section-line"></div>
 
-            <!-- The slideshow -->
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assets/images/header1.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/header2.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/header3.jpg">
-                </div>
-                <div class="carousel-item">
-                    <img src="assets/images/header4.jpg">
+        <h2>Featured Photos</h2>
+
+        <div id="home-carousel-layout">
+            <div id="home-carousel" class="carousel slide text-center" data-ride="carousel">
+                <div id="home-carousel-holder" class="carousel-inner text-center">
                 </div>
             </div>
 
-            <!-- Left and right controls -->
-            <a class="carousel-control-prev" href="#photo-carousel" data-slide="prev">
-                <i class="material-icons md-dark">arrow_back</i>
-            </a>
-            <a class="carousel-control-next" href="#photo-carousel" data-slide="next">
-                <i class="material-icons md-dark">arrow_forward</i>
-            </a>
+            <div id="home-carousel-buttons">
+                <a href="#home-carousel" role="button" data-slide="prev">
+                    <i class="material-icons">arrow_back</i>
+                </a>
 
+                <p id="home-carousel-counter"></p>
+
+                <a href="#home-carousel" role="button" data-slide="next">
+                    <i class="material-icons">arrow_forward</i>
+                </a>
+            </div>
         </div>
     </div>
-
-    <div class="section-line"></div>
-
-    <h2>Major Events</h2>
-    <p>
-        <h5>SOV2019</h5>
-        <p id="sov-countdown"></p>
-        
-    </p>
-
-    <div class="section-line"></div>
-
-    <h2>Latest Updates</h2>
-    <li>
-        17/03/19 - This is still alive!
-        <ul>
-            <p>- Added a bunch of stories that were submitted last year apparently but I never realised (sorry Dayne)</br>
-                - Added a small countdown to SOV2019 at the bottom of this page</br>
-                - Changed the website font and standardised it (I hated the previous one)</br>
-                - Removed our Christmas logo (bet you didn't even realise we had one)</br>
-                - Updated SOV (there was one song that couldn't play, Die mit, which should be fixed now)</br>
-                - Various other minimal aesthetic changes that should make the website more enjoyable</br>
-            </p>
-        </ul>
-    </li>
-
-    <li>
-        11/12/18 - Never too late to the party!
-        <ul>
-            <p>- Added SOV2012 (information and Listen data)</br>
-                - Added 2018/2019 batch information (thanks Sih-Zau!)</br>
-                - You can now listen to SOV2012 under the 'Listen' section! (thanks to Trixie for sending in the recordings)</br></p>
-        </ul>
-    </li>
-
-    <li>
-        03/12/18 - Website has been updated!
-        <ul>
-            <p>The website has been given a fresher look to make it more user-friendly and modern
-                looking.
-                If you have
-                feedback, like why it is so ugly now or so pretty please don't hesitate to drop me a
-                message! :)</p>
-        </ul>
-    </li>
 </div>

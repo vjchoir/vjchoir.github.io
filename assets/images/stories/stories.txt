@@ -1,175 +1,61 @@
-[  
-   {  
-      "index":20,
-      "title":"Farewell 2018",
-      "author":"Dayne Teng",
-      "photo_taken":"7 Dec 2018",
-      "story":"A photo of VJChoir18 on our farewell day. We were told to wear disco/party outfits by our juniors.",
-      "asset": "s (20)"
-   },
-   {  
-      "index":19,
-      "title":"New friends?",
-      "author":"Dayne Teng",
-      "photo_taken":"4 Dec 2018",
-      "story":"While we were competing in Asia Cantate 2018 in Hong Kong, we became friendly with a Filipino choir from the School of the Holy Spirit of Quezon City. We ran into them at Ocean Park the next day and they asked to take a photo with us.",
-      "asset": "s (19)"
-   },
-   {  
-      "index":18,
-      "title":"Straight outta As",
-      "author":"Dayne Teng",
-      "photo_taken":"1 Dec 2018",
-      "story":"This was the VJChoir18 batch the day after As ended (for those not taking H3 anyway). We flew off immediately to join our juniors in Hong Kong for Asia Cantate 2018 and we were super excited to go on our first overseas competition.",
-      "asset": "s (18)"
-   },
-   {  
-      "index":17,
-      "title":"Farewell Assembly 2018",
-      "author":"Dayne Teng",
-      "photo_taken":"5 Oct 2018",
-      "story":"VJChoir18 on our last day of school!",
-      "asset": "s (17)"
-   },
-   {  
-      "index":16,
-      "title":"VJChoir18 in Ocean Park",
-      "author":"Dayne Teng",
-      "photo_taken":"4 Oct 2018",
-      "story":"This is VJChoir18 looking very happy at Ocean Park in Hong Kong. It was the day after Grand Finals for Asia Cantate 2018. We're all wearing our white VJChoir18 shirts!",
-      "asset": "s (16)"
-   },
-   {  
-      "index":15,
-      "title":"Final Bow",
-      "author":"Dayne Teng",
-      "photo_taken":"23 May 2018",
-      "story":"VJChoir's final bow for SOV 2018. A magical night of colourful costumes and choreography!!",
-      "asset": "s (15)"
-   },
-   {  
-      "index":14,
-      "title":"The rave goes wherever we go",
-      "author":"Dayne Teng",
-      "photo_taken":"22 May 2018",
-      "story":"VJChoir18's tradition is to rave in front of the stage whenever one of our own is performing for a school event, particularly our star Chinaboi Chenyu (in the black jacket). It reached a point where SC had to warn us not to rave for certain events. This is us on our last practice before SOV2018 imitating the chaos that usually goes down.",
-      "asset": "s (14)"
-   },
-   {  
-      "index":13,
-      "title":"VJCycling",
-      "author":"Dayne Teng",
-      "photo_taken":"29 May 2018",
-      "story":"About half of VJChoir18 looking very proud after cycling many kilometres from our chalet to Marina Barrage. We were probably more proud than we should have been.",
-      "asset": "s (13)"
-   },
+[
+{"title": "The 19 00 00 photo",
+"author": "Daniel Hoe",
+"photo_taken": "17 May 2015",
+"story": "So for some reason, there always has been this tradition of taking a 19 00 00 photo in the Esplanade before concert. This was our year's version, we scrambled to get into position then got someone to just spam the camera to get this shot."},
 
-   {  
-      "index":12,
-      "title":"The 19 00 00 photo",
-      "author":"Daniel Hoe",
-      "photo_taken":"17 May 2015",
-      "story":"So for some reason, there always has been this tradition of taking a 19 00 00 photo in the Esplanade before concert. This was our year's version, we scrambled to get into position then got someone to just spam the camera to get this shot.",
-      "asset": "s (1)"
-   },
+{"title": "???",
+"author": "Daniel Hoe",
+"photo_taken": "26 Nov 2014",
+"story": "Funny photo of shenanigans on choir trips???"},
 
-   {  
-      "index":11,
-      "title":"Post-Vietnam, pre-SOV",
-      "author":"Daniel Hoe",
-      "photo_taken":"17 May 2015",
-      "story":"Basses wore the same shirt to SOV that day.",
-      "asset": "s (12)"
-   },
+{"title": "Jubilate",
+"author": "Daniel Hoe",
+"photo_taken": "27 Nov 2014",
+"story": "Choir back in 2014 in Jubilate in Malaysia. It was quite a memorable trip, we celebrated one of our batch mate's birthday by writing him a song."},
 
-   {  
-      "index":10,
-      "title":"Exploring Vietnam?",
-      "author":"Daniel Hoe",
-      "photo_taken":"03 May 2015",
-      "story":"Another pleasant photo.",
-      "asset": "s (11)"
-   },
+{"title": "Night Games",
+"author": "Daniel Hoe",
+"photo_taken": "19 Mar 2015",
+"story": "Oddly enough I have a polaroid of this moment in my wallet. It's been there for a good 3 years."},
 
-   {  
-      "index":9,
-      "title":"Vietnam Parade",
-      "author":"Daniel Hoe",
-      "photo_taken":"02 May 2015",
-      "story":"No idea what's going on in this photo actually",
-      "asset": "s (9)"
-      
-   },
-   
-   {  
-      "index":8,
-      "title":"Exploring Vietnam?",
-      "author":"Daniel Hoe",
-      "photo_taken":"03 May 2015",
-      "story":"Just a pleasant photo.",
-      "asset": "s (10)"
-   },
+{"title": "SMU Hoboing",
+"author": "Daniel Hoe",
+"photo_taken": "30 Aug 2014",
+"story": "End of years was coming up and we had one last performance to go, so everyone was just mugging near SOTA at SMU for like half the day while we waited."},
 
-   {  
-      "index":7,
-      "title":"Vietnam",
-      "author":"Daniel Hoe",
-      "photo_taken":"29 Apr 2015",
-      "story":"The glamorous side of VJChoir, being televised live to the rest of Vietnam from a stage in Hoi An. Acoustics were pretty lousy, and it was hot as hell but it was a wonderful trip.",
-      "asset": "s (7)"
-   },
+{"title": "Changi Airport T3 Basement",
+"author": "Daniel Hoe",
+"photo_taken": "20 Mar 2015",
+"story": "This photo was taken post choir camp back in 2015. We weren't strangers to this basement, and since we needed a place to gather to like end off the camp, we just came here. OGs had always come here since there was enough space, why not us? :)"},
 
-   {  
-      "index":6,
-      "title":"Vietnam (the unseen less glamorous part)",
-      "author":"Daniel Hoe",
-      "photo_taken":"29 Apr 2015",
-      "story":"I thought it'd be funny to snap a photo of everyone being quiet and nervous and waiting for the competition. I was right, it was quite funny.",
-      "asset": "s (8)"
-   },
-   
-   {  
-      "index":5,
-      "title":"Changi Airport T3 Basement",
-      "author":"Daniel Hoe",
-      "photo_taken":"20 Mar 2015",
-      "story":"This photo was taken post choir camp back in 2015. We weren't strangers to this basement, and since we needed a place to gather to like end off the camp, we just came here. OGs had always come here since there was enough space, why not us? :)",
-      "asset": "s (6)"
-   },
+{"title": "Vietnam",
+"author": "Daniel Hoe",
+"photo_taken": "29 Apr 2015",
+"story": "The glamorous side of VJChoir, being televised live to the rest of Vietnam from a stage in Hoi An. Acoustics were pretty lousy, and it was hot as hell but it was a wonderful trip."},
 
-   {  
-      "index":4,
-      "title":"Night Games",
-      "author":"Daniel Hoe",
-      "photo_taken":"19 Mar 2015",
-      "story":"Oddly enough I have a polaroid of this moment in my wallet. It's been there for a good 3 years.",
-      "asset": "s (4)"
-   },
+{"title": "Vietnam (the unseen less glamorous part)",
+"author": "Daniel Hoe",
+"photo_taken": "29 Apr 2015",
+"story": "I thought it'd be funny to snap a photo of everyone being quiet and nervous and waiting for the competition. I was right, it was quite funny."},
 
-   {  
-      "index":3,
-      "title":"Jubilate",
-      "author":"Daniel Hoe",
-      "photo_taken":"27 Nov 2014",
-      "story":"Choir back in 2014 in Jubilate in Malaysia. It was quite a memorable trip, we celebrated one of our batch mate's birthday by writing him a song.",
-      "asset": "s (3)"
-   },
-   
-   {  
-      "index":2,
-      "title":"???",
-      "author":"Daniel Hoe",
-      "photo_taken":"26 Nov 2014",
-      "story":"Funny photo of shenanigans on choir trips???",
-      "asset": "s (2)"
-   },
-   
-   {  
-      "index":1,
-      "title":"SMU Hoboing",
-      "author":"Daniel Hoe",
-      "photo_taken":"30 Aug 2014",
-      "story":"End of years was coming up and we had one last performance to go, so everyone was just mugging near SOTA at SMU for like half the day while we waited.",
-      "asset": "s (5)"
-   }
+{"title": "Vietnam Parade",
+"author": "Daniel Hoe",
+"photo_taken": "02 May 2015",
+"story": "No idea what's going on in this photo actually"},
+
+{"title": "Exploring Vietnam?",
+"author": "Daniel Hoe",
+"photo_taken": "03 May 2015",
+"story": "Just a pleasant photo."},
+
+{"title": "Exploring Vietnam?",
+"author": "Daniel Hoe",
+"photo_taken": "03 May 2015",
+"story": "Another pleasant photo."},
+
+{"title": "Post-Vietname, pre-SOV",
+"author": "Daniel Hoe",
+"photo_taken": "17 May 2015",
+"story": "Basses wore the same shirt to SOV that day."}
 ]

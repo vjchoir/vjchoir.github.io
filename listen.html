@@ -1,104 +1,99 @@
-<script src='/res/js/redirect.js'></script>
+<script src="res/js/redirect.js"></script>
 
-<div id="text-content">
-        <link rel="stylesheet" type="text/css" href="res/css/listen.css">
-        <link rel="stylesheet" href="res/css/plyr.css">
-    <div class="albums-holder">
-        <button id="SOV2018-btn" class="album" autofocus>
-            <img src="/assets/images/sov/SOV2018.png"></img>
-            <p>SOV2018</p>
-        </button>
+<div id="actual-content">
+    <div id="actual-content">
+        <script src='/res/js/listen.js'></script>
 
-        <button id="SOV2017-btn" class="album">
-            <img src="/assets/images/sov/SOV2017.jpg"></img>
-            <p>SOV2017</p>
-        </button>
+        <div id="listen-content">
+            <div id="myModal" class="modal">
+                <div class="modal-content">
 
-        <button id="SOV2016-btn" class="album">
-            <img src="/assets/images/sov/SOV2016.png"></img>
-            <p>SOV2016</p>
-        </button>
-
-        <button id="SOV2015-btn" class="album">
-            <img src="/assets/images/sov/SOV2015.jpg"></img>
-            <p>SOV2015</p>
-        </button>
-
-        <button id="SOV2014-btn" class="album">
-            <img src="/assets/images/sov/SOV2014.jpg"></img>
-            <p>SOV2014</p>
-        </button>
-
-        <button id="SOV2013-btn" class="album">
-            <img src="/assets/images/sov/SOV2013.jpg"></img>
-            <p>SOV2013</p>
-        </button>
-
-        <button id="SOV2012-btn" class="album">
-            <img src="/assets/images/sov/SOV2012.png"></img>
-            <p>SOV2012</p>
-        </button>
-    </div>
-
-    <div class="player-holder">
-        <div class="album-info-holder">
-            <img id="selected-album-img" src="/assets/images/sov/SOV2018.png">
-            
-            <div id="album-info-text-holder">
-                <h2 id="album-title">Symphony of Voices 2018</h2>
-                <p>
-                    <span id="album-description"></span>
-                    <span id="sov-theme"></span>
-                </p>
-
-                <p id="album-more-info">
-                    <span id="album-song-count"></span>
-                    <span id="album-runtime"></span>
-                </p>
-
-                <div id="album-button-holder"><button id="album-play"><i class="material-icons">play_arrow</i>PLAY</button></div>
-                
-            </div>
-        </div>
-
-        <div class="playlist-container">
-            <div class="column add-bottom">
-                <div id="mainwrap">
-                    <div id="nowPlay">
-                        <span id="npCount">1 / 17</span>
-                        <div id = "npTrack">
-                                <span id="npTitle"></span>
-                                <span id="npComposer"></span>
-                            </div>
-                    </div>
-                    <div id="audiowrap">
-                        <div id="audio0">
-                            <audio id="audio1" preload controls>Your browser does not support HTML5 Audio! 😢</audio>
-                        </div>
-                        <div id="tracks">
-                            <a id="btnPrev">&larr;</a><a id="btnNext">&rarr;</a>
-                        </div>
-                    </div>
-
-                    <div id="plwrap">
-                        <ul id="plTitles" class="playlist">
-                            <li>
-                                <span class="plNum">#</span>
-                                <span class="plTitle">TITLE</span>
-                                <span id="plComposerTitle" class="plComposer">COMPOSER</span>
-                                <span class="plLength">DUR</span>
-                            </li>
-                        </ul>
-                        <div class="plDiv"></div>
-                        <ul id="plList" class="playlist">
-                        </ul>
-                    </div>
                 </div>
             </div>
+
+            <div id="listen-buttons-holder">
+                <button id="listen-help-button" class="nav-button">What is this?</button>
+                <button id="listen-how-button" class="nav-button">How to use</button>
+                <button id="listen-reset-button" class="nav-button">Reset settings</button>
+            </div>
+
+            <div id="listen-player-holder">
+                <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <div class="jp-details">
+                                <img class="jp-np-img">
+                                <h5 class="jp-title" aria-label="title">&nbsp;</h5>
+                                <h6 class="jp-composer"></h6>
+                                <h6 class="jp-current-playlist" aria-label="title">&nbsp;</h6>
+                            </div>
+
+
+                            <div class="jp-controls-holder">
+                                <div class="jp-controls">
+                                    <button class="jp-play" role="button" tabindex="0"><i
+                                            class="material-icons-round">play_arrow</i></button>
+                                    <button class="jp-pause" role="button" tabindex="0"><i
+                                            class="material-icons-round">pause</i></button>
+                                    <button class="jp-stop" role="button" tabindex="0"><i
+                                            class="material-icons-round">stop</i></button>
+                                    <button class="jp-shuffle" role="button" tabindex="0"><i
+                                            class="material-icons-round">shuffle</i></button>
+                                </div>
+                                <div class="jp-volume-controls">
+                                    <button class="jp-mute" role="button" tabindex="0"><i
+                                            class="material-icons-round">volume_up</i></button>
+                                    <div class="jp-volume-bar">
+                                        <div class="jp-volume-bar-value"></div>
+                                    </div>
+                                </div>
+
+                                <div class="jp-progress">
+                                    <p style="margin: 0"><span class="jp-current-time" role="timer"
+                                            aria-label="time"></span>
+                                    </p>
+                                    <div class="jp-seek-bar">
+                                        <div class="jp-play-bar-holder">
+                                            <div class="jp-play-bar"></div>
+                                            <div class="jp-play-bar-bg"></div>
+                                        </div>
+                                    </div>
+                                    <p style="margin: 0"><span class="jp-duration" role="timer"
+                                            aria-label="time"></span>
+                                    </p>
+                                </div>
+
+                                <div class="jp-next-back">
+                                    <button class="jp-prev" role="button" tabindex="0"><i
+                                            class="material-icons-round">skip_previous</i></button>
+                                    <p class="jp-curr-count">1 / 16</p>
+                                    <button class="jp-next" role="button" tabindex="0"><i
+                                            class="material-icons-round">skip_next</i></button>
+                                </div>
+
+                                <div class="jp-no-solution">
+                                    <span>Update Required</span>
+                                    To play the media you will need to either update your browser to a recent version or
+                                    update your
+                                    <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="listen-playlist-holder" class="playlists-holder">
+
+            </div>
+
+            <div id="snackbar">Some text some message..</div>
+
         </div>
-        
     </div>
-
 </div>
-</div>
-
