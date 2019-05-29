@@ -121,6 +121,10 @@ function clickEvent(menuItemId, item, isClick) {
     if(item.title == "Home") document.title = "The VJChoir Archives";
     else document.title = item.title;
     
+    window.scroll({
+        top: 0,
+        behavior: 'smooth'
+    });
 }
 
 function loadContent(isClick) {
