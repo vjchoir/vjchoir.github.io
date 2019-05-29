@@ -90,17 +90,6 @@ $(document).ready(function () {
             currTrack = initSOV.abbr + "-1";
             currSOV = sovJSON[0];
         },
-        play: function(event) {
-            while(event.jPlayer.status.waitForLoad) {
-                $(".load-bar").show();
-                $(".jp-play-bar").hide();
-                $(".jp-play-bar-bg").hide();
-            }
-
-            $(".load-bar").hide();
-            $(".jp-play-bar").show();
-            $(".jp-play-bar-bg").show();
-        },
         swfPath: "/js/jplayer",
         supplied: "mp3, oga",
         wmode: "window",
@@ -305,8 +294,8 @@ $(document).ready(function () {
             <div class="playlist-info-text">\
                 <h2>${name}</h2>\
                 <div class="playlist-info-header">\
-                    <button id="${playlistId}-button" onclick="togglePlaylistVisibility('${playlistHolderId}', '${playlistId}-button')" class="nav-button">Show playlist</button>
-                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, false)" class="nav-button">Play</button>
+                    <button id="${playlistId}-button" onclick="togglePlaylistVisibility('${playlistHolderId}', '${playlistId}-button')" class="playlist-button">Show playlist</button>
+                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, false)" class="playlist-button">Play</button>
                 </div>\
                 <p>This playlist contains <b id="playlist-track-count">${playlist.length} tracks</b>, with a total runtime of <b id="playlist-runtime">${runtimeStr}</b>.</p>
                 <p>${description}</p>\
