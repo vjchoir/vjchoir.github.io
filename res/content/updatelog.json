@@ -3,14 +3,14 @@
         "title": "SOV2019 Update",
         "date": "28 May 2019",
         "items": [
-            "Added SOV2019's information (which includes download links, updates to the listen page)",
+            "Added SOV2019's information (which includes download links, added it to the Listen page as well)",
             "Re-coded the website to make it more developer friendly (this is stuff you don't need to care about",
             "Reorganised information on the website (it was getting a bit too cluttered with different batches and SOVs, so I've put them on one landing page and you can access the rest from there)",
             "Added a Contribution page, which includes detailed information on how to contribute without actually doing any of the coding stuff (leave that to us!)",
             "Removed the Stories page - I have an idea of how to improve it but I don't have the time to code it out right now, and it kind of broke when I was updating the site so it'll be gone for a bit.",
             "Redid the Listen page - now acts like a budget Spotify player with shuffle features and a Favourites playlist.",
-			"Remastered audio for SOV2012 and SOV2014 - previously these pieces of audio were quite trashy in quality but thanks to Mr Samuel Wong I have proper recordings of these SOVs now. The audio is much cleaner and nicer to listen to.",
-			"Redid the album art for SOV2012 and SOV2014"
+			"Remastered audio for SOV2012 - previously these pieces of audio were quite trashy in quality but thanks to Mr. Wong I have proper recordings of these SOVs now. The audio is much cleaner and nicer to listen to.",
+			"Redid the album art for SOV2012"
         ]
     },
     
