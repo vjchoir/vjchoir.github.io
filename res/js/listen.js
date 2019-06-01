@@ -41,7 +41,7 @@ var currIndex = 0;
 var myPlayer = null;
 var isShuffle = false;
 var shuffledArray = [];
-var isPlaying = false;
+var isLoading = false;
 
 
 $(document).ready(function () {
@@ -76,6 +76,7 @@ $(document).ready(function () {
             }
 
             $(this).jPlayer("setMedia", initPlaylist[0]);
+            toggleLoading(true);
 
             // in case it's in the favourites or not
             $(".jp-np-img").attr("src", `${initSOV.album_art}`)
@@ -90,17 +91,6 @@ $(document).ready(function () {
             currPlaylist = initPlaylist;
             currTrack = initSOV.abbr + "-1";
             currSOV = sovJSON[0];
-        },
-        loadeddata: function(event) {
-            $(".load-bar").hide();
-            $(".jp-play-bar").show();
-            $(".jp-play-bar-bg").show();
-        },
-        play: function(event) {
-            isPlaying = true;
-            $(".load-bar").hide();
-            $(".jp-play-bar").show();
-            $(".jp-play-bar-bg").show();
         },
         swfPath: "/js/jplayer",
         supplied: "mp3, oga",
@@ -158,12 +148,9 @@ $(document).ready(function () {
                 }
             }
         },
-        progress: function(event) {
-            if(!isPlaying) {
-                $(".load-bar").show();
-                $(".jp-play-bar").hide();
-                $(".jp-play-bar-bg").hide();
-            }
+        loadeddata: function(event) {
+            console.log("state: data loaded");
+            toggleLoading(false);
         }
     });
 
@@ -192,6 +179,7 @@ $(document).ready(function () {
 
     // prev button handler
     $(".jp-prev").on("click", function () {
+        
         if (currIndex >= 1) {
             currIndex--;
             let val = currIndex + 1;
@@ -204,6 +192,8 @@ $(document).ready(function () {
             } else {
                 trackClickEvent(listId, currPlaylistIndex, currIndex, false);
             }
+
+            toggleLoading(true);
         }
     });
 
@@ -224,6 +214,8 @@ $(document).ready(function () {
             $(".jp-title").text(`${currPlaylist[0].name}`);
             $(".jp-composer").text(`${currPlaylist[0].composer}`)
             setTimeout(toggleShuffle(), 10000);
+
+            toggleLoading(true);
         } else {
             currIndex++;
             console.log("Track ended; current index is " + currIndex);
@@ -238,6 +230,8 @@ $(document).ready(function () {
             } else {
                 trackClickEvent(listId, currPlaylistIndex, currIndex, false);
             }
+
+            toggleLoading(true);
         }
     });
 
@@ -316,7 +310,7 @@ $(document).ready(function () {
                 <h2>${name}</h2>\
                 <div class="playlist-info-header">\
                     <button id="${playlistId}-button" onclick="togglePlaylistVisibility('${playlistHolderId}', '${playlistId}-button')" class="nav-button">Show playlist</button>
-                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, false)" class="nav-button">Play</button>
+                    <button onclick="trackClickEvent('${playlistId}-1', ${i}, 0, true)" class="nav-button">Play</button>
                 </div>\
                 <p>This playlist contains <b id="playlist-track-count">${playlist.length} tracks</b>, with a total runtime of <b id="playlist-runtime">${runtimeStr}</b>.</p>
                 <p>${description}</p>\
@@ -481,6 +475,8 @@ function trackClickEvent(listId, playlistIndex, id, isClick) {
     myPlayer.jPlayer("play");
 
     setDocumentTitle();
+
+    toggleLoading(true);
 }
 
 // Toggles the visibility of the playlist
@@ -677,4 +673,16 @@ function shuffleArray(array) {
     }
 
     return array;
+}
+
+function toggleLoading(tf) {
+    if(tf) {
+        $(".load-bar").show();
+        $(".jp-play-bar").hide();
+        $(".jp-play-bar-bg").hide();
+    } else {
+        $(".load-bar").hide();
+        $(".jp-play-bar").show();
+        $(".jp-play-bar-bg").show();
+    }
 }

@@ -10,15 +10,7 @@ $(document).ready(function () {
 
 function initNav() {
 
-    // Handling the open close sidebar button
-    $(".navbar-holder").on("click", "#sidebarCollapse", function () {
-        $("#sidebar").toggleClass("active");
-        $("#content").toggleClass("active");
-        
-        $(".collapse.in").toggleClass("in");
-        
-        $("a[aria-expanded=true]").attr("aria-expanded", "false");
-    });
+    
 }
 
 function reloadAnim() {

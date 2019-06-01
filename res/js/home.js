@@ -35,20 +35,14 @@ $(document).ready(function() {
 
 function initContent() {
     $("#home-header-logo").attr("src", homeJSON.header_photo);
+    if(localStorage.getItem("vjchoir.isDarkMode") == "true") {
+        $("#home-header-logo").css("filter", "invert(0%)");
+    }
+        
     $("#home-header-intro-msg").html(homeJSON.intro_msg);
     $("#home-header-creator-msg").html(homeJSON.creator_msg);
 
     initCarousel();
-
-    // update log
-    
-    for(let update of updateJSON) {
-        let updateHTML = `<li>
-            <h503/12/18 - Website has been updated!
-            <ul>
-            </ul>
-        </li>`
-    }
     
 }
 

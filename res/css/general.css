@@ -18,14 +18,16 @@
     --main-button-hover-colour: var(--main-bg-colour);
 
     --volume-bg-colour: var(--divider-colour);
-    --volume-colour: var(--main-accent-colour)
+    --volume-colour: var(--main-accent-colour);
+
+    --standard-animation: all 0.3s;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background: var(--main-bg-text-colour);
     overflow-x: hidden;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
 }
 
 p {
@@ -36,17 +38,17 @@ p {
     color: var(--main-text-colour);
     margin-top: 15px;
     text-align: justify;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
 }
 
 h1, h2, h3, h4, h5, h6 {
     color: var(--main-title-text-colour);
     margin-bottom: 20px;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
 }
 
 img {
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
 }
 
 li {
@@ -54,7 +56,7 @@ li {
 }
 
 button {
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
 }
 
 button:hover {
@@ -101,10 +103,6 @@ button:focus {
     transition: all 0.2s;
     cursor: pointer;
 }
-    
-.nav-button:focus {
-    outline: none;
-}
 
 .nav-button-active {
     background: var(--main-button-colour);
@@ -114,7 +112,7 @@ button:focus {
 
 .actual-content {
     margin-top: 20px;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition: var(--standard-animation);
 }
 
 /* CONTENT HOLDERS */
@@ -124,11 +122,11 @@ button:focus {
     overflow: auto !important;
     margin-left: 268px;
     margin-right: auto;
-    -webkit-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -moz-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -o-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -ms-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    -webkit-transition: var(--standard-animation);
+    -moz-transition: var(--standard-animation);
+    -o-transition: var(--standard-animation);
+    -ms-transition: var(--standard-animation);
+    transition: var(--standard-animation);
 }
 
 #wrapper {
@@ -137,7 +135,7 @@ button:focus {
 
 #actual-content-holder {
     padding: 20px;
-    transition: all 0.6s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition: var(--standard-animation);
 }
 
 /* HOME.HTML STYLING */
@@ -362,24 +360,26 @@ button:focus {
 }
 
 .sov-button {
-    background-color: transparent;
+    background: var(--main-bg-text-colour);
     color: var(--main-text-colour);
+    border-radius: 3px;
     border: 1px solid var(--main-text-colour);
     margin-left: auto;
     margin-right: auto;
     padding: 10px;
     transition: all 0.5s;
     cursor: pointer;
-    border-radius: 2px;
     text-align: center;
     display: flex;
     margin: 10px 0;
 }
 
 .sov-button:hover {
-    border: 1px solid var(--main-bg-colour);
-    background-color: var(--main-bg-colour);
+    background: var(--main-button-hover-colour);
+    border: 1px solid var(--main-button-hover-colour);
     color: var(--main-text-inv-colour);
+    transition: all 0.2s;
+    cursor: pointer;
 }
 
 .sov-button > i {
@@ -798,8 +798,8 @@ button.track-favourite:hover {
 ::-webkit-scrollbar {
     width: 7px;
     overflow: scroll;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -webkit-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
+    -webkit-transition: var(--standard-animation);
 }
 
 /* Track */
@@ -807,8 +807,8 @@ button.track-favourite:hover {
 ::-webkit-scrollbar-track {
     background: var(--main-bg-text-colour);
     overflow: scroll;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -webkit-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
+    -webkit-transition: var(--standard-animation);
 }
 
 /* Handle */
@@ -817,8 +817,8 @@ button.track-favourite:hover {
     background: var(--divider-colour);
     border-radius: 5px;
     overflow: scroll;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
-    -webkit-transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
+    -webkit-transition: var(--standard-animation);
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -858,7 +858,7 @@ a, a:hover, a:focus {
     text-align: left;
     position: absolute;
     margin-top: 1px;
-    transition: all 0.4s cubic-bezier(0.810, 0, 0.345, 1.375);
+    transition: var(--standard-animation);
 }
 
 .navbar-subpage-menu {
@@ -893,7 +893,7 @@ a, a:hover, a:focus {
     padding-bottom: 15px;
     background: var(--main-bg-colour);
     color: #fff;
-    transition: all 0.6s cubic-bezier(0.945, 0.020, 0.270, 0.665);
+    transition: var(--standard-animation);
     overflow-y: scroll;
 }
 
@@ -1036,7 +1036,7 @@ a.article, a.article:hover {
     height: 2px;
     margin: 0 auto;
     display: block;
-    transition: all 0.6s cubic-bezier(0.810, 0, 0.345, 1.375);
+    transition: var(--standard-animation);
     transition-delay: 0.2s;
     background: var(--main-text-colour);
 }
@@ -1101,8 +1101,8 @@ a.article, a.article:hover {
     right: 0;
     bottom: 0;
     background-color: var(--divider-colour);
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    -webkit-transition: var(--standard-animation);
+    transition: var(--standard-animation);
     background: var(--main-accent-colour);
   }
   
@@ -1114,8 +1114,8 @@ a.article, a.article:hover {
     left: 5px;
     bottom: 5px;
     background-color: white;
-    -webkit-transition: all 0.2s;
-    transition: all 0.2s;
+    -webkit-transition: var(--standard-animation);
+    transition: var(--standard-animation);
   }
   
   input:checked + .slider {
@@ -1204,7 +1204,7 @@ a.article, a.article:hover {
         position: absolute;
         margin-left: -10px;
         margin-top: 1px;
-        transition: all 0.6s cubic-bezier(0.810, 0, 0.345, 1.375);
+        transition: var(--standard-animation);
     }
 
 }
@@ -1233,7 +1233,7 @@ a.article, a.article:hover {
     -webkit-animation-delay: 0.1s;
     animation: slide-navbar 0.5s forwards;
     animation-delay: 0.1s;
-    transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    transition: var(--standard-animation);
     color: blue;
 }
 

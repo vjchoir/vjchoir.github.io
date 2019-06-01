@@ -18,9 +18,11 @@ var curr_selected = null;
 var curr_index = null;
 var menu_ids = null;
 var oldURL = document.referrer;
+var isDark = false;
 
 $(document).ready(function() {
     createMenu();
+    initDarkMode();
 });
 
 function createMenu() {
@@ -85,6 +87,29 @@ function createMenu() {
     }
 
     initContent();
+
+    // Handling the open close sidebar button
+    $(".navbar-holder").on("click", "#sidebarCollapse", function () {
+        $("#sidebar").toggleClass("active");
+        $("#content").toggleClass("active");
+        
+        $(".collapse.in").toggleClass("in");
+        
+        $("a[aria-expanded=true]").attr("aria-expanded", "false");
+    });
+}
+
+function initDarkMode() {
+    if(localStorage.getItem("vjchoir.isDarkMode") == "true") {
+        console.log("It's getting dark!");
+        toggleDarkMode();
+    } else {
+        console.log("It's not dark!");
+    }
+
+    $("#night-mode-switch").change(function() {
+        toggleDarkMode();
+    });
 }
 
 function initContent() {
@@ -131,7 +156,7 @@ function loadContent(isClick) {
     
     $("#actual-content-holder").load(`${curr_selected.layout} > #actual-content`, function(){
         $.getScript(`${curr_selected.js}`);
-    });
+    }).hide().show();
 
     if(isClick) {
         $("#sidebar").toggleClass("active");
@@ -142,4 +167,68 @@ function loadContent(isClick) {
         $("a[aria-expanded=true]").attr("aria-expanded", "false");
     
     }
+}
+
+function toggleDarkMode() {
+    let property_array = [
+        '--main-bg-colour', 
+    '--main-accent-colour', 
+    '--main-title-text-colour',
+    '--main-text-colour', 
+    '--main-text-inv-colour', 
+    '--main-bg-text-colour', 
+    '--divider-colour', 
+    '--uneven-colour'];
+    let dark_colour_array = [
+        'rgb(35, 7, 18)', 
+        'rgb(81, 16, 41)', 
+        'white', 
+        'white', 
+        'black', 
+        'rgb(48, 9, 24)', 
+        'white', 
+        'rgb(255, 255, 255, 0.05)'];
+    let light_colour_array = [
+        'rgb(128, 27, 66)', 
+        'rgb(175, 36, 90)', 
+        'black', 'rgb(75, 75, 75)', 
+        'white', 
+        'white', 
+        '#ddd', 
+        'rgb(0, 0, 0, 0.05);'];
+    
+    if(isDark) {
+        // switch back to bright
+        for(var i = 0; i < property_array.length; i ++) {
+            document.documentElement.style.setProperty(property_array[i], light_colour_array[i]);
+        }
+        isDark = !isDark;
+        $("#night-mode").prop("checked", false);
+
+        // other settings
+        document.documentElement.style.setProperty("--main-button-hover-colour","var(--main-bg-colour)");
+        document.documentElement.style.setProperty("--main-button-colour", "var(--main-accent-colour)");
+        document.documentElement.style.setProperty("--volume-colour", "var(--main-accent-colour)");
+        document.documentElement.style.setProperty("--volume-bg-colour", "var(--divider-colour)");
+
+        $("#home-header-logo").css("filter", "invert(100%)");
+    } else {
+        // switch back to dark
+        for(var i = 0; i < property_array.length; i ++) {
+            document.documentElement.style.setProperty(property_array[i], dark_colour_array[i]);
+        }
+        isDark = !isDark;
+        $("#night-mode").prop("checked", true);
+
+        // other settings
+        document.documentElement.style.setProperty("--main-button-hover-colour","white");
+        document.documentElement.style.setProperty("--main-button-colour", "white");
+        document.documentElement.style.setProperty("--volume-colour", "white");
+        document.documentElement.style.setProperty("--volume-bg-colour", "var(--main-accent-colour)");
+        
+        $("#home-header-logo").css("filter", "invert(0%)");
+        
+    }
+
+    localStorage.setItem("vjchoir.isDarkMode", isDark);
 }
