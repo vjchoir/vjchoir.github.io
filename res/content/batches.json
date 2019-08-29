@@ -2,6 +2,98 @@
     "batches_msg": "Hello! Welcome to the landing page for Batches! In this part of the website, the details of the previous batches of VJChoir are kept so that you can see how the past batches looked like.</br></br>Use the navigation buttons above to browse through the different batches. In each page, the general information of the choir's committees and members are included. Photos from the various batches are also there so that you can kinda get a look of how lupsup or noob everyone looked back in their hey-day.</br></br><b>Contributing / fixing:</b></br>Seeing as I'm not from any batches after my own, the information provided above has been sent to me over the years by the various members of the various batches. If you want to contribute, or you've spotted an error, head over to the \"Contribute\" part of the archives to send in the relevant information. Thanks very much! :)",
     "batches_info": [
         {
+            "batch_name": "2019 / 2020",
+            "batch_img": "/assets/images/batches/1920/batch.jpeg",
+            "batch_description": "Hi there! This page contains information pertaining to the batch of 2019 - 2020.",
+            "comms": [
+                {
+                    "name": "Exco",
+                    "img": "/assets/images/batches/1920/exco.jpg",
+                    "members": [
+                        "Low Jia Xin (P)",
+                        "Miri Aung (VP)",
+                        "Alyssa Ng (S)",
+                        "Abigail Kwok (Welfare Head)",
+                        "Wayne Wong (T)",
+                        "Naomi Lim (QM)"
+                        
+                    ]
+                },
+                {
+                    "name": "Musico",
+                    "img": "/assets/images/batches/1920/musico.jpeg",
+                    "members": [
+                        "Athuf Hashiholan (T)",
+                        "Wong Zheng Jie (B)",
+                        "Bryan Ng Wen Hann (ASC)",
+                        "Amanda Lee (SC)",
+                        "Jewel Lee (S)",
+                        "Stella Andreanna (A)"
+                        
+                    ]
+                }
+            ],
+            "sections": [
+                {
+                    "section": "Sopranos",
+                    "members": [
+                        "Jewel Lee (SL)",
+                        "Nicole Lim En-Si",
+                        "Abigail Kwok",
+                        "Naomi Lim",
+                        "Ashleigh Gan",
+                        "Nandini Kumar",
+                        "Sarah Ang",
+                        "Amanda Lee",
+                        "Chelsea Ku",
+                        "Ruth Ang",
+                        "Miri Aung"
+                    ]
+                },
+                {
+                    "section": "Altos",
+                    "members": [
+                        "Stella Andreanna (SL)",
+                        "Kaaviya Pandiyan",
+                        "Alyssa Chew",
+                        "Alyssa Ng",
+                        "Low Jia Xin",
+                        "Shreya Jindal",
+                        "Foo See Yee",
+                        "Violeti Amulya",
+                        "Charlene Chun",
+                        "Christabel Lee",
+                        "Tammie Koh",
+                        "Seah Jia Yi",
+                        "Hannah Ong"
+                    ]
+                },
+                {
+                    "section": "Tenors",
+                    "members": [
+                        "Athuf Hashiholan (SL)",
+                        "Zhao Shibo",
+                        "Ian Sin",
+                        "Alwin Tua",
+                        "Imran Nasir",
+                        "Tay An Sheng"
+                        
+                    ]
+                },
+                {
+                    "section": "Basses",
+                    "members": [
+                        "Wong Zheng Jie (SL)",
+                        "Nicholas Lai Rui Onn",
+                        "Bryan Ng Wen Hann",
+                        "Matthew Chan",
+                        "Christopher Tan",
+                        "Wayne Wong"                        
+                    ]
+                }
+            ]
+        },
+        {
             "batch_name": "2018 / 2019",
             "batch_img": "/assets/images/batches/1819/batch.jpg",
             "batch_description": "Hi there! This page contains information pertaining to the batch of 2018 - 2019.",

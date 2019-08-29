@@ -148,7 +148,13 @@ function loadBatch(batch) {
         let sectName = section.section.toLowerCase();
         let sectMembs = "";
 
+        let sectLdr = section.members[0];
+        section.members.sort();
+        sectMembs += sectLdr + "</br>";
         for(let i = 0; i < section.members.length; i ++) {
+            if(section.members[i] == sectLdr){
+                continue;
+            }
             if(i != section.members.length - 1) {
                 sectMembs += section.members[i] + "</br>";
             } else {

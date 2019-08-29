@@ -1,5 +1,13 @@
 [
     {
+        "title": "Mini mini update",
+        "date":"29 August 2019",
+        "items": [
+            "Added the Batch of 2019 - 2020's information",
+            "(Hopefully) Fixed a bug with the image in the footer of the website"
+        ]
+    },
+    {
         "title": "For the night is dark and full of terrors",
         "date": "1 June 2019",
         "items": [

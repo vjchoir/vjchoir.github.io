@@ -44,7 +44,7 @@ function initSOV() {
         $("#sov-home-sovs").append(tempHTML);
 
         $("#sov-" + sovCount).click(function() {
-            navClickEvent(sovButtonIds[temp - 1], sov);
+            navClickEvent(sovButtonIds[temp - 2], sov);
             window.scroll({
                 top: 0,
                 behavior: 'smooth'
