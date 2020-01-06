@@ -1,5 +1,15 @@
 [
     {
+        "title": "New Year Cleaning",
+        "date":"6 January 2020 ",
+        "items": [
+            "Upadted the dates to 2020",
+            "Added a \"Featured Photos\" segment to the batch pages",
+            "Added photos for the 2014/2015 batch and the 2019/2020 batch",
+            "Changed the intro on the main page"
+        ]
+    },
+    {
         "title": "Mini mini update",
         "date":"29 August 2019",
         "items": [

@@ -91,7 +91,8 @@
                         "Wayne Wong"                        
                     ]
                 }
-            ]
+            ],
+            "photos": ["/assets/images/batches/1920/featured (1).jpeg","/assets/images/batches/1920/featured (2).jpg", "/assets/images/batches/1920/featured (3).jpeg"]
         },
         {
             "batch_name": "2018 / 2019",
@@ -174,7 +175,8 @@
                         "Joel Ler"
                     ]
                 }
-            ]
+            ],
+            "photos": []
         },
         {
             "batch_name": "2017 / 2018",
@@ -271,7 +273,8 @@
                         "Mohd Al-Ahda"
                     ]
                 }
-            ]
+            ],
+            "photos": []
         },
         {
             "batch_name": "2016 / 2017",
@@ -371,7 +374,8 @@
                         "Jasper"
                     ]
                 }
-            ]
+            ],
+            "photos": []
         },
         {
             "batch_name": "2015 / 2016",
@@ -469,7 +473,8 @@
                         "Nigel Lee"
                     ]
                 }
-            ]
+            ],
+            "photos": []
         },
         {
             "batch_name": "2014 / 2015",
@@ -577,7 +582,8 @@
                         "Hans Toby Limanto"
                     ]
                 }
-            ]
+            ],
+            "photos": ["/assets/images/batches/1415/featured (1).jpg", "/assets/images/batches/1415/featured (2).jpg", "/assets/images/batches/1415/featured (3).jpg", "/assets/images/batches/1415/featured (4).jpg"]
         },
         {
             "batch_name": "2013 / 2014",
@@ -675,7 +681,8 @@
                         "Brendan Ng"
                     ]
                 }
-            ]
+            ],
+            "photos": []
         }
     ]
 }
