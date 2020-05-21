@@ -1,5 +1,11 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <div class="container-fluid p-0 m-0">
-  <app-sidebar></app-sidebar>
+  <div class="row p-0 m-0">
+    <app-sidebar></app-sidebar>
+    <div class="col p-0 m-0">
+      <app-navbar></app-navbar>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>

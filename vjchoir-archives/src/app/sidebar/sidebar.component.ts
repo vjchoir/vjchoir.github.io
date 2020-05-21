@@ -10,16 +10,18 @@ import sidebarJSON from '../../assets/data/sidebar.json';
 })
 export class SidebarComponent implements OnInit {
 
-  private defaultActive = 0;
+  private defaultActiveId;
   private currActive;
   sidebarItems: SidebarItem[];
 
   constructor() { }
 
   ngOnInit() {
+    this.defaultActiveId = sidebarJSON.defaultActiveId;
     this.sidebarItems = sidebarJSON.sidebarItems;
 
-    this.sidebarItems[this.defaultActive].active = true;
+    this.sidebarItems[this.defaultActiveId].active = true;
+    this.currActive = this.sidebarItems[this.defaultActiveId];
   }
 
   private setActive(sidebarItem) {
