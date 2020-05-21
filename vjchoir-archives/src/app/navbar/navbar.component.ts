@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  @Input() menu;
+  @Input() controller;
+  @Input() currActive;
+  
+  private navTitle: string;
+  
   constructor() { }
 
   ngOnInit() {
+    this.navTitle = this.currActive.name;
   }
 
 }

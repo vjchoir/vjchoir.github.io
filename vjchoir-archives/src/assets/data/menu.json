@@ -1,6 +1,6 @@
 {
   "defaultActiveId": 0,
-  "sidebarItems": [{
+  "items": [{
       "id": 0,
       "name": "HOME",
       "linkName": "/home",

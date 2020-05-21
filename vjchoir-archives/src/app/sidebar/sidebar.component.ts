@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppRoutingModule } from '../app-routing/app-routing.module';
 
 import { SidebarItem } from "./model/SidebarItem";
-
-import sidebarJSON from '../../assets/data/sidebar.json';
 
 @Component({
   selector: 'app-sidebar',
@@ -12,23 +10,22 @@ import sidebarJSON from '../../assets/data/sidebar.json';
 })
 export class SidebarComponent implements OnInit {
 
-  private defaultActiveId;
-  private currActive;
-  sidebarItems : SidebarItem[];
+  @Input() sidebarItems;
+  @Input() controller;
+  @Input() currActive;
+
+  sidebarActiveItem: SidebarItem;
 
   constructor() { }
 
   ngOnInit() {
-    this.defaultActiveId = sidebarJSON.defaultActiveId;
-    this.sidebarItems = sidebarJSON.sidebarItems;
-
-    this.sidebarItems[this.defaultActiveId].active = true;
-    this.currActive = this.sidebarItems[this.defaultActiveId];
+    this.currActive.active = true;
+    this.sidebarActiveItem = this.currActive;
   }
 
-  private setActive(sidebarItem: SidebarItem) {
-    this.currActive.active = false;
-    this.currActive = sidebarItem;
-    this.currActive.active = true;
+  setActive() {
+    this.sidebarActiveItem.active = false;
+    this.sidebarActiveItem = this.currActive;
+    this.currActive.active = true;   
   }
 }

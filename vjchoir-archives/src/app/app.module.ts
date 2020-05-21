@@ -13,6 +13,7 @@ import { SovComponent } from './pages/sov/sov.component';
 import { ListenComponent } from './pages/listen/listen.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 import { MiscComponent } from './pages/misc/misc.component';
+import { NavControllerComponent } from './nav-controller/nav-controller.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MiscComponent } from './pages/misc/misc.component';
     SovComponent,
     ListenComponent,
     ContributeComponent,
-    MiscComponent
+    MiscComponent,
+    NavControllerComponent
   ],
   imports: [
     BrowserModule,

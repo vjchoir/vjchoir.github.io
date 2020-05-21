@@ -29,8 +29,11 @@
       color: $base-color;
       background: $sidebar-text-color;
     }
-  }
   
+    &:focus {
+      outline: 0;
+    }
+  }
 
   .active {
     background: $accent-color;
