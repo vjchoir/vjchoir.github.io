@@ -6,7 +6,7 @@
     </div>
 
     <ul class="list-unstyled components">
-      <li *ngFor="let item of sidebarItems" [ngClass]="item.active ? 'active' : ''" (click)="setActive(item)">
+      <li *ngFor="let item of sidebarItems" [ngClass]="item.isVisible ? (item.active ? 'active' : '') : 'd-none' " (click)="setActive(item)" routerLink="{{item.linkName}}">
         <i class="{{item.icon}}"></i>{{item.name}}
       </li>
     </ul>

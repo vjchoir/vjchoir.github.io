@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { SidebarItem } from './model/SidebarItem';
+import { AppRoutingModule } from '../app-routing/app-routing.module';
+
+import { SidebarItem } from "./model/SidebarItem";
 
 import sidebarJSON from '../../assets/data/sidebar.json';
 
@@ -12,7 +14,7 @@ export class SidebarComponent implements OnInit {
 
   private defaultActiveId;
   private currActive;
-  sidebarItems: SidebarItem[];
+  sidebarItems : SidebarItem[];
 
   constructor() { }
 
@@ -24,7 +26,7 @@ export class SidebarComponent implements OnInit {
     this.currActive = this.sidebarItems[this.defaultActiveId];
   }
 
-  private setActive(sidebarItem) {
+  private setActive(sidebarItem: SidebarItem) {
     this.currActive.active = false;
     this.currActive = sidebarItem;
     this.currActive.active = true;
