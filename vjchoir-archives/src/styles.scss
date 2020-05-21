@@ -1,32 +1,17 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
 /* Application-wide Styles */
 
-h1 {
-  color: #369;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 250%;
-}
+$base-color: rgb(128, 27, 66);
+$accent-color: rgb(175, 36, 90);
 
-h2,
-h3 {
-  color: #444;
-  font-family: Arial, Helvetica, sans-serif;
-  font-weight: lighter;
-}
+$primary-text-color: rgb(0, 0, 0);
+$primary-text-inv-color: rgb(255, 255, 255);
 
-body {
-  margin: 2em;
-}
+$sidebar-text-color : rgb(255, 255, 255);
 
-body,
-input[type="text"],
-button {
-  color: #333;
-  font-family: Cambria, Georgia;
-}
+$title-text-font: 'Poppins', sans-serif;
 
-
-/* everywhere else */
-
-* {
-  font-family: Arial, Helvetica, sans-serif;
+h1, h2, h3, h4, h5, h6 {
+  font-family: $title-text-font;
 }

@@ -1,0 +1,45 @@
+{
+  "sidebarItems": [{
+      "id": 0,
+      "name": "HOME",
+      "icon": "fas fa-home",
+      "active": false
+    },
+    {
+      "id": 1,
+      "name": "ABOUT",
+      "icon": "fas fa-info-circle",
+      "active": false
+    },
+    {
+      "id": 2,
+      "name": "BATCHES",
+      "icon": "fas fa-user-friends",
+      "active": false
+    },
+    {
+      "id": 3,
+      "name": "SYMPHONY OF VOICES",
+      "icon": "fas fa-compact-disc",
+      "active": false
+    },
+    {
+      "id": 4,
+      "name": "LISTEN",
+      "icon": "fas fa-headphones",
+      "active": false
+    },
+    {
+      "id": 5,
+      "name": "CONTRIBUTE",
+      "icon": "fas fa-people-carry",
+      "active": false
+    },
+    {
+      "id": 6,
+      "name": "MISC",
+      "icon": "fas fa-ellipsis-h",
+      "active": false
+    }
+  ]
+}
