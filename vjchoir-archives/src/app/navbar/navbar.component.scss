@@ -1,0 +1,7 @@
+@import "../../styles.scss";
+.navbar {
+  .navbar-brand {
+    font-family: $title-text-font;
+  }
+  border-bottom: 2px solid rgba(black, 0.1)
+}
