@@ -1,4 +1,4 @@
-export interface SidebarItem {
+export interface MenuItem {
     id: number;
     name: string;
     linkName: string;

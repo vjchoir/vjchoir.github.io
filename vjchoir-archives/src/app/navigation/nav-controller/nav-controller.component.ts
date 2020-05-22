@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import menuJSON from '../../assets/data/menu.json';
-import { SidebarItem } from '../sidebar/model/SidebarItem';
+import menuJSON from '../../../assets/data/menu.json';
+import { MenuItem } from '../model/MenuItem';
 
 @Component({
   selector: 'nav-controller',
@@ -11,7 +11,7 @@ export class NavControllerComponent implements OnInit {
 
   private menu = menuJSON;
   private controller : NavControllerComponent;
-  private currActive : SidebarItem;
+  private currActive : MenuItem;
 
   constructor() { }
 

@@ -4,8 +4,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavbarComponent } from './navbar/navbar.component';
+import { SidebarComponent } from './navigation/sidebar/sidebar.component';
+import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './pages/about/about.component';
 import { BatchesComponent } from './pages/batches/batches.component';
@@ -13,7 +13,7 @@ import { SovComponent } from './pages/sov/sov.component';
 import { ListenComponent } from './pages/listen/listen.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 import { MiscComponent } from './pages/misc/misc.component';
-import { NavControllerComponent } from './nav-controller/nav-controller.component';
+import { NavControllerComponent } from './navigation/nav-controller/nav-controller.component';
 
 @NgModule({
   declarations: [

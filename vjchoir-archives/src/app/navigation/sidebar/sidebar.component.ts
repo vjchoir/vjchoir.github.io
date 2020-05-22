@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AppRoutingModule } from '../app-routing/app-routing.module';
+import { AppRoutingModule } from '../../app-routing/app-routing.module';
 
-import { SidebarItem } from "./model/SidebarItem";
+import { MenuItem } from "../model/MenuItem";
 
 @Component({
   selector: 'app-sidebar',
@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit {
   @Input() controller;
   @Input() currActive;
 
-  sidebarActiveItem: SidebarItem;
+  sidebarActiveItem: MenuItem;
 
   constructor() { }
 
