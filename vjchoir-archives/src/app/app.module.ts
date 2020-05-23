@@ -15,6 +15,7 @@ import { ListenComponent } from './pages/listen/listen.component';
 import { ContributeComponent } from './pages/contribute/contribute.component';
 import { MiscComponent } from './pages/misc/misc.component';
 import { NavControllerComponent } from './navigation/nav-controller/nav-controller.component';
+import { SiderComponent } from './navigation/sider/sider.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavControllerComponent } from './navigation/nav-controller/nav-controll
     ListenComponent,
     ContributeComponent,
     MiscComponent,
-    NavControllerComponent
+    NavControllerComponent,
+    SiderComponent
   ],
   imports: [
     BrowserModule,
