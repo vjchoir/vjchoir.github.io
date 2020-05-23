@@ -1,1 +1,5 @@
-<p>about works!</p>
+<div class="d-flex row ml-0">
+  <button *ngFor="let item of aboutJSON" class="btn btn-outline-primary mx-2" [ngClass]="item == currActive ? 'active' : ''">
+        {{item.title}}
+    </button>
+</div>

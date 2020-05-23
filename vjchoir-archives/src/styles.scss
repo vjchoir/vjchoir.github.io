@@ -32,3 +32,26 @@ p {
     display: block;
     background: $sider-background-color;
 }
+
+.btn-outline-primary {
+    color: $accent-color !important;
+    border-color: $accent-color !important;
+    font-family: $title-text-font;
+
+    &:hover {
+      color: white !important;
+      background-color: $accent-color !important;
+    }
+
+    &:focus, &:active {
+      color: white !important;
+      background-color: $accent-color !important;
+      box-shadow:none !important;
+      outline:0px !important;
+    }
+}
+
+.active {
+  color: white !important;
+  background-color: $accent-color !important;
+}
