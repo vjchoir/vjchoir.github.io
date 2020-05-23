@@ -27,6 +27,6 @@ p {
 }
 
 .sider {
-  background: rgb(0, 0, 0, 0.05);
-  height: 100vh;
+  display: block;
+  background: $sider-background-color;
 }

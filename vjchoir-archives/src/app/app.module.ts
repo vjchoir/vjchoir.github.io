@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
@@ -32,7 +33,8 @@ import { NavControllerComponent } from './navigation/nav-controller/nav-controll
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbCarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]
