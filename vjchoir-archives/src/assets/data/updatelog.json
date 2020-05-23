@@ -1,0 +1,74 @@
+[
+    {
+        "title": "New Year Cleaning",
+        "date":"6 January 2020 ",
+        "items": [
+            "Upadted the dates to 2020",
+            "Added a \"Featured Photos\" segment to the batch pages",
+            "Added photos for the 2014/2015 batch and the 2019/2020 batch",
+            "Changed the intro on the main page"
+        ]
+    },
+    {
+        "title": "Mini mini update",
+        "date":"29 August 2019",
+        "items": [
+            "Added the Batch of 2019 - 2020's information",
+            "(Hopefully) Fixed a bug with the image in the footer of the website"
+        ]
+    },
+    {
+        "title": "For the night is dark and full of terrors",
+        "date": "1 June 2019",
+        "items": [
+            "Added SOV2010's information (available on both the SOV page and listen page)",
+            "Added a \"night mode\" to the website - you can toggle this on and off on the sidebar)",
+            "Reuploaded SOV2014's data - previously the quality was quite crappy but I've re-cut and reuploaded it so that it's more pleasant to listen to",
+            "Listen loading animation (not sure if this 100% works, but what it's supposed to do is show a loading animation when the track hasn't loaded, and it'll disappear when it has)",
+            "Some text fixes (song names, song composers etc.)"
+        ]
+    },
+    {
+        "title": "SOV2019 Update",
+        "date": "28 May 2019",
+        "items": [
+            "Added SOV2019's information (which includes download links, updates to the listen page)",
+            "Re-coded the website to make it more developer friendly (this is stuff you don't need to care about",
+            "Reorganised information on the website (it was getting a bit too cluttered with different batches and SOVs, so I've put them on one landing page and you can access the rest from there)",
+            "Added a Contribution page, which includes detailed information on how to contribute without actually doing any of the coding stuff (leave that to us!)",
+            "Removed the Stories page - I have an idea of how to improve it but I don't have the time to code it out right now, and it kind of broke when I was updating the site so it'll be gone for a bit.",
+            "Redid the Listen page - now acts like a budget Spotify player with shuffle features and a Favourites playlist.",
+			"Remastered audio for SOV2012 and SOV2014 - previously these pieces of audio were quite trashy in quality but thanks to Mr Samuel Wong I have proper recordings of these SOVs now. The audio is much cleaner and nicer to listen to.",
+			"Redid the album art for SOV2012 and SOV2014"
+        ]
+    },
+    
+    {
+        "title": "This is still alive!",
+        "date": "03 Mar 2019",
+        "items": [
+            "Added a bunch of stories that were submitted last year apparently but I never realised (sorry Dayne)",
+            "Added a small countdown to SOV2019 at the bottom of this page",
+            "Changed the website font and standardised it (I hated the previous one)",
+            "Removed our Christmas logo (bet you didn't even realise we had one)",
+            "Updated SOV (there was one song that couldn't play, Die mit, which should be fixed now)",
+            "Various other minimal aesthetic changes that should make the website more enjoyable"
+        ]
+    },
+    
+    {
+        "title": "Never too late to the party!",
+        "date": "11 Dec 2018",
+        "items": [
+            "Added SOV2012 (information and Listen data)",
+            "Added 2018/2019 batch information (thanks Sih-Zau!)",
+            "You can now listen to SOV2012 under the 'Listen' section! (thanks to Trixie for sending in the recordings)"
+        ]
+    },
+    
+    {
+        "title": "Website has been updated!",
+        "date": "03 Dec 2018",
+        "items": ["The website has been updated to give it a fresher, modern look!", "Added proper sections for each item, with relevant information under each item."]
+    }
+]

@@ -1,1 +1,28 @@
-<p>home works!</p>
+<div class="row m-0">
+  <div class="col-sm-12 col-xl-9 mt-3">
+    <div class="header">
+      <h1>{{homeJSON.header.title}}</h1>
+      <div class="col-sm-12 col-xl-8 my-3">
+        <img src="{{homeJSON.header.image}}" class="img-fluid">
+      </div>
+      <p class="my-4">{{homeJSON.header.intro_msg}}</p>
+    </div>
+
+    <hr/>
+
+    <div class="content">
+      <div class="section" *ngFor="let section of homeJSON.sections">
+        <h2>{{section.title}}</h2>
+        <div>
+          <p>{{section.content}}</p>
+        </div>
+        <hr/>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="sider col-sm-0 col-xl-3">
+
+  </div>
+</div>

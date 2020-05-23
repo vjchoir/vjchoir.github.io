@@ -1,5 +1,5 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-
+@import "https://fonts.googleapis.com/css?family=Karla:300,400,500,600,700";
 /* Application-wide Styles */
 
 $base-color: rgb(128, 27, 66);
@@ -12,9 +12,21 @@ $primary-text-inv-color: rgb(255, 255, 255);
 $sidebar-text-color : rgb(255, 255, 255);
 
 $navbar-background-color: rgb(255, 255, 255);
+$sider-background-color: rgb(0, 0, 0, 0.05);
 
 $title-text-font: 'Poppins', sans-serif;
+$primary-text-font: 'Karla', sans-serif;
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $title-text-font;
+}
+
+p {
+  font-family: $primary-text-font;
+  font-size: large;
+}
+
+.sider {
+  background: rgb(0, 0, 0, 0.05);
+  height: 100vh;
 }
