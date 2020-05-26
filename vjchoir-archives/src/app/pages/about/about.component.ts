@@ -9,8 +9,6 @@ import aboutJSON from '../../../assets/data/about.json';
 })
 export class AboutComponent implements OnInit {
 
-  defaultActiveIndex = 0;
-
   aboutJSON: any;
   currActive;
 
@@ -19,7 +17,7 @@ export class AboutComponent implements OnInit {
   ngOnInit() {
     this.aboutJSON = aboutJSON;
     
-    this.currActive = this.aboutJSON[this.defaultActiveIndex];
+    this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
   }
 
 }

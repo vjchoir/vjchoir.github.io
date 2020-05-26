@@ -1,5 +1,17 @@
 <div class="d-flex row ml-0">
-  <button *ngFor="let item of aboutJSON" class="btn btn-outline-primary mx-2" [ngClass]="item == currActive ? 'active' : ''">
+  <button *ngFor="let item of aboutJSON.sections" class="btn btn-outline-primary mx-2" [ngClass]="item == currActive ? 'active' : ''" (click)="currActive = item">
         {{item.title}}
     </button>
 </div>
+
+<div class="content" class="my-3">
+  <div class="section" *ngFor="let section of aboutJSON.sections" [ngClass]="section == currActive ? '' : 'd-none'">
+    <h3>{{section.title}}</h3>
+    <img src="{{section.image}}" class="img-fluid col-12 col-xl-8 px-0 mx-0 mb-2">
+    <div [innerHTML]="section.content">
+    </div>
+  </div>
+
+</div>
+
+<div class="m-5"></div>
