@@ -7,7 +7,7 @@
 <div class="content" class="my-3">
   <div class="section" *ngFor="let section of aboutJSON.sections" [ngClass]="section == currActive ? '' : 'd-none'">
     <h3>{{section.title}}</h3>
-    <img src="{{section.image}}" class="img-fluid col-12 col-xl-8 px-0 mx-0 mb-2">
+    <img src="{{section.image.link}}" class="img-fluid px-0 mx-0 mb-2 {{section.image.styles}}">
     <div [innerHTML]="section.content">
     </div>
   </div>
