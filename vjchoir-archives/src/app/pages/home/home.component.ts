@@ -18,7 +18,8 @@ export class HomeComponent implements OnInit {
   constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.homeJSON = this.homeService.getContent();
+    this.homeService.getContent()
+      .subscribe(home => this.homeJSON = home);
   }
 
 }

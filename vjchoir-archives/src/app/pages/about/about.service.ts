@@ -1,16 +1,16 @@
 import { Injectable } from '@angular/core';
 
-import homeJSON from '../../../assets/data/home.json';
+import aboutJSON from '../../../assets/data/about.json';
 import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class HomeService {
+export class AboutService {
 
   constructor() { }
 
   getContent(): Observable<any> {
-      return of(homeJSON);
+      return of(aboutJSON);
   }
 }

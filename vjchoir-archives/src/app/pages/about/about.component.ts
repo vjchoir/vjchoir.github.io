@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import aboutJSON from '../../../assets/data/about.json';
+import { AboutService } from './about.service';
 
 @Component({
   selector: 'app-about',
@@ -12,10 +12,11 @@ export class AboutComponent implements OnInit {
   aboutJSON: any;
   currActive;
 
-  constructor() { }
+  constructor(private aboutService: AboutService) { }
 
   ngOnInit() {
-    this.aboutJSON = aboutJSON;
+    this.aboutService.getContent()
+      .subscribe(about => this.aboutJSON = about);
     
     this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
   }
