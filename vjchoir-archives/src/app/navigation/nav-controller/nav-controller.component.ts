@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import menuJSON from '../../../assets/data/menu.json';
 import { MenuItem } from '../model/MenuItem';
+
+import { NavControllerService } from './nav-controller.service';
 
 @Component({
   selector: 'nav-controller',
@@ -9,16 +10,38 @@ import { MenuItem } from '../model/MenuItem';
 })
 export class NavControllerComponent implements OnInit {
 
-  private menu = menuJSON;
-  private controller : NavControllerComponent;
-  private currActive : MenuItem;
+  private menu: MenuItem[];
+  private controller: NavControllerComponent;
+  private currActive: MenuItem;
 
-  constructor() { }
+  constructor(private navControllerService: NavControllerService) { }
 
   ngOnInit() {
-    this.menu = menuJSON;
+    this.getMenu();
+    this.setCurrActive();
     this.controller = this;
-    this.currActive = this.menu.items[this.menu.defaultActiveId];
+  }
+
+  private getMenu() {
+    this.navControllerService.getMenuItems()
+      .subscribe(menu => this.menu = menu);
+  }
+
+  private setCurrActive() {
+    const windowName = window.location.href;
+    
+    for(let i = 0; i < this.menu.length; i++) {
+      let item = this.menu[i];
+      
+      if(windowName.includes(item.linkName)) {
+        this.currActive = item;
+        break;
+      }
+    }
+
+    if(!this.currActive) {
+      this.currActive = this.navControllerService.getDefaultActiveItem();
+    }
   }
 
   navigateTo(item) {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
-import homeJSON from '../../../assets/data/home.json';
+
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-home',
@@ -12,14 +13,12 @@ export class HomeComponent implements OnInit {
 
   private homeJSON;
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
   test: string;
 
-  constructor() { }
+  constructor(private homeService: HomeService) { }
 
   ngOnInit() {
-    this.homeJSON = homeJSON;
+    this.homeJSON = this.homeService.getContent();
   }
 
 }
