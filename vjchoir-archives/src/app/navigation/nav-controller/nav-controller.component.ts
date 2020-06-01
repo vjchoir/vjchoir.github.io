@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuItem } from '../model/MenuItem';
 
 import { NavControllerService } from './nav-controller.service';
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'nav-controller',
@@ -14,7 +15,8 @@ export class NavControllerComponent implements OnInit {
   private controller: NavControllerComponent;
   private currActive: MenuItem;
 
-  constructor(private navControllerService: NavControllerService) { }
+  constructor(private navControllerService: NavControllerService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getMenu();

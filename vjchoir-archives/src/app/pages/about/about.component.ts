@@ -18,7 +18,24 @@ export class AboutComponent implements OnInit {
     this.aboutService.getContent()
       .subscribe(about => this.aboutJSON = about);
     
-    this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
+    this.loadInitialSection();
+  }
+
+  private loadInitialSection() {
+    let isLinked = false;
+    for(let i = 0; i < this.aboutJSON.sections.length; i++) {
+      let tempItem = this.aboutJSON.sections[i];
+      if(window.location.href.includes(tempItem.id)) {
+        this.currActive = tempItem;
+        isLinked = true;
+        break;
+      }
+    }
+
+    if(!isLinked) {
+      this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
+      window.location.replace(window.location.href + "#" + this.currActive.id);
+    }
   }
 
 }
