@@ -1,1 +1,26 @@
-<p>batches works!</p>
+<div class="d-flex row ml-0">
+  <button class="btn btn-outline-primary mx-1 mb-2" [ngClass]="currActive ? '' : 'active'" (click)="currActive = null">
+      Home
+    </button>
+  <button *ngFor="let batch of batches" class="btn btn-outline-primary mx-1 mb-2" [ngClass]="batch == currActive ? 'active' : ''" (click)="currActive = batch">
+          {{batch.name}}
+      </button>
+</div>
+
+<div class="content" class="my-3">
+  <div class="section" [ngClass]="currActive ? 'd-none' : ''">
+
+    <h3>{{batchesIntro.title}}</h3>
+    <div [innerHTML]="batchesIntro.msg">
+    </div>
+
+    <hr/>
+
+    <div class="container-fluid d-flex align-content-start flex-wrap">
+      <div *ngFor="let batch of batches" class="batch-link col-12 col-xl-6 my-3">
+        <img src="{{batch.image}}" class="img-fluid" />
+        <h4 class="my-2 text-center">Batch of {{batch.name}}</h4>
+      </div>
+    </div>
+  </div>
+</div>

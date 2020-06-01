@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BatchesService } from './batches.service';
+import { BatchItem } from './model/BatchItem';
 
 @Component({
   selector: 'app-batches',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BatchesComponent implements OnInit {
 
-  constructor() { }
+  batches: BatchItem;
+  batchesIntro: any;
+  currActive: BatchItem;
+
+  constructor(private batchesService: BatchesService) { }
 
   ngOnInit() {
+    this.batchesService.getBatches().subscribe(batches => this.batches = batches);
+    this.batchesService.getIntro().subscribe(intro => this.batchesIntro = intro);
   }
 
 }

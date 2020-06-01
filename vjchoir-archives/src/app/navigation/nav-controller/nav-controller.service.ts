@@ -2,7 +2,6 @@ import { Injectable } from "@angular/core";
 
 import menuJSON from "../../../assets/data/menu.json";
 import { MenuItem } from "../model/MenuItem";
-import { link } from "fs";
 import { Observable, of } from "rxjs";
 
 @Injectable({

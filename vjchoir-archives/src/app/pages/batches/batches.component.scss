@@ -1,0 +1,9 @@
+@import "../../../styles.scss";
+.batch-link {
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background: $accent-color;
+    border-radius: 0.2em;
+  }
+}
