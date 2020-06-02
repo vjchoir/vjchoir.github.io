@@ -16,6 +16,7 @@ export class BatchesService {
     if (!this.batchesItems) {
       this.batchesItems = batchesJSON.batches.map((batch) => {
         let tempItem: BatchItem = {
+          id: batch.id,
           name: batch.name,
           image: batch.image,
           desc: batch.batch_description,
