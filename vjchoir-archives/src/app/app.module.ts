@@ -18,6 +18,7 @@ import { NavControllerComponent } from './navigation/nav-controller/nav-controll
 import { SiderComponent } from './navigation/sider/sider.component';
 import { AppendNamesPipe } from './pipes/append-names.pipe';
 import { SafePipe } from './pipes/safe-link-pipe';
+import { PlayerComponent } from './music/player/player.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { SafePipe } from './pipes/safe-link-pipe';
     NavControllerComponent,
     SiderComponent,
     AppendNamesPipe,
-    SafePipe
+    SafePipe,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
