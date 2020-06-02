@@ -41,17 +41,4 @@ export class BatchesComponent implements OnInit {
       }
   }
 
-  private appendNames(array: any[]) {
-    let output: string = "";
-    for(let i = 0; i < array.length; i++) {
-      if(i != array.length - 1) {
-        output += array[i] + ", "
-      } else {
-        output += array[i]
-      }
-    }
-
-    return output;
-  }
-
 }
