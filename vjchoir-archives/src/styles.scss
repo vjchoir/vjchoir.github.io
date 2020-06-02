@@ -52,6 +52,10 @@ p {
   }
 }
 
+.badge-primary {
+  background: $accent-color;
+}
+
 ngb-carousel {
   &:focus {
     outline: none;
