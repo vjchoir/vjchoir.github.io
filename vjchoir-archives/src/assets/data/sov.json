@@ -142,7 +142,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
@@ -157,13 +157,13 @@
               "links": [{
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/iwct39dgkpx9e9w/SOV2019.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "192 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/open?id=1d12p-8S4V0VajmoV6LY9hK9YitRL88Z3",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "192 MB"
                 }
               ]
@@ -289,7 +289,7 @@
       ],
       "links": {
         "yt": {
-          "link": "https://www.youtube.com/embed/videoseries?list=PLhz3lrGQP-AiYBnxKclfPkJXyNaXsAlvo&v=UuqgnGfFN-I",
+          "link": "https://www.youtube.com/embed/videoseries?list=PLhz3lrGQP-Ah7GJBnts7VCtUAGHvnUgqj",
           "desc": "The entire SOV2018 playlist has been uploaded to YouTube for everyone to watch."
         },
         "dls": {
@@ -300,7 +300,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
@@ -310,7 +310,7 @@
               "links": [{
                 "title": "Dropbox",
                 "link": "https://www.dropbox.com/sh/rv6q4sl6hato7y7/AAAJU7T1J9ecNbyfqujqR_zCa?dl=0",
-                "icon": "cloud_download",
+                "icon": "fab fa-dropbox",
                 "size": ""
               }]
             },
@@ -320,19 +320,19 @@
               "links": [{
                   "title": "Box",
                   "link": "https://app.box.com/s/3wselmmulduax2vycu8qsdudxecd254u",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-box-open",
                   "size": "150 MB"
                 },
                 {
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/6xxh9igrawqjmsx/SOV2018.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "150 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/open?id=1v59qpiYSrSBgPZX9AZWWw9cImb4ovBEJ",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "150 MB"
                 }
               ]
@@ -481,7 +481,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
@@ -491,7 +491,7 @@
               "links": [{
                 "title": "Dropbox",
                 "link": "https://www.dropbox.com/sh/t2ojfmo7o0hbz3i/AABqUv572E2KpzVx6NRRkYhYa?dl=0&lst=",
-                "icon": "cloud_download",
+                "icon": "fab fa-dropbox",
                 "size": "30.9 GB"
               }]
             },
@@ -501,19 +501,19 @@
               "links": [{
                   "title": "Box",
                   "link": "https://app.box.com/s/6yazwt0qeyjx9kps29hkhb62b1oy91f9",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-box-open",
                   "size": "160 MB"
                 },
                 {
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/pcwldlm4bmovzt9/SOV2017.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "160 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/open?id=0B24yMaqyw1RwWEZqbmVFeHNHeDg",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "160 MB"
                 }
               ]
@@ -651,7 +651,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
@@ -661,7 +661,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/open?id=0B24yMaqyw1Rwa2gteGJGNFpmXzQ",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "3.0 GB"
               }]
             },
@@ -671,19 +671,19 @@
               "links": [{
                   "title": "Box",
                   "link": "https://app.box.com/s/e2xioxf2414wjutzcquvfcm91wripkix",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-box-open",
                   "size": "170 MB"
                 },
                 {
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/4s8myqpzbhes6nm/SOV2016.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "170 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/open?id=0B24yMaqyw1Rwa2gteGJGNFpmXzQ",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "170 MB"
                 }
               ]
@@ -845,7 +845,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
@@ -855,7 +855,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1RwfkkycW9oY3VJUXF5S0ltdHJidGFFTlhWTlhuT1d6SnVWemJwZHgwdzY5clU?usp=sharing",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "3.0 GB"
               }]
             },
@@ -865,25 +865,25 @@
               "links": [{
                   "title": "Box",
                   "link": "https://app.box.com/s/d4qptb16kn9665a2tzyr1sis169koypo",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-box-open",
                   "size": "120 MB"
                 },
                 {
                   "title": "Dropbox",
                   "link": "https://dl.dropboxusercontent.com/u/30533021/SOV2015.zip",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "120 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/drive/folders/0B24yMaqyw1RwfkkycW9oY3VJUXF5S0ltdHJidGFFTlhWTlhuT1d6SnVWemJwZHgwdzY5clU?usp=sharing",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "120 MB"
                 },
                 {
                   "title": "Mega",
                   "link": "https://mega.co.nz/#F!7d5BgRST!CPPfTSpNdbCnpcBtzSQRdg",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-cloud-download-alt",
                   "size": "120 MB"
                 }
               ]
@@ -1038,23 +1038,23 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": ""
               }]
             },
             {
               "title": "Video",
-              "desc": "The entire video files can be found in the above links.</br></br>Link 1 code:</br> rxrl5d0T1e_7EEXevTQoYjz9-ZBNqBLLsSABWWCw0W4</br></br>Link 2 code:</br> rxrl5d0T1e_7EEXevTQoYjz9-ZBNqBLLsSABWWCw0W4",
+              "desc": "The entire video files can be found in the above links. Link 1 code: rxrl5d0T1e_7EEXevTQoYjz9-ZBNqBLLsSABWWCw0W4; Link 2 code: rxrl5d0T1e_7EEXevTQoYjz9-ZBNqBLLsSABWWCw0W4",
               "links": [{
                   "title": "MEGA (link 1)",
                   "link": "https://mega.co.nz/#!M9p2lJzB",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-cloud-download-alt",
                   "size": "about 0.75 GB"
                 },
                 {
                   "title": "MEGA (link 2)",
                   "link": "https://mega.co.nz/#!spQy3D6B",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-cloud-download-alt",
                   "size": "about 0.75 GB"
                 }
               ]
@@ -1065,13 +1065,13 @@
               "links": [{
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/px7vhfc4qlbh5tp/SOV2014.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "169 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/drive/folders/1GJNYVfv2AyQ7dyPLOedNjALGwwKiQlyn?usp=sharing",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "169 MB"
                 }
               ]
@@ -1219,7 +1219,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": "1.0 GB"
               }]
             },
@@ -1229,7 +1229,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "1.0 GB"
               }]
             },
@@ -1239,19 +1239,19 @@
               "links": [{
                   "title": "Box",
                   "link": "https://app.box.com/s/3s8k6yy3glwhccbm97njif0bvqespxh7",
-                  "icon": "cloud_download",
+                  "icon": "fas fa-box-open",
                   "size": "140 MB"
                 },
                 {
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/p9sx170keu334u3/SOV2013.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "140 MB"
                 },
                 {
                   "title": "Google Drive",
                   "link": "https://drive.google.com/folderview?id=0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg&usp=sharing",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "140 MB"
                 }
               ]
@@ -1381,7 +1381,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": "1.0 GB"
               }]
             },
@@ -1391,7 +1391,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/open?id=1e0CH_KSxBV056t2OccWtLDcv7gM_5b81",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "345 MB"
               }]
             },
@@ -1401,7 +1401,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/open?id=1e0CH_KSxBV056t2OccWtLDcv7gM_5b81",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "142 MB"
               }]
             }
@@ -1555,7 +1555,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/drive/folders/0B24yMaqyw1Rwfkk1MEo1Wk43YkNiUGx6TVNBTVNmaG80ZVZRRE81TTUySjZnSEZuX1JNbjg",
-                "icon": "all_inbox",
+                "icon": "fab fa-google-drive",
                 "size": "1.0 GB"
               }]
             },
@@ -1565,7 +1565,7 @@
               "links": [{
                 "title": "Google Drive",
                 "link": "https://drive.google.com/open?id=1ua7hew63pWFDmuKXSUpQ3WZoaC1YFUNt",
-                "icon": "cloud_download",
+                "icon": "fab fa-google-drive",
                 "size": "1.97 GB"
               }]
             },
@@ -1575,14 +1575,14 @@
               "links": [{
                   "title": "Google Drive",
                   "link": "https://drive.google.com/open?id=1ua7hew63pWFDmuKXSUpQ3WZoaC1YFUNt",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-google-drive",
                   "size": "158 MB"
                 },
 
                 {
                   "title": "Dropbox",
                   "link": "https://www.dropbox.com/s/botybzz7teuuzzq/SOV2010.zip?dl=0",
-                  "icon": "cloud_download",
+                  "icon": "fab fa-dropbox",
                   "size": "158 MB"
                 }
               ]

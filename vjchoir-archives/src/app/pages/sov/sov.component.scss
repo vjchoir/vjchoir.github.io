@@ -28,3 +28,12 @@
     }
   }
 }
+
+.links {
+  a {
+    font-family: $primary-text-font;
+  }
+  .link-col:not(:last-child) {
+    border-right: 1px $sider-background-color solid;
+  }
+}

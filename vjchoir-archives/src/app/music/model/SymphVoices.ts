@@ -14,4 +14,5 @@ export interface SymphVoices {
     intro?: string;
     artwork: string;
     repertoire: Playlist;
+    links?: any;
 }

@@ -58,6 +58,7 @@ export class SovService {
         intro: jsonItem.intro,
         artwork: jsonItem.artwork,
         repertoire: tempRepertoire,
+        links: jsonItem.links
       };
 
       this.sovInfo.push(tempSOV);

@@ -17,6 +17,7 @@ import { MiscComponent } from './pages/misc/misc.component';
 import { NavControllerComponent } from './navigation/nav-controller/nav-controller.component';
 import { SiderComponent } from './navigation/sider/sider.component';
 import { AppendNamesPipe } from './pipes/append-names.pipe';
+import { SafePipe } from './pipes/safe-link-pipe';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { AppendNamesPipe } from './pipes/append-names.pipe';
     MiscComponent,
     NavControllerComponent,
     SiderComponent,
-    AppendNamesPipe
+    AppendNamesPipe,
+    SafePipe
   ],
   imports: [
     BrowserModule,
