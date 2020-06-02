@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { SovService } from './sov.service';
+import { SymphVoices } from 'src/app/music/model/SymphVoices';
 
 @Component({
   selector: 'app-sov',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SovComponent implements OnInit {
 
-  constructor() { }
+  sovInfo: SymphVoices[];
+
+  constructor(private sovService: SovService) { }
 
   ngOnInit() {
+    this.sovService.getContent().subscribe(info => this.sovInfo = info);
+
+    console.log(this.sovInfo);
   }
 
 }
