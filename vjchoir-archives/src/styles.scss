@@ -56,6 +56,18 @@ p {
   background: $accent-color;
 }
 
+.link {
+  cursor: pointer;
+  &:hover {
+    color: white;
+    background: $accent-color;
+    border-radius: 0.3em;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
 ngb-carousel {
   &:focus {
     outline: none;

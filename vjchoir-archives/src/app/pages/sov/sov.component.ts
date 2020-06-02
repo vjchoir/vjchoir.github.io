@@ -9,12 +9,16 @@ import { SymphVoices } from 'src/app/music/model/SymphVoices';
 })
 export class SovComponent implements OnInit {
 
+  sovIntro;
   sovInfo: SymphVoices[];
+
+  currActive: SymphVoices;
 
   constructor(private sovService: SovService) { }
 
   ngOnInit() {
-    this.sovService.getContent().subscribe(info => this.sovInfo = info);
+    this.sovService.getSovIntro().subscribe(intro => this.sovIntro = intro);
+    this.sovService.getSovInfo().subscribe(info => this.sovInfo = info);
 
     console.log(this.sovInfo);
   }
