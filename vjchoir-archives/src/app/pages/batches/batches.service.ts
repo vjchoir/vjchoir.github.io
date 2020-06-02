@@ -19,7 +19,7 @@ export class BatchesService {
           id: batch.id,
           name: batch.name,
           image: batch.image,
-          desc: batch.batch_description,
+          desc: batch.desc,
           comms: batch.comms,
           sections: batch.sections,
         };

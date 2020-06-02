@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbCarousel } from '@ng-bootstrap/ng-bootstrap';
 
 import { HomeService } from './home.service';
 

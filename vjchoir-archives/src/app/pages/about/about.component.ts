@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 
 import { AboutService } from './about.service';
 
@@ -7,10 +7,17 @@ import { AboutService } from './about.service';
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.scss']
 })
+
+
 export class AboutComponent implements OnInit {
 
   aboutJSON: any;
   currActive;
+
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    this.loadInitialSection();
+  }
 
   constructor(private aboutService: AboutService) { }
 
@@ -22,6 +29,7 @@ export class AboutComponent implements OnInit {
   }
 
   private loadInitialSection() {
+    this.currActive = null;
     let isLinked = false;
     for(let i = 0; i < this.aboutJSON.sections.length; i++) {
       let tempItem = this.aboutJSON.sections[i];
@@ -32,7 +40,7 @@ export class AboutComponent implements OnInit {
       }
     }
 
-    if(!isLinked) {
+    if(!isLinked && window.location.href.includes("about")) {
       this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
       window.location.replace(window.location.href + "#" + this.currActive.id);
     }

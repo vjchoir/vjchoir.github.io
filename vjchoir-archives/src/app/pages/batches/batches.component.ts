@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { BatchesService } from './batches.service';
 import { BatchItem } from './model/BatchItem';
 
@@ -13,6 +13,11 @@ export class BatchesComponent implements OnInit {
   batchesIntro: any;
   currActive: BatchItem;
 
+  @HostListener('window:popstate', ['$event'])
+  onPopState(event) {
+    this.loadInitialSection();
+  }
+
   constructor(private batchesService: BatchesService) { }
 
   ngOnInit() {
@@ -23,20 +28,30 @@ export class BatchesComponent implements OnInit {
   }
 
   private loadInitialSection() {
+    this.currActive = null;
     let isLinked = false;
-    for(let i = 0; i < this.batches.length; i++) {
-      let tempItem = this.batches[i];
-      if(window.location.href.includes(tempItem.id)) {
-        this.currActive = tempItem;
-        isLinked = true;
-        break;
+
+      for(let i = 0; i < this.batches.length; i++) {
+        let tempItem = this.batches[i];
+        if(window.location.href.includes(tempItem.id)) {
+          this.currActive = tempItem;
+          isLinked = true;
+          break;
+        }
+      }
+  }
+
+  private appendNames(array: any[]) {
+    let output: string = "";
+    for(let i = 0; i < array.length; i++) {
+      if(i != array.length - 1) {
+        output += array[i] + ", "
+      } else {
+        output += array[i]
       }
     }
 
-    if(!isLinked) {
-      this.currActive = null;
-      window.location.replace(window.location.href + "#" + "home");
-    }
+    return output;
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { MenuItem } from '../model/MenuItem';
 
 import { NavControllerService } from './nav-controller.service';
@@ -14,6 +14,11 @@ export class NavControllerComponent implements OnInit {
   private menu: MenuItem[];
   private controller: NavControllerComponent;
   private currActive: MenuItem;
+
+  @HostListener("window:popstate", ["$event"])
+  onPopState(event) {
+    console.log(event);
+  }
 
   constructor(private navControllerService: NavControllerService,
               private router: Router) { }
@@ -48,5 +53,7 @@ export class NavControllerComponent implements OnInit {
 
   navigateTo(item) {
     this.currActive = item;
+
+    window.scroll(0, 0);
   }
 }

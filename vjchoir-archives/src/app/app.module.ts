@@ -16,6 +16,7 @@ import { ContributeComponent } from './pages/contribute/contribute.component';
 import { MiscComponent } from './pages/misc/misc.component';
 import { NavControllerComponent } from './navigation/nav-controller/nav-controller.component';
 import { SiderComponent } from './navigation/sider/sider.component';
+import { AppendNamesPipe } from './pipes/append-names.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SiderComponent } from './navigation/sider/sider.component';
     ContributeComponent,
     MiscComponent,
     NavControllerComponent,
-    SiderComponent
+    SiderComponent,
+    AppendNamesPipe
   ],
   imports: [
     BrowserModule,

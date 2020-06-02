@@ -6,4 +6,7 @@
     background: $accent-color;
     border-radius: 0.3em;
   }
+  &:focus {
+    outline: none;
+  }
 }

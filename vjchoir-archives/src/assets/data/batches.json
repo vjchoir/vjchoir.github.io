@@ -7,7 +7,7 @@
       "id": "1920",
       "name": "2019 / 2020",
       "image": "../../../assets/images/batches/1920/batch.jpeg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2019 - 2020.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2019 - 2020.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1920/exco.jpg",
@@ -36,7 +36,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Jewel Lee (SL)",
             "Nicole Lim En-Si",
@@ -52,7 +52,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Stella Andreanna (SL)",
             "Kaaviya Pandiyan",
@@ -70,7 +70,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Athuf Hashiholan (SL)",
             "Zhao Shibo",
@@ -82,7 +82,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Wong Zheng Jie (SL)",
             "Nicholas Lai Rui Onn",
@@ -99,7 +99,7 @@
       "id": "1819",
       "name": "2018 / 2019",
       "image": "../../../assets/images/batches/1819/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2018 - 2019.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2018 - 2019.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1819/exco.jpg",
@@ -126,7 +126,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Magdeleine (SL)",
             "Chloe Kow",
@@ -141,7 +141,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Devy Anggreni (SL)",
             "Stephanie Lee",
@@ -156,7 +156,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Cyrus Tan (SL)",
             "Edwin Seow",
@@ -165,7 +165,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Tristan Chia (SL)",
             "Yang Si Jun",
@@ -181,7 +181,7 @@
       "id": "1718",
       "name": "2017 / 2018",
       "image": "../../../assets/images/batches/1718/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2017 - 2018.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2017 - 2018.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1718/exco.jpg",
@@ -208,7 +208,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Lee Yu Xian (SL)",
             "Arista Lim",
@@ -227,7 +227,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Sofie Buligis (SL)",
             "Dayne Taniajura",
@@ -248,7 +248,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Japheth Leong (SL)",
             "Seow Mao Yu",
@@ -260,7 +260,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Sng Wei En (SL)",
             "Matthias Lee",
@@ -277,7 +277,7 @@
       "id": "1617",
       "name": "2016 / 2017",
       "image": "../../../assets/images/batches/1617/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2016 - 2017.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2016 - 2017.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1617/exco.jpg",
@@ -315,7 +315,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Cherylene (SL)",
             "Shivaane",
@@ -331,7 +331,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Rianne (SL)",
             "Grace",
@@ -345,7 +345,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Lloyd (SL)",
             "Ming Feng",
@@ -356,7 +356,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Martin (SL)",
             "Li Yu Xuan",
@@ -376,7 +376,7 @@
       "id": "1516",
       "name": "2015 / 2016",
       "image": "../../../assets/images/batches/1516/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2015 - 2016.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2015 - 2016.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1516/exco.jpg",
@@ -416,7 +416,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Sheryl Chow (SL)",
             "Nadya",
@@ -432,7 +432,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Lee Zhi Xin (SL)",
             "Allysia Dee",
@@ -445,7 +445,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Toh Hong Jin (SL)",
             "Jeremy Chua",
@@ -455,7 +455,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Ng Jun Ren (SL)",
             "Donavan Tan",
@@ -473,7 +473,7 @@
       "id": "1415",
       "name": "2014 / 2015",
       "image": "../../../assets/images/batches/1415/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2014 - 2015.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2014 - 2015.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1415/exco.jpg",
@@ -513,7 +513,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Vanessa Kee (SL)",
             "Calista Loh",
@@ -533,7 +533,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Koh Beiyi (SL)",
             "Wyn Lim",
@@ -548,7 +548,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Justin Wong (SL)",
             "Kevin Tay",
@@ -562,7 +562,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Tan Wei Xi (SL)",
             "Daniel Hoe",
@@ -581,7 +581,7 @@
       "id": "1314",
       "name": "2013 / 2014",
       "image": "../../../assets/images/batches/1314/batch.jpg",
-      "batch_description": "Hi there! This page contains information pertaining to the batch of 2013 - 2014.",
+      "desc": "Hi there! This page contains information pertaining to the batch of 2013 - 2014.",
       "comms": [{
           "name": "Exco",
           "img": "../../../assets/images/batches/1314/exco.jpg",
@@ -620,7 +620,7 @@
         }
       ],
       "sections": [{
-          "section": "Sopranos",
+          "name": "Sopranos",
           "members": [
             "Kiang Wen Jen (SL)",
             "Elsa Tong",
@@ -634,7 +634,7 @@
           ]
         },
         {
-          "section": "Altos",
+          "name": "Altos",
           "members": [
             "Shafiqah Shahrin (SL)",
             "Jodie Ng",
@@ -649,7 +649,7 @@
           ]
         },
         {
-          "section": "Tenors",
+          "name": "Tenors",
           "members": [
             "Baek Jongwoo (SL)",
             "Mitchell Yap",
@@ -660,7 +660,7 @@
           ]
         },
         {
-          "section": "Basses",
+          "name": "Basses",
           "members": [
             "Shaun Goh (SL)",
             "Aloysius Eng",
