@@ -39,7 +39,7 @@
           <p class="np-title m-0">{{nowPlaying.title}}</p>
           <p class="np-composer m-0"><small>by {{nowPlaying.composer}}</small></p>
           <hr/>
-          <p class="np-playlist-title"><a routerLink="/sov" fragment="{{currActivePlaylist.abbr}}" (click)="onLinkClick(currActivePlaylist)" class="sov-link">{{currActivePlaylist.title}}</a></p>
+          <p class="np-playlist-title"><a routerLink="/sov" fragment="{{currActivePlaylist.abbr}}" (click)="linkClickEmitter.emit(currActivePlaylist)" class="sov-link">{{currActivePlaylist.title}}</a></p>
         </div>
       </div>
       <plyr plyrType="audio" [plyrSources]="audioSources" (plyrCanPlay)="onCanPlay()" (plyrEnded)="loadNextSong()" (plyrPlay)="isPlaying = true" (plyrPause)="isPlaying = false"></plyr>
@@ -48,7 +48,7 @@
       <button class="btn" [ngClass]="currDisplayedPlaylist ? '' : 'd-none'" (click)="onBackClick()"><small><i class="fa fa-arrow-left"></i></small></button>
       <div class="d-flex justify-content-between">
         <h6 class="text-left p-2 m-0 my-auto">{{activeWindowTitle}}</h6>
-        <span *ngIf="currDisplayedPlaylist" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{currDisplayedPlaylist.abbr}}" (click)="onLinkClick(currDisplayedPlaylist)">PAGE</span>
+        <span *ngIf="currDisplayedPlaylist" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{currDisplayedPlaylist.abbr}}" (click)="linkClickEmitter.emit(currActivePlaylist)">PAGE</span>
       </div>
     </div>
     <div id="player-playlists" class="player-playlists d-flex flex-column">

@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SovService } from './sov.service';
 import { SymphVoices } from 'src/app/music/model/SymphVoices';
-import { Router, NavigationStart } from '@angular/router';
+import { Router, NavigationStart, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sov',
@@ -14,25 +14,9 @@ export class SovComponent implements OnInit {
   sovInfo: SymphVoices[];
 
   currActive: SymphVoices;
-  
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
-    this.loadInitialSection();
-  }
 
   constructor(private sovService: SovService, private router: Router) { 
-    router.events.subscribe(val => {
-        if(val instanceof NavigationStart) {
-          if(val.url.includes('sov#')) {
-            let searchTerm = val.url.split('#')[1];
-            let temp = this.sovInfo.filter(x => {
-              return x.abbr.includes(val.url.split('#')[1]);
-            });
-
-            this.currActive = temp[0];  
-          }
-        }
-    });
+    
   }
 
   ngOnInit() {
@@ -40,7 +24,15 @@ export class SovComponent implements OnInit {
     this.sovService.getSovInfo().subscribe(info => this.sovInfo = info);
 
     this.loadInitialSection();
-    console.log(this.sovInfo);
+  }
+
+  ngAfterViewInit() {
+    this.router.events.subscribe(val => {
+      if(val instanceof NavigationEnd && val.url.includes('sov#')) {
+        const fragmentCode = val.url.split('#')[1];
+        this.navigateToFragment(fragmentCode);
+      }
+    })
   }
 
   private loadInitialSection() {
@@ -55,5 +47,14 @@ export class SovComponent implements OnInit {
           break;
         }
       }
+  }
+
+  navigateToFragment(fragmentCode) {
+    let temp = this.sovInfo.filter(x => {
+      return x.abbr.includes(fragmentCode);
+    });
+
+    this.currActive = temp[0];
+    window.scroll(0, 0);
   }
 }

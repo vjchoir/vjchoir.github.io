@@ -1,8 +1,13 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ViewChildren, QueryList } from '@angular/core';
 import { MenuItem } from '../model/MenuItem';
 
 import { NavControllerService } from './nav-controller.service';
-import { Router } from '@angular/router'
+import { Router, NavigationStart } from '@angular/router'
+import { HomeComponent } from 'src/app/pages/home/home.component';
+import { AboutComponent } from 'src/app/pages/about/about.component';
+import { BatchesComponent } from 'src/app/pages/batches/batches.component';
+import { SovComponent } from 'src/app/pages/sov/sov.component';
+import { PlayerComponent } from 'src/app/music/player/player.component';
 
 @Component({
   selector: 'nav-controller',
@@ -11,22 +16,45 @@ import { Router } from '@angular/router'
 })
 export class NavControllerComponent implements OnInit {
 
+  @ViewChild(HomeComponent, {static: false})
+  homeComponent: HomeComponent
+
+  @ViewChild(AboutComponent, {static: false})
+  aboutComponent: AboutComponent
+
+  @ViewChild(BatchesComponent, {static: false})
+  batchesComponent: BatchesComponent
+
+  @ViewChildren("sovComponents")
+  public sovComponents: QueryList<SovComponent>
+  private sovComponent;
+
+  @ViewChild(PlayerComponent, {static: false})
+  playerComponent: PlayerComponent
+
   private menu: MenuItem[];
   private controller: NavControllerComponent;
   private currActive: MenuItem;
 
-  @HostListener("window:popstate", ["$event"])
-  onPopState(event) {
-    console.log(event);
+  constructor(private navControllerService: NavControllerService, private router: Router) {
+    this.router.events.subscribe(val => {
+      if(val instanceof NavigationStart && val.url.includes('sov#')) {
+          console.log(val)
+          this.navigateToLink(val.url);
+      }
+    });
   }
-
-  constructor(private navControllerService: NavControllerService,
-              private router: Router) { }
 
   ngOnInit() {
     this.getMenu();
     this.setCurrActive();
     this.controller = this;
+  }
+
+  ngAfterViewInit(): void {
+    this.sovComponents.changes.subscribe((sovs: QueryList<SovComponent>) => {
+        this.sovComponent = sovs.first;
+    });
   }
 
   private getMenu() {
@@ -57,8 +85,8 @@ export class NavControllerComponent implements OnInit {
     window.scroll(0, 0);
   }
 
-  navigateToLink(item) {
-    if(item.abbr) {
+  navigateToLink(url: string) {
+    if(url.toLowerCase().includes('sov')) {
       let temp = this.menu.filter(x => x.linkName.includes('sov'));
       this.navigateTo(temp[0]);
     }

@@ -14,7 +14,7 @@ export class PlayerComponent implements OnInit {
   @ViewChild(PlyrComponent, { static: false })
   plyr: PlyrComponent;
 
-  @Output() linkClick = new EventEmitter();
+  @Output() linkClickEmitter = new EventEmitter();
 
   sovInfo: any;
   isMinimised: boolean;
@@ -26,7 +26,6 @@ export class PlayerComponent implements OnInit {
   currActivePlaylist;
 
   nowPlaying: Song;
-  
 
   playerPlaylistsWindow: HTMLElement;
 
@@ -132,9 +131,5 @@ export class PlayerComponent implements OnInit {
     if(!this.isJustLoaded) {
       this.plyr.player.play();
     }
-  }
-
-  onLinkClick(sov) {
-    this.linkClick.emit(sov);
   }
 }
