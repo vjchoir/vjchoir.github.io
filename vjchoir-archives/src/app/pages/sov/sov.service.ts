@@ -33,7 +33,7 @@ export class SovService {
           title: tempJSON.name,
           composer: tempJSON.composer,
           duration: tempJSON.duration,
-          link: tempJSON.mp3,
+          src: "../assets/audio/" + jsonItem.abbr + tempJSON.mp3 + ".mp3",
         };
 
         tempTracks.push(tempSong);

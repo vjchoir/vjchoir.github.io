@@ -1,4 +1,4 @@
-<div class="player-layout fixed-bottom right" [ngClass]="isMinimised ? 'active' : ''">
+<div class="player-layout fixed-bottom d-inline-block" [ngClass]="isMinimised ? 'active' : ''">
   <div class="player-header" (click)="isMinimised = !isMinimised">
     <div class="row justify-content-between mx-4 py-3">
       <p class="m-0">Player</p>
@@ -12,4 +12,15 @@
     <plyr plyrType="audio" [plyrSources]="audioSources"></plyr>
   </div>
 
+  <div class="player-playlists d-flex flex-column">
+    <h6 class="text-left p-2 m-0">Playlists</h6>
+    <div class="col m-0 p-0">
+      <div class="player-playlists-item row m-0" *ngFor="let sov of sovInfo">
+        <img src="{{sov.artwork}}">
+        <p class="my-auto ml-3">{{sov.title}}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="player-playlist"></div>
 </div>

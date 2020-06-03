@@ -24,8 +24,11 @@ export class PlayerComponent implements OnInit {
   constructor(private sovService: SovService) { }
 
   ngOnInit() {
-    this.isMinimised = true;
+    this.isMinimised = false;
     this.sovService.getSovInfo().subscribe(info => this.sovInfo = info);
+  }
+
+  nextTrack() {
   }
 
 }
