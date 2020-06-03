@@ -1,3 +1,15 @@
-<div class="player-layout fixed-bottom right">
+<div class="player-layout fixed-bottom right" [ngClass]="isMinimised ? 'active' : ''">
+  <div class="player-header" (click)="isMinimised = !isMinimised">
+    <div class="row justify-content-between mx-4 py-3">
+      <p class="m-0">Player</p>
+      <i class="fas fa-caret-down mt-1" [ngClass]="isMinimised ? 'd-none' : ''"></i>
+      <i class="fas fa-caret-up mt-1" [ngClass]="!isMinimised ? 'd-none' : ''"></i>
+    </div>
+    <hr class="my-0" />
+  </div>
+
+  <div class="player-plyr">
+    <plyr plyrType="audio" [plyrSources]="audioSources"></plyr>
+  </div>
 
 </div>

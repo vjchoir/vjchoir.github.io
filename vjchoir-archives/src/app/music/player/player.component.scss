@@ -1,11 +1,25 @@
+@import "../../../styles.scss";
 .player-layout {
-    right: 25px;
-    width: 500px;
-    height: 300px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    text-align: center;
+  right: 25px;
+  width: 500px;
+  height: 500px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background: $background-color;
+  text-align: center;
+  transition: all 0.3s;
+
+  .player-header {
+    cursor: pointer;
+    &:hover {
+      background: $sider-background-color;
+    }
+  }
+
+  &.active {
+    bottom: -225px;
+  }
 }
 
 .fixed-bottom {
-    left: auto;
+  left: auto;
 }

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
+import { PlyrModule } from 'ngx-plyr';
 
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
@@ -42,7 +43,8 @@ import { PlayerComponent } from './music/player/player.component';
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
-    NgbCarouselModule
+    NgbCarouselModule,
+    PlyrModule
   ],
   providers: [],
   bootstrap: [AppComponent]
