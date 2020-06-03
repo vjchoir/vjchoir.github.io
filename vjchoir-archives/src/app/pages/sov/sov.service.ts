@@ -29,11 +29,12 @@ export class SovService {
       for (let j = 0; j < jsonItem.repertoire.length; j++) {
         const tempJSON = jsonItem.repertoire[j];
         let tempSong: Song = <Song>{
+          playlistId: i,
           id: j,
           title: tempJSON.name,
           composer: tempJSON.composer,
           duration: tempJSON.duration,
-          src: "../assets/audio/" + jsonItem.abbr + tempJSON.mp3 + ".mp3",
+          src: "../assets/audio/" + jsonItem.abbr + "/" + tempJSON.mp3 + ".mp3",
         };
 
         tempTracks.push(tempSong);

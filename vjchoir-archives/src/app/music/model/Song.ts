@@ -1,4 +1,5 @@
 export interface Song {
+    playlistId: number;
     id: number;
     title: string;
     desc?: string;
