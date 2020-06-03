@@ -32,6 +32,15 @@
   </div>
 
   <div class="player-plyr">
+    <div class="player-info row m-0">
+      <img src="{{currActivePlaylist.artwork}}" class="w-25 my-auto">
+      <div class="col m-0 p-0 mx-2 my-2 text-left">
+        <p class="np-title m-0">{{nowPlaying.title}}</p>
+        <p class="np-composer"><small>{{nowPlaying.composer}}</small></p>
+        <hr/>
+        <p class="np-playlist-title">{{currActivePlaylist.title}}</p>
+      </div>
+    </div>
     <plyr plyrType="audio" [plyrSources]="audioSources" (plyrCanPlay)="onCanPlay()" (plyrEnded)="loadNextSong()"></plyr>
   </div>
   <div class="player-active-window-header row p-0 m-0">

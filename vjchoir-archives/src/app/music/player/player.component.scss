@@ -70,6 +70,23 @@
     width: 50px;
     height: 50px;
   }
+  .player-info {
+    img {
+      max-width: 125px;
+      max-height: 125px;
+    }
+    .np-title {
+      font-size: larger;
+    }
+    .np-composer {
+      color: $primary-text-color-faded;
+      font-family: 'Catamaran', 'sans-serif'
+    }
+    .np-playlist-title {
+      font-size: larger;
+      color: $primary-text-color-faded;
+    }
+  }
 }
 
 .big-play-button {
