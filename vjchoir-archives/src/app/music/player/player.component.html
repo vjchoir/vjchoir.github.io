@@ -46,7 +46,10 @@
     </div>
     <div class="player-active-window-header row p-0 m-0">
       <button class="btn" [ngClass]="currDisplayedPlaylist ? '' : 'd-none'" (click)="onBackClick()"><small><i class="fa fa-arrow-left"></i></small></button>
-      <h6 class="text-left p-2 m-0 my-auto">{{activeWindowTitle}}</h6>
+      <div class="d-flex justify-content-between">
+        <h6 class="text-left p-2 m-0 my-auto">{{activeWindowTitle}}</h6>
+        <span *ngIf="currDisplayedPlaylist" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{currDisplayedPlaylist.abbr}}" (click)="onLinkClick(currDisplayedPlaylist)">PAGE</span>
+      </div>
     </div>
     <div id="player-playlists" class="player-playlists d-flex flex-column">
       <div class="col m-0 p-0" [ngClass]="currDisplayedPlaylist ? 'd-none' : ''">

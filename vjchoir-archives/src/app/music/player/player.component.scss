@@ -118,3 +118,15 @@
     text-decoration: none;
   }
 }
+
+.badge {
+  &:hover {
+    cursor: pointer;
+  }
+  &:active {
+    outline: none;
+  }
+  &:focus {
+    outline: none;
+  }
+}
