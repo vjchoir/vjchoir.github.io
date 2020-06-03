@@ -56,4 +56,11 @@ export class NavControllerComponent implements OnInit {
 
     window.scroll(0, 0);
   }
+
+  navigateToLink(item) {
+    if(item.abbr) {
+      let temp = this.menu.filter(x => x.linkName.includes('sov'));
+      this.navigateTo(temp[0]);
+    }
+  }
 }

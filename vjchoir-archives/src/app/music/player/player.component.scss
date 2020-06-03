@@ -3,14 +3,18 @@
 .player-layout {
   right: 25px;
   width: 500px;
-  max-height: 500px;
+  max-height: 700px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background: $background-color;
   text-align: center;
   transition: all 0.3s;
   overflow: hidden;
-  &.active {
-    bottom: -375px;
+  .player-content {
+    max-height: 700px;
+    transition: max-height 0.2s;
+    &.inactive {
+      max-height: 0;
+    }
   }
   .player-header {
     cursor: pointer;
@@ -87,6 +91,10 @@
       color: $primary-text-color-faded;
     }
   }
+  plyr {
+    --plyr-color-main: rgb(175, 36, 90);
+    --plyr-audio-controls-background: none;
+  }
 }
 
 .big-play-button {
@@ -102,4 +110,11 @@
 
 .fixed-bottom {
   left: auto;
+}
+
+.sov-link {
+  color: $accent-color;
+  &:hover {
+    text-decoration: none;
+  }
 }

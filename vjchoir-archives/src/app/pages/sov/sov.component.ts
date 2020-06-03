@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { SovService } from './sov.service';
 import { SymphVoices } from 'src/app/music/model/SymphVoices';
+import { Router, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-sov',
@@ -19,7 +20,20 @@ export class SovComponent implements OnInit {
     this.loadInitialSection();
   }
 
-  constructor(private sovService: SovService) { }
+  constructor(private sovService: SovService, private router: Router) { 
+    router.events.subscribe(val => {
+        if(val instanceof NavigationStart) {
+          if(val.url.includes('sov#')) {
+            let searchTerm = val.url.split('#')[1];
+            let temp = this.sovInfo.filter(x => {
+              return x.abbr.includes(val.url.split('#')[1]);
+            });
+
+            this.currActive = temp[0];  
+          }
+        }
+    });
+  }
 
   ngOnInit() {
     this.sovService.getSovIntro().subscribe(intro => this.sovIntro = intro);

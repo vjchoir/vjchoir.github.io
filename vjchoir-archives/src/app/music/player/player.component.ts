@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, HostListener } from "@angular/core";
+import { Component, OnInit, ViewChild, HostListener, Output, EventEmitter } from "@angular/core";
 import { PlyrComponent } from "ngx-plyr";
 import { SovService } from "src/app/pages/sov/sov.service";
 import { Song } from "../model/Song";
@@ -13,6 +13,8 @@ const playlistTitle = "Playlists";
 export class PlayerComponent implements OnInit {
   @ViewChild(PlyrComponent, { static: false })
   plyr: PlyrComponent;
+
+  @Output() linkClick = new EventEmitter();
 
   sovInfo: any;
   isMinimised: boolean;
@@ -114,8 +116,6 @@ export class PlayerComponent implements OnInit {
     } else {
       this.plyr.player.play();
     }
-
-    this.isPlaying = !this.isPlaying;
   }
 
   onBigNextClick(event) {
@@ -131,7 +131,10 @@ export class PlayerComponent implements OnInit {
   onCanPlay() {
     if(!this.isJustLoaded) {
       this.plyr.player.play();
-      this.isPlaying = true;
     }
+  }
+
+  onLinkClick(sov) {
+    this.linkClick.emit(sov);
   }
 }
