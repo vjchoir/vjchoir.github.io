@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, HostListener, Output, EventEmitter } from
 import { PlyrComponent } from "ngx-plyr";
 import { SovService } from "src/app/pages/sov/sov.service";
 import { Song } from "../model/Song";
+import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
 
 const playlistTitle = "Playlists";
 
@@ -31,12 +32,17 @@ export class PlayerComponent implements OnInit {
 
   audioSources: Plyr.Source[] = [];
 
-  @HostListener('plyrCanPlay', ['$event.target'])
-  onSeeked() {
-    console.log("Ready to play!");
+  @HostListener('onSongClicked', ['$event.target'])
+  onSongClicked(event) {
+    console.log(event);
   }
 
-  constructor(private sovService: SovService) {}
+  constructor(private navController: NavControllerService, private sovService: SovService) {
+    this.navController.clickedSong.subscribe(val => {
+      const song: Song = val;
+      this.loadSongViaId(val.playlistId, val.id);
+    });
+  }
 
   ngOnInit() {
     this.sovService.getSovInfo().subscribe((info) => {
@@ -49,6 +55,8 @@ export class PlayerComponent implements OnInit {
     this.activeWindowTitle = playlistTitle;
     this.isMinimised = false;
     this.playerPlaylistsWindow = document.getElementById("player-playlists");
+
+
   }
 
   displayPlaylist(sov: any) {

@@ -1,7 +1,8 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
 import { SovService } from './sov.service';
 import { SymphVoices } from 'src/app/music/model/SymphVoices';
 import { Router, NavigationStart, NavigationEnd } from '@angular/router';
+import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
 
 @Component({
   selector: 'app-sov',
@@ -15,7 +16,7 @@ export class SovComponent implements OnInit {
 
   currActive: SymphVoices;
 
-  constructor(private sovService: SovService, private router: Router) { 
+  constructor(private navController: NavControllerService, private sovService: SovService, private router: Router) { 
     
   }
 

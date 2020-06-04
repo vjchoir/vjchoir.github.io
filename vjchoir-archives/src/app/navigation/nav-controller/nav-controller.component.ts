@@ -29,9 +29,6 @@ export class NavControllerComponent implements OnInit {
   public sovComponents: QueryList<SovComponent>
   private sovComponent;
 
-  @ViewChild(PlayerComponent, {static: false})
-  playerComponent: PlayerComponent
-
   private menu: MenuItem[];
   private controller: NavControllerComponent;
   private currActive: MenuItem;

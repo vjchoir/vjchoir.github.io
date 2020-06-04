@@ -1,14 +1,20 @@
-import { Injectable } from "@angular/core";
+import { Injectable, ViewChild } from "@angular/core";
 
 import menuJSON from "../../../assets/data/menu.json";
 import { MenuItem } from "../model/MenuItem";
-import { Observable, of } from "rxjs";
+import { Observable, of, Subject } from "rxjs";
+import { PlayerComponent } from 'src/app/music/player/player.component';
+import { EventEmitter } from 'protractor';
 
 @Injectable({
   providedIn: "root",
 })
 export class NavControllerService {
+  
   private menuItems: MenuItem[];
+
+  private clickedSongSource = new Subject<any>();
+  clickedSong = this.clickedSongSource.asObservable();
 
   constructor() {}
 
@@ -33,5 +39,9 @@ export class NavControllerService {
       active: x.active,
       isVisible: x.isVisible,
     };
+  }
+
+  onSongClick(event: any) {
+    this.clickedSongSource.next(event);
   }
 }
