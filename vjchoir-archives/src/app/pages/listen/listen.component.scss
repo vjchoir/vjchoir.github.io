@@ -5,6 +5,14 @@
     cursor: pointer;
     background: $sider-background-color;
   }
+  input {
+    background: none;
+    border: none;
+    outline: none;
+    &:focus {
+      border: none;
+    }
+  }
 }
 
 .playlist-artwork {

@@ -7,12 +7,91 @@
   <h3>{{currActiveHeader.header}}</h3>
   <p [innerHTML]="currActiveHeader.content"></p>
   <hr/>
+  <button class="btn btn-outline-danger col-2" (click)="listenService.resetStorage()">Reset storage</button>
 </div>
 
-<div class="listen-my-playlists"></div>
+<div class="listen-your-playlists">
+  <div class="d-flex mb-2">
+    <h5 class="flex-grow-1 my-auto">Your Playlists</h5>
+    <button class="btn btn-outline-primary" (click)="createNewPlaylist();" onclick="this.blur();">
+        <i class="fa fa-plus small my-auto mx-0 mr-2"></i>
+        Create Playlist
+    </button>
+  </div>
+  <div *ngFor="let playlist of myPlaylistsInfo; last as isLast" class="container-fluid p-0">
+    <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" (click)="playlist.isOpen = !playlist.isOpen" *ngIf="!playlist.isOpen">
+      <p class="col-8 m-0 pl-2"><b>{{playlist.name}}</b></p>
+      <div class="col-4 text-right d-inline-block row p-0">
+        <div class="d-inline">
+          <span class="badge badge-pill badge-secondary mr-2">{{playlist.duration.hours() + "H " + playlist.duration.minutes() + "M"}}</span>
+          <span class="badge badge-pill badge-primary">{{playlist.tracks.length}} SONGS</span>
+        </div>
+        <div class="d-inline ml-2">
+          <i class="fas fa-caret-down"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="playlist-content" *ngIf="playlist.isOpen">
+      <div class="playlist-header playlist-content-header py-3" (click)="playlist.isOpen = !playlist.isOpen">
+        <div class="row mx-2">
+          <!-- <img src="{{playlist.artwork}}" class="playlist-artwork w-25 col m-0 pl-0 pr-3"> -->
+          <div class="m-0 p-0 text-left col">
+            <div class="d-flex">
+              <h4 class="flex-grow-1 m-0">
+                <input #name id="name" class="col-10 p-0" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="onKeyEnter(playlist, name)" autocomplete="off">
+              </h4>
+              <button class="btn btn-outline-danger col-2" onclick="event.stopPropagation()" (click)="modalService.open(deleteModal);">Delete Playlist</button>
+              <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
+            </div>
+            <p class="d-block m-0" [innerHTML]="playlist.desc"></p>
+          </div>
+        </div>
+
+        <ng-template #deleteModal let-modal>
+          <div class="container-fluid p-4">
+            <h4>Delete "{{playlist.name}}"?</h4>
+            <hr/>
+            <p>This action is irreversible. Once you delete this playlist, the existing data will be wiped from your local storage!</p>
+
+            <div class="row justify-content-end d-flex mx-0">
+              <button class="btn btn-outline-secondary mr-2" (click)="modal.dismiss()">Cancel</button>
+              <button class="btn btn-danger" (click)=" deletePlaylist(playlist); modal.dismiss();">Delete Playlist</button>
+            </div>
+          </div>
+        </ng-template>
+
+      </div>
+      <hr class="m-0" />
+      <div class="playlist-songs" class="col m-0 p-0">
+        <div class="song-title-row row m-0 py-2">
+          <p class="m-0 p-0 add-button"></p>
+          <div class="d-flex flex-grow-1 row">
+            <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
+            <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
+            <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
+          </div>
+        </div>
+        <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index">
+
+          <i class="fa fa-plus text-center my-auto p-0 m-0 add-button small"></i>
+          <div class="d-flex flex-grow-1 row">
+            <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
+            <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
+            <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr *ngIf="!isLast" class="m-0" />
+
+  </div>
+</div>
+<hr/>
 
 <div class="listen-default-playlists">
-  <h5>Default Playlists</h5>
+  <h5 class="mt-4">Default Playlists</h5>
   <div *ngFor="let sov of sovInfo; last as isLast" class="container-fluid p-0">
     <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" (click)="sov.isOpen = !sov.isOpen" *ngIf="!sov.isOpen">
       <p class="col-8 m-0 pl-2"><b>{{sov.title}}</b></p>
@@ -67,5 +146,5 @@
 
   </div>
 
-  <div class="bottom-padder"></div>
 </div>
+<div class="bottom-padder"></div>

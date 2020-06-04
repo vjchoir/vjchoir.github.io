@@ -6,4 +6,5 @@ export interface Playlist {
     name?: string;
     desc?: string;
     duration?: any;
+    isOpen?: boolean;
 }

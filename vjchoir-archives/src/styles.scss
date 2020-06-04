@@ -55,6 +55,42 @@ p {
   }
 }
 
+.btn-outline-secondary {
+  font-family: $title-text-font;
+  &:hover {
+    color: white !important;
+  }
+  &:focus,
+  &.active {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+}
+
+.btn-danger {
+  font-family: $title-text-font;
+  &:hover {
+    color: white !important;
+  }
+  &:focus,
+  &.active {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+}
+
+.btn-outline-danger {
+  font-family: $title-text-font;
+  &:hover {
+    color: white !important;
+  }
+  &:focus,
+  &.active {
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+}
+
 .badge-primary {
   background-color: $accent-color !important;
 }
