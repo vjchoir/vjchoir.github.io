@@ -6,6 +6,8 @@ import { SymphVoices } from "src/app/music/model/SymphVoices";
 import { Playlist } from "src/app/music/model/Playlist";
 import { Song } from "src/app/music/model/Song";
 
+import moment from "moment";
+
 @Injectable({
   providedIn: "root",
 })
@@ -33,16 +35,22 @@ export class SovService {
           id: j,
           title: tempJSON.name,
           composer: tempJSON.composer,
-          duration: tempJSON.duration,
+          duration: moment.duration("0:" + tempJSON.duration),
           src: "../assets/audio/" + jsonItem.abbr + "/" + tempJSON.mp3 + ".mp3",
         };
 
         tempTracks.push(tempSong);
       }
 
+      let repertoireDuration = moment.duration();
+      for(let j = 0; j < tempTracks.length; j ++) {
+        repertoireDuration.add(tempTracks[j].duration);
+      }
+
       let tempRepertoire: Playlist = <Playlist>{
         id: i,
         tracks: tempTracks,
+        duration: repertoireDuration
       };
 
       let tempSOV = <SymphVoices>{

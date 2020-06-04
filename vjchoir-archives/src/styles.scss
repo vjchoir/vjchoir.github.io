@@ -76,3 +76,11 @@ ngb-carousel {
     outline: none;
   }
 }
+
+.bottom-padder {
+  color: none;
+  background: none;
+  height: 1px;
+  display: flex;
+  padding: 3rem 0rem 3rem 0rem;
+}

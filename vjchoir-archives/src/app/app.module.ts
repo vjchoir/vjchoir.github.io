@@ -4,7 +4,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgbCarouselModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlyrModule } from 'ngx-plyr';
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';

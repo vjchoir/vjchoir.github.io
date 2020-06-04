@@ -1,3 +1,9 @@
 {
-
+  "header": {
+    "sections": [{
+      "title": "Introduction",
+      "header": "Welcome to the Listen page!",
+      "content": "Welcome to the <b>Listen</b> page! This brand new, revamped page for our repository songs is now mainly for <b>managing your playlists</b>. In this page, there's a lot of features for you to create and manage your playlists, so that your favourite songs from various years can be played together seamlessly and smoothly. The playlists will be stored locally on your computer, but fret not! You'll be able to get a link to share to your friends or yourself, so that your playlists can be available across devices.</br></br>I've removed the functionality of playing a song from this page. Instead, once you have updated your playlists, the website's player automatically updates as well! To play your playlist, you can open up the interface at the bottom right of your screen!</br></br>If you require any assistance, feel free to click on any of the links above to explain how to use the system!"
+    }]
+  }
 }

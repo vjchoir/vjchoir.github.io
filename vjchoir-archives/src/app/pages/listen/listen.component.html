@@ -1,1 +1,51 @@
-<p>listen works!</p>
+<div class="listen-header d-block">
+  <div class="d-flex row ml-0 mb-2">
+    <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 mb-2" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item" onclick="this.blur();">
+          {{item.title}}
+      </button>
+  </div>
+  <h3>{{currActiveHeader.header}}</h3>
+  <p [innerHTML]="currActiveHeader.content"></p>
+  <hr/>
+</div>
+
+<div class="listen-my-playlists"></div>
+
+<div class="listen-default-playlists">
+  <h5>Default Playlists</h5>
+  <div *ngFor="let sov of sovInfo; last as isLast" class="container-fluid p-0" (click)="sov.isOpen = !sov.isOpen">
+    <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" *ngIf="!sov.isOpen">
+      <p class="col-8 m-0 pl-2"><b>{{sov.title}}</b></p>
+      <div class="col-4 text-right d-inline-block row p-0">
+        <div class="d-inline">
+          <span class="badge badge-pill badge-secondary mr-2">{{sov.repertoire.duration.hours() + "H " + sov.repertoire.duration.minutes() + "M"}}</span>
+          <span class="badge badge-pill badge-primary">{{sov.repertoire.tracks.length}} SONGS</span>
+        </div>
+        <div class="d-inline ml-2">
+          <i class="fas fa-caret-down"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="playlist-content" *ngIf="sov.isOpen">
+      <div class="playlist-header playlist-content-header py-3" (click)="sov.isOpen = !sov.isOpen">
+        <div class="row mx-2">
+          <img src="{{sov.artwork}}" class="playlist-artwork w-25 col m-0">
+          <div class="m-0 p-0 text-left col">
+            <div class="d-flex">
+              <h4 class="flex-grow-1 m-0">{{sov.title}}</h4>
+              <i class="fas fa-caret-up m-0 my-auto mx-2"></i>
+            </div>
+            <p class="d-block m-0" [innerHTML]="sov.intro"></p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <hr *ngIf="!isLast" class="m-0" />
+
+  </div>
+
+  <div class="bottom-padder"></div>
+</div>

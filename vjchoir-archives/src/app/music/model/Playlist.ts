@@ -5,4 +5,5 @@ export interface Playlist {
     tracks: Song[];
     name?: string;
     desc?: string;
+    duration?: any;
 }

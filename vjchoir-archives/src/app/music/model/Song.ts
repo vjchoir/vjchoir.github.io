@@ -5,5 +5,6 @@ export interface Song {
     desc?: string;
     src: string;
     composer?: string;
-    duration: string;
+    duration: any;
+
 }
