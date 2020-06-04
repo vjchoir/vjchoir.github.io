@@ -16,6 +16,9 @@ export class NavControllerService {
   private clickedSongSource = new Subject<any>();
   clickedSong = this.clickedSongSource.asObservable();
 
+  private clickedLinkSource = new Subject<any>();
+  clickedLink = this.clickedLinkSource.asObservable();
+
   constructor() {}
 
   getMenuItems(): Observable<MenuItem[]> {
@@ -43,5 +46,9 @@ export class NavControllerService {
 
   onSongClick(event: any) {
     this.clickedSongSource.next(event);
+  }
+
+  onLinkClick(event: any) {
+    this.clickedLinkSource.next(event);
   }
 }

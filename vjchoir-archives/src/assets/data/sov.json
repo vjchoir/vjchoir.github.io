@@ -132,7 +132,8 @@
       ],
       "links": {
         "yt": {
-          "desc": "The SOV2019 videos have not been processed yet, sorry about that! This page will be updated once they are ready, and they'll be available on jumpcutfindo as per usual."
+          "link": "https://www.youtube.com/embed/videoseries?list=PLhz3lrGQP-Ah7GJBnts7VCtUAGHvnUgqj",
+          "desc": "The entire SOV2019 playlist has been uploaded to YouTube for everyone to watch."
         },
         "dls": {
           "intro": "Audio for this particular SOV is available for download in the following sections. If any of these links go down, please drop us a message so that we can rectify the problem ASAP. Thank you! :)",
@@ -289,7 +290,7 @@
       ],
       "links": {
         "yt": {
-          "link": "https://www.youtube.com/embed/videoseries?list=PLhz3lrGQP-Ah7GJBnts7VCtUAGHvnUgqj",
+          "link": "https://www.youtube.com/embed/videoseries?list=PLhz3lrGQP-AiYBnxKclfPkJXyNaXsAlvo",
           "desc": "The entire SOV2018 playlist has been uploaded to YouTube for everyone to watch."
         },
         "dls": {

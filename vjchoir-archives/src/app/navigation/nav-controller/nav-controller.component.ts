@@ -34,11 +34,8 @@ export class NavControllerComponent implements OnInit {
   private currActive: MenuItem;
 
   constructor(private navControllerService: NavControllerService, private router: Router) {
-    this.router.events.subscribe(val => {
-      if(val instanceof NavigationStart && val.url.includes('sov#')) {
-          console.log(val)
-          this.navigateToLink(val.url);
-      }
+    this.navControllerService.clickedLink.subscribe(val => {
+      this.navigateToLink(val);
     });
   }
 

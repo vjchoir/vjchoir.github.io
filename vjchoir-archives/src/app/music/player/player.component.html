@@ -6,7 +6,7 @@
     </div>
     <div class="row justify-content-between mx-3 py-3" [ngClass]="!isMinimised ? 'd-none' : ''">
       <div class="row m-0 p-0 col-8">
-        <img class="player-min-artwork" src="{{currActivePlaylist.artwork}}">
+        <img class="player-min-artwork rounded" src="{{currActivePlaylist.artwork}}">
         <div class="col m-0 p-0 ml-3 text-left">
           <p class="m-0 d-block text-truncate">{{nowPlaying.title}}</p>
           <p class="m-0"><small>{{currActivePlaylist.title}}</small></p>
@@ -34,14 +34,14 @@
   <div class="player-content" [ngClass]="isMinimised ? 'inactive' : 'active'">
     <div class="player-plyr">
       <div class="player-info row m-0">
-        <img src="{{currActivePlaylist.artwork}}" class="w-25 my-auto m-2">
+        <img src="{{currActivePlaylist.artwork}}" class="w-25 my-auto m-2 rounded">
         <div class="col m-0 p-0 m-2 mr-3 text-left">
           <div class="my-auto">
             <p class="np-title m-0">{{nowPlaying.title}}</p>
             <p class="np-composer m-0"><small>by {{nowPlaying.composer}}</small></p>
           </div>
           <hr class="m-0 mt-3" />
-          <p class="np-playlist-title m-0 py-2"><a routerLink="/sov" fragment="{{currActivePlaylist.abbr}}" (click)="linkClickEmitter.emit(currActivePlaylist)" class="sov-link d-flex justify-content-between">{{currActivePlaylist.title}}<i class="fa fa-arrow-right small my-auto"></i></a></p>
+          <p class="np-playlist-title m-0 py-2"><a routerLink="/sov" fragment="{{currActivePlaylist.abbr}}" (click)="onLinkClick(currActivePlaylist.abbr)" class="sov-link d-flex justify-content-between">{{currActivePlaylist.title}}<i class="fa fa-arrow-right small my-auto"></i></a></p>
         </div>
       </div>
       <plyr plyrType="audio" [plyrSources]="audioSources" (plyrCanPlay)="onCanPlay()" (plyrEnded)="loadNextSong()" (plyrPlay)="isPlaying = true" (plyrPause)="isPlaying = false"></plyr>
@@ -50,7 +50,7 @@
       <button class="btn" [ngClass]="currDisplayedPlaylist ? '' : 'd-none'" (click)="onBackClick()"><small><i class="fa fa-arrow-left"></i></small></button>
       <div class="d-flex justify-content-between">
         <h6 class="text-left p-2 m-0 my-auto">{{activeWindowTitle}}</h6>
-        <span *ngIf="currDisplayedPlaylist" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{currDisplayedPlaylist.abbr}}" (click)="linkClickEmitter.emit(currActivePlaylist)">PAGE</span>
+        <span *ngIf="currDisplayedPlaylist" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{currDisplayedPlaylist.abbr}}" (click)="onLinkClick(currDisplayedPlaylist.abbr)">PAGE</span>
       </div>
     </div>
     <div id="player-playlists" class="player-playlists d-flex flex-column">

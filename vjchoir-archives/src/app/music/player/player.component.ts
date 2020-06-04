@@ -32,11 +32,6 @@ export class PlayerComponent implements OnInit {
 
   audioSources: Plyr.Source[] = [];
 
-  @HostListener('onSongClicked', ['$event.target'])
-  onSongClicked(event) {
-    console.log(event);
-  }
-
   constructor(private navController: NavControllerService, private sovService: SovService) {
     this.navController.clickedSong.subscribe(val => {
       const song: Song = val;
@@ -53,7 +48,7 @@ export class PlayerComponent implements OnInit {
     });
 
     this.activeWindowTitle = playlistTitle;
-    this.isMinimised = false;
+    this.isMinimised = true;
     this.playerPlaylistsWindow = document.getElementById("player-playlists");
 
 
@@ -139,5 +134,9 @@ export class PlayerComponent implements OnInit {
     if(!this.isJustLoaded) {
       this.plyr.player.play();
     }
+  }
+
+  onLinkClick(link: string) {
+    this.navController.onLinkClick(link);
   }
 }
