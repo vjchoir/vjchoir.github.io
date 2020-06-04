@@ -26,7 +26,7 @@ export class ListenComponent implements OnInit {
     })
 
     this.sovInfo.map(item => {
-      item.isOpen = false;
+      item.isOpen = true;
       return item;
     })
 

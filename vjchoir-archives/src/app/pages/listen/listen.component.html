@@ -13,8 +13,8 @@
 
 <div class="listen-default-playlists">
   <h5>Default Playlists</h5>
-  <div *ngFor="let sov of sovInfo; last as isLast" class="container-fluid p-0" (click)="sov.isOpen = !sov.isOpen">
-    <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" *ngIf="!sov.isOpen">
+  <div *ngFor="let sov of sovInfo; last as isLast" class="container-fluid p-0">
+    <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" (click)="sov.isOpen = !sov.isOpen" *ngIf="!sov.isOpen">
       <p class="col-8 m-0 pl-2"><b>{{sov.title}}</b></p>
       <div class="col-4 text-right d-inline-block row p-0">
         <div class="d-inline">
@@ -30,16 +30,36 @@
     <div class="playlist-content" *ngIf="sov.isOpen">
       <div class="playlist-header playlist-content-header py-3" (click)="sov.isOpen = !sov.isOpen">
         <div class="row mx-2">
-          <img src="{{sov.artwork}}" class="playlist-artwork w-25 col m-0">
+          <img src="{{sov.artwork}}" class="playlist-artwork w-25 col m-0 pl-0 pr-3">
           <div class="m-0 p-0 text-left col">
             <div class="d-flex">
               <h4 class="flex-grow-1 m-0">{{sov.title}}</h4>
-              <i class="fas fa-caret-up m-0 my-auto mx-2"></i>
+              <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
             </div>
             <p class="d-block m-0" [innerHTML]="sov.intro"></p>
           </div>
         </div>
 
+      </div>
+      <hr class="m-0" />
+      <div class="playlist-songs" class="col m-0 p-0">
+        <div class="song-title-row row m-0 py-2">
+          <p class="m-0 p-0 add-button"></p>
+          <div class="d-flex flex-grow-1 row">
+            <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
+            <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
+            <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
+          </div>
+        </div>
+        <div class="song row m-0 py-2" *ngFor="let song of sov.repertoire.tracks; let i = index">
+
+          <i class="fa fa-plus text-center my-auto p-0 m-0 add-button small"></i>
+          <div class="d-flex flex-grow-1 row">
+            <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
+            <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
+            <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+          </div>
+        </div>
       </div>
     </div>
 

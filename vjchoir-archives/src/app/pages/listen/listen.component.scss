@@ -1,4 +1,5 @@
 @import "../../../styles.scss";
+@import "https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700";
 .playlist-header {
   &:hover {
     cursor: pointer;
@@ -9,4 +10,42 @@
 .playlist-artwork {
   max-width: 150px;
   max-height: 150px;
+}
+
+.song {
+  border-bottom: 1px solid $sider-background-color;
+  .song-composer,
+  .song-number {
+    color: $sider-primary-color;
+    font-family: 'Catamaran', 'sans-serif'
+  }
+  &:hover {
+    cursor: pointer;
+    background: $sider-background-color;
+  }
+  &.active {
+    background: $accent-color;
+    color: $primary-text-inv-color;
+    .song-composer,
+    .song-number {
+      color: $sider-background-color-inv;
+    }
+  }
+}
+
+.song-title-row {
+  .song-number,
+  .song-title,
+  .song-duration {
+    color: $sider-primary-color;
+  }
+}
+
+.add-button {
+  width: 50px;
+  padding: 0px 8px 0px 8px;
+  color: $sider-primary-color;
+  &:hover {
+    color: $accent-color;
+  }
 }

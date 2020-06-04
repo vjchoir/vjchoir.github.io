@@ -19,6 +19,7 @@ import { SiderComponent } from './navigation/sider/sider.component';
 import { AppendNamesPipe } from './pipes/append-names.pipe';
 import { SafePipe } from './pipes/safe-link-pipe';
 import { PlayerComponent } from './music/player/player.component';
+import { FormatDurationPipe } from './pipes/format-duration.pipe';
 
 @NgModule({
   declarations: [
@@ -34,9 +35,10 @@ import { PlayerComponent } from './music/player/player.component';
     MiscComponent,
     NavControllerComponent,
     SiderComponent,
+    PlayerComponent,
     AppendNamesPipe,
     SafePipe,
-    PlayerComponent
+    FormatDurationPipe
   ],
   imports: [
     BrowserModule,
