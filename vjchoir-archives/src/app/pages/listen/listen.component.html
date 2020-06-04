@@ -134,7 +134,14 @@
         </div>
         <div class="song row m-0 py-2" *ngFor="let song of sov.repertoire.tracks; let i = index">
 
-          <i class="fa fa-plus text-center my-auto p-0 m-0 add-button small"></i>
+          <div placement="bottom-left" class=" my-auto p-0 m-0 add-button small text-center" display="static" ngbDropdown>
+            <i id="dropdownBasic2" class="fa fa-plus" ngbDropdownToggle></i>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
+              <button ngbDropdownItem>Action - 1</button>
+              <button ngbDropdownItem>Another Action</button>
+              <button ngbDropdownItem>Something else is here</button>
+            </div>
+          </div>
           <div class="d-flex flex-grow-1 row">
             <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>

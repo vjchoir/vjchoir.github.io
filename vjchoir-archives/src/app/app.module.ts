@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { NgbCarouselModule, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbCarouselModule, NgbModalModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlyrModule } from 'ngx-plyr';
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
@@ -46,6 +46,7 @@ import { FormatDurationPipe } from './pipes/format-duration.pipe';
     AppRoutingModule,
     NgbCarouselModule,
     NgbModalModule,
+    NgbDropdownModule,
     PlyrModule
   ],
   providers: [],

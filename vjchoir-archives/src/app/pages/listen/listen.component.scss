@@ -59,4 +59,7 @@
   &:hover {
     color: $accent-color;
   }
+  .dropdown-toggle::after {
+    display: none;
+  }
 }
