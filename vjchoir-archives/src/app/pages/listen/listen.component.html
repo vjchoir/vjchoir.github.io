@@ -39,12 +39,14 @@
           <div class="m-0 p-0 text-left col">
             <div class="d-flex">
               <h4 class="flex-grow-1 m-0">
-                <input #name id="name" class="col-10 p-0" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="onKeyEnter(playlist, name)" autocomplete="off">
+                <input #name id="name" class="col-10 p-1" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="name.blur()" (blur)="onKeyEnter(playlist, desc)" autocomplete="off">
               </h4>
               <button class="btn btn-outline-danger col-2" onclick="event.stopPropagation()" (click)="modalService.open(deleteModal);">Delete Playlist</button>
               <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
             </div>
-            <p class="d-block m-0" [innerHTML]="playlist.desc"></p>
+            <p class="d-block m-0">
+              <input #desc id="desc" class="col-12 p-1 my-1" value="{{playlist.desc}}" onclick="event.stopPropagation();" (keyup.enter)="desc.blur()" (blur)="onKeyEnter(playlist, desc)" autocomplete="off">
+            </p>
           </div>
         </div>
 
