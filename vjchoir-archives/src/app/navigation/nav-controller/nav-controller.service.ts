@@ -1,11 +1,13 @@
-import { Injectable, ViewChild } from "@angular/core";
+import { Injectable, ViewChild } from '@angular/core';
 
-import menuJSON from "../../../assets/data/menu.json";
-import { MenuItem } from "../model/MenuItem";
-import { Observable, of, Subject } from "rxjs";
+import menuJSON from '../../../assets/data/menu.json';
+import { MenuItem } from '../model/MenuItem';
+import { Observable, of, Subject } from 'rxjs';
+
+const MENU_ARRAY = ['about', 'batches', 'sov'];
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root',
 })
 export class NavControllerService {
   
@@ -16,6 +18,9 @@ export class NavControllerService {
 
   private clickedLinkSource = new Subject<any>();
   clickedLink = this.clickedLinkSource.asObservable();
+
+  private routeUpdatesSource = new Subject<any>();
+  routerUpdates = this.routeUpdatesSource.asObservable();
 
   constructor() {}
 
@@ -48,5 +53,23 @@ export class NavControllerService {
 
   onLinkClick(event: any) {
     this.clickedLinkSource.next(event);
+  }
+
+  onRouteUpdate(value: any) {
+    const url = value.url;
+    
+    let route = url.split('#')[0];
+    let fragment = url.split('#')[1];
+    
+    for(let item of MENU_ARRAY) {
+      if(route.includes(item)) {
+        this.routeUpdatesSource.next({
+          route: item,
+          fragment: fragment,
+          url: url
+        });
+        break;
+      }
+    }
   }
 }

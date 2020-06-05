@@ -1,49 +1,47 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener } from "@angular/core";
 
-import { AboutService } from './about.service';
+import { AboutService } from "./about.service";
+import { NavControllerService } from "src/app/navigation/nav-controller/nav-controller.service";
+import { Router } from "@angular/router";
+import { Location } from "@angular/common";
 
 @Component({
-  selector: 'app-about',
-  templateUrl: './about.component.html',
-  styleUrls: ['./about.component.scss']
+  selector: "app-about",
+  templateUrl: "./about.component.html",
+  styleUrls: ["./about.component.scss"],
 })
-
-
 export class AboutComponent implements OnInit {
-
   aboutJSON: any;
   currActive;
 
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
-    this.loadInitialSection();
-  }
-
-  constructor(private aboutService: AboutService) { }
+  constructor(
+    private navControllerService: NavControllerService,
+    private aboutService: AboutService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
-    this.aboutService.getContent()
-      .subscribe(about => this.aboutJSON = about);
-    
-    this.loadInitialSection();
+    this.aboutService.getContent().subscribe((about) => {
+      this.aboutJSON = about;
+      this.handleFragment();
+    });
+
+    this.navControllerService.routerUpdates.subscribe(val => {
+      this.handleFragment();
+    });
   }
 
-  private loadInitialSection() {
-    this.currActive = null;
-    let isLinked = false;
-    for(let i = 0; i < this.aboutJSON.sections.length; i++) {
-      let tempItem = this.aboutJSON.sections[i];
-      if(window.location.href.includes(tempItem.id)) {
-        this.currActive = tempItem;
-        isLinked = true;
-        break;
+  private handleFragment() {
+    if (!this.router.url.includes("#")) {
+      this.currActive = this.aboutJSON.sections[0];
+    } else {
+      let fragment = this.router.url.split("#")[1];
+      for (let item of this.aboutJSON.sections) {
+        if (fragment.includes(item.id)) {
+          this.currActive = item;
+          return;
+        }
       }
     }
-
-    if(!isLinked && window.location.href.includes("about")) {
-      this.currActive = this.aboutJSON.sections[this.aboutJSON.defaultSectionIndex];
-      window.location.replace(window.location.href + "#" + this.currActive.id);
-    }
   }
-
 }

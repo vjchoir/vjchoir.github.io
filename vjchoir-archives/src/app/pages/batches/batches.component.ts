@@ -1,6 +1,8 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { BatchesService } from './batches.service';
 import { BatchItem } from './model/BatchItem';
+import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-batches',
@@ -13,32 +15,35 @@ export class BatchesComponent implements OnInit {
   batchesIntro: any;
   currActive: BatchItem;
 
-  @HostListener('window:popstate', ['$event'])
-  onPopState(event) {
-    this.loadInitialSection();
+  constructor(private navControllerService: NavControllerService, private batchesService: BatchesService, private router: Router) { 
+  
   }
-
-  constructor(private batchesService: BatchesService) { }
 
   ngOnInit() {
-    this.batchesService.getBatches().subscribe(batches => this.batches = batches);
     this.batchesService.getIntro().subscribe(intro => this.batchesIntro = intro);
-
-    this.loadInitialSection();
+    this.batchesService.getBatches().subscribe(batches => {
+      this.batches = batches
+      this.handleFragment();
+    });
+    
+    this.navControllerService.routerUpdates.subscribe(val => {
+      this.handleFragment();
+    });
   }
 
-  private loadInitialSection() {
-    this.currActive = null;
-    let isLinked = false;
-
-      for(let i = 0; i < this.batches.length; i++) {
-        let tempItem = this.batches[i];
-        if(window.location.href.includes(tempItem.id)) {
-          this.currActive = tempItem;
-          isLinked = true;
-          break;
+  private handleFragment() {
+    if (!this.router.url.includes("#")) {
+      this.currActive = null;
+    } else {
+      let fragment = this.router.url.split("#")[1];
+      for (let item of this.batches) {
+        if (fragment.includes(item.id)) {
+          this.currActive = item;
+          return;
         }
       }
-  }
 
+      this.currActive = null;
+    }
+  }
 }

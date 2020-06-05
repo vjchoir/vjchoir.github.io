@@ -1,13 +1,22 @@
-import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/core';
-import { SovService } from './sov.service';
-import { SymphVoices } from 'src/app/music/model/SymphVoices';
-import { Router, NavigationStart, NavigationEnd } from '@angular/router';
-import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  Output,
+  EventEmitter,
+} from "@angular/core";
+import { SovService } from "./sov.service";
+import { SymphVoices } from "src/app/music/model/SymphVoices";
+import { Router, NavigationStart, NavigationEnd } from "@angular/router";
+import { NavControllerService } from "src/app/navigation/nav-controller/nav-controller.service";
+import { PlayerService } from "src/app/music/player/player.service";
+import { Playlist } from "src/app/music/model/Playlist";
+import { Song } from "src/app/music/model/Song";
 
 @Component({
-  selector: 'app-sov',
-  templateUrl: './sov.component.html',
-  styleUrls: ['./sov.component.scss']
+  selector: "app-sov",
+  templateUrl: "./sov.component.html",
+  styleUrls: ["./sov.component.scss"],
 })
 export class SovComponent implements OnInit {
 
@@ -16,46 +25,52 @@ export class SovComponent implements OnInit {
 
   currActive: SymphVoices;
 
-  constructor(private navController: NavControllerService, private sovService: SovService, private router: Router) { 
-    
+  constructor(
+    private navControllerService: NavControllerService,
+    private sovService: SovService,
+    private playerService: PlayerService,
+    private router: Router
+  ) {
   }
 
   ngOnInit() {
     this.sovService.getSovIntro().subscribe(intro => this.sovIntro = intro);
-    this.sovService.getSovInfo().subscribe(info => this.sovInfo = info);
-
-    this.loadInitialSection();
-  }
-
-  ngAfterViewInit() {
-    this.router.events.subscribe(val => {
-      if(val instanceof NavigationEnd && val.url.includes('sov#')) {
-        const fragmentCode = val.url.split('#')[1];
-        this.navigateToFragment(fragmentCode);
-      }
-    })
-  }
-
-  private loadInitialSection() {
-    this.currActive = null;
-    let isLinked = false;
-
-      for(let i = 0; i < this.sovInfo.length; i++) {
-        let tempItem = this.sovInfo[i];
-        if(window.location.href.includes(tempItem.abbr)) {
-          this.currActive = tempItem;
-          isLinked = true;
-          break;
-        }
-      }
+    this.sovService.getSovInfo().subscribe(info => {
+      this.sovInfo = info;
+      this.handleFragment();
+    });
+    
+    this.navControllerService.routerUpdates.subscribe(val => {
+      this.handleFragment();
+    });
   }
 
   navigateToFragment(fragmentCode) {
-    let temp = this.sovInfo.filter(x => {
+    let temp = this.sovInfo.filter((x) => {
       return x.abbr.includes(fragmentCode);
     });
 
     this.currActive = temp[0];
     window.scroll(0, 0);
+  }
+
+  playSong(playlist: Playlist, song: Song) {
+    this.playerService.onSongRequest(playlist, song);
+  }
+
+  private handleFragment() {
+    if (!this.router.url.includes("#")) {
+      this.currActive = null;
+    } else {
+      let fragment = this.router.url.split("#")[1];
+      for (let item of this.sovInfo) {
+        if (fragment.includes(item.abbr)) {
+          this.currActive = item;
+          return;
+        }
+      }
+
+      this.currActive = null;
+    }
   }
 }

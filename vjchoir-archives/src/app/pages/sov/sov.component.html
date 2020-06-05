@@ -27,7 +27,9 @@
   <div class="section" *ngIf="currActive" [ngClass]="currActive ? '' : 'd-none'">
 
     <div>
-      <h3>{{currActive.title}}</h3>
+      <div class="d-flex">
+        <h3 class="mr-2 my-auto">{{currActive.title}}</h3>
+        <button class="btn btn-outline-primary my-2" (click)="playSong(currActive.repertoire, currActive.repertoire.tracks[0])"><i class="fa fa-play mr-2"></i>Play</button></div>
       <img src="{{currActive.artwork}}" class="col-12 col-xl-6 mx-0 px-0 mb-2 rounded w-25">
       <p [innerHTML]="currActive.intro">
       </p>
@@ -64,9 +66,9 @@
     <div class="youtube">
       <h3>YouTube</h3>
       <p [innerHTML]="currActive.links.yt.desc"></p>
-      <div class="embed-responsive embed-responsive-16by9 w-75 m-auto" *ngIf="currActive.links.yt.link">
+      <!-- <div class="embed-responsive embed-responsive-16by9 w-75 m-auto" *ngIf="currActive.links.yt.link">
         <iframe class="embed-responsive-item" [src]="currActive.links.yt.link | safe" allowfullscreen></iframe>
-      </div>
+      </div> -->
     </div>
 
     <hr/>

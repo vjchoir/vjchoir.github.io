@@ -1,40 +1,55 @@
-import { Component, OnInit, HostListener, ViewChild, ViewChildren, QueryList } from '@angular/core';
-import { MenuItem } from '../model/MenuItem';
+import {
+  Component,
+  OnInit,
+  HostListener,
+  ViewChild,
+  ViewChildren,
+  QueryList,
+} from "@angular/core";
+import { MenuItem } from "../model/MenuItem";
 
-import { NavControllerService } from './nav-controller.service';
-import { Router, NavigationStart } from '@angular/router'
-import { HomeComponent } from 'src/app/pages/home/home.component';
-import { AboutComponent } from 'src/app/pages/about/about.component';
-import { BatchesComponent } from 'src/app/pages/batches/batches.component';
-import { SovComponent } from 'src/app/pages/sov/sov.component';
-import { PlayerComponent } from 'src/app/music/player/player.component';
+import { NavControllerService } from "./nav-controller.service";
+import { Router, NavigationStart, NavigationEnd } from "@angular/router";
+import { HomeComponent } from "src/app/pages/home/home.component";
+import { AboutComponent } from "src/app/pages/about/about.component";
+import { BatchesComponent } from "src/app/pages/batches/batches.component";
+import { SovComponent } from "src/app/pages/sov/sov.component";
+import { PlayerComponent } from "src/app/music/player/player.component";
 
 @Component({
-  selector: 'nav-controller',
-  templateUrl: './nav-controller.component.html',
-  styleUrls: ['./nav-controller.component.scss']
+  selector: "nav-controller",
+  templateUrl: "./nav-controller.component.html",
+  styleUrls: ["./nav-controller.component.scss"],
 })
 export class NavControllerComponent implements OnInit {
+  @ViewChild(HomeComponent, { static: false })
+  homeComponent: HomeComponent;
 
-  @ViewChild(HomeComponent, {static: false})
-  homeComponent: HomeComponent
+  @ViewChild(AboutComponent, { static: false })
+  aboutComponent: AboutComponent;
 
-  @ViewChild(AboutComponent, {static: false})
-  aboutComponent: AboutComponent
-
-  @ViewChild(BatchesComponent, {static: false})
-  batchesComponent: BatchesComponent
+  @ViewChild(BatchesComponent, { static: false })
+  batchesComponent: BatchesComponent;
 
   @ViewChildren("sovComponents")
-  public sovComponents: QueryList<SovComponent>
+  public sovComponents: QueryList<SovComponent>;
   private sovComponent;
 
   private menu: MenuItem[];
   private controller: NavControllerComponent;
   private currActive: MenuItem;
 
-  constructor(private navControllerService: NavControllerService, private router: Router) {
-    this.navControllerService.clickedLink.subscribe(val => {
+  constructor(
+    private navControllerService: NavControllerService,
+    private router: Router
+  ) {
+    this.router.events.subscribe((val) => {
+      if (val instanceof NavigationEnd) {
+        console.log(val);
+        this.navControllerService.onRouteUpdate(val);
+      }
+    });
+    this.navControllerService.clickedLink.subscribe((val) => {
       this.navigateToLink(val);
     });
   }
@@ -47,28 +62,29 @@ export class NavControllerComponent implements OnInit {
 
   ngAfterViewInit(): void {
     this.sovComponents.changes.subscribe((sovs: QueryList<SovComponent>) => {
-        this.sovComponent = sovs.first;
+      this.sovComponent = sovs.first;
     });
   }
 
   private getMenu() {
-    this.navControllerService.getMenuItems()
-      .subscribe(menu => this.menu = menu);
+    this.navControllerService
+      .getMenuItems()
+      .subscribe((menu) => (this.menu = menu));
   }
 
   private setCurrActive() {
     const windowName = window.location.href;
-    
-    for(let i = 0; i < this.menu.length; i++) {
+
+    for (let i = 0; i < this.menu.length; i++) {
       let item = this.menu[i];
-      
-      if(windowName.includes(item.linkName)) {
+
+      if (windowName.includes(item.linkName)) {
         this.currActive = item;
         break;
       }
     }
 
-    if(!this.currActive) {
+    if (!this.currActive) {
       this.currActive = this.navControllerService.getDefaultActiveItem();
     }
   }
@@ -80,11 +96,11 @@ export class NavControllerComponent implements OnInit {
   }
 
   navigateToLink(url: string) {
-    if(url.toLowerCase().includes('sov')) {
-      let temp = this.menu.filter(x => x.linkName.includes('sov'));
+    if (url.toLowerCase().includes("sov")) {
+      let temp = this.menu.filter((x) => x.linkName.includes("sov"));
       this.navigateTo(temp[0]);
-    } else if(url.toLowerCase().includes('listen')) {
-      let temp = this.menu.filter(x => x.linkName.includes('listen'));
+    } else if (url.toLowerCase().includes("listen")) {
+      let temp = this.menu.filter((x) => x.linkName.includes("listen"));
       this.navigateTo(temp[0]);
     }
   }
