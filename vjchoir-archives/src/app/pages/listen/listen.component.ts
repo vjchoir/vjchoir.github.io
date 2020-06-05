@@ -107,4 +107,8 @@ export class ListenComponent implements OnInit {
       playlist: playlist
     });
   }
+
+  playSong(playlist: Playlist, song: Song) {
+    this.playerService.onSongRequest(playlist, song);
+  }
 }

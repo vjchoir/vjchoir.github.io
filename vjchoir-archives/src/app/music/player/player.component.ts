@@ -48,6 +48,10 @@ export class PlayerComponent implements OnInit {
         console.log(this.playlists);
       }
       this.loadPlaylists();
+    });
+
+    this.playerService.songRequestUpdates.subscribe(val => {
+      this.loadSong(val.playlist, val.song);
     })
 
     this.navController.clickedSong.subscribe(val => {
