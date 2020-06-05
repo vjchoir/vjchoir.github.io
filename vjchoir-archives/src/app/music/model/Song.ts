@@ -6,5 +6,10 @@ export interface Song {
     src: string;
     composer?: string;
     duration: any;
+    artwork?: string;
+    album_info?: {
+        title: string;
+        abbr: string;
+    }
 
 }

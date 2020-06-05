@@ -37,6 +37,11 @@ export class SovService {
           composer: tempJSON.composer,
           duration: moment.duration("0:" + tempJSON.duration),
           src: "../assets/audio/" + jsonItem.abbr + "/" + tempJSON.mp3 + ".mp3",
+          artwork: jsonItem.artwork,
+          album_info: {
+            title: jsonItem.title,
+            abbr: jsonItem.abbr
+          }
         };
 
         tempTracks.push(tempSong);
@@ -49,8 +54,10 @@ export class SovService {
 
       let tempRepertoire: Playlist = <Playlist>{
         id: i,
+        name: jsonItem.title,
         tracks: tempTracks,
-        duration: repertoireDuration
+        duration: repertoireDuration,
+        isDefault: true
       };
 
       let tempSOV = <SymphVoices>{

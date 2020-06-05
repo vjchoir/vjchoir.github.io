@@ -51,12 +51,12 @@ export class ListenComponent implements OnInit {
 
   createNewPlaylist(playlist: Playlist) {
     let tempPlaylist = <Playlist>{
-      id: -1,
       name: "Default playlist name",
       desc: "Default description name",
       duration: moment.duration("0"),
       tracks: [],
       isOpen: false,
+      isDefault: false
     };
 
     this.myPlaylistsInfo.push(tempPlaylist);

@@ -83,6 +83,9 @@ export class NavControllerComponent implements OnInit {
     if(url.toLowerCase().includes('sov')) {
       let temp = this.menu.filter(x => x.linkName.includes('sov'));
       this.navigateTo(temp[0]);
+    } else if(url.toLowerCase().includes('listen')) {
+      let temp = this.menu.filter(x => x.linkName.includes('listen'));
+      this.navigateTo(temp[0]);
     }
   }
 }

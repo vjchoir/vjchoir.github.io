@@ -3,8 +3,10 @@ import { PlyrComponent } from "ngx-plyr";
 import { SovService } from "src/app/pages/sov/sov.service";
 import { Song } from "../model/Song";
 import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
+import { ListenService } from 'src/app/pages/listen/listen.service';
+import { Playlist } from '../model/Playlist';
 
-const playlistTitle = "Playlists";
+const PLAYLISTS_DEFAULT_TITLE = "Playlists";
 
 @Component({
   selector: "app-player",
@@ -18,21 +20,25 @@ export class PlayerComponent implements OnInit {
   @Output() linkClickEmitter = new EventEmitter();
 
   sovInfo: any;
+  myPlaylists: Playlist[];
+
+  playlists: Playlist[] = [];
+
   isMinimised: boolean;
   isJustLoaded: boolean = true;
   isPlaying: boolean = false;
 
   activeWindowTitle: string;
-  currDisplayedPlaylist;
-  currActivePlaylist;
-
+  currDisplayedPlaylist: Playlist;
+  currActivePlaylist: Playlist;
+  
   nowPlaying: Song;
 
   playerPlaylistsWindow: HTMLElement;
 
   audioSources: Plyr.Source[] = [];
 
-  constructor(private navController: NavControllerService, private sovService: SovService) {
+  constructor(private navController: NavControllerService, private sovService: SovService, private listenService: ListenService) {
     this.navController.clickedSong.subscribe(val => {
       const song: Song = val;
       this.loadSongViaId(val.playlistId, val.id);
@@ -42,32 +48,56 @@ export class PlayerComponent implements OnInit {
   ngOnInit() {
     this.sovService.getSovInfo().subscribe((info) => {
       this.sovInfo = info
-      this.loadSongViaId(0, 0);
 
       setTimeout(() => this.isJustLoaded = false, 2000);
     });
 
-    this.activeWindowTitle = playlistTitle;
+    this.listenService.getPlaylists().subscribe(playlists => {
+      this.myPlaylists = playlists;
+    });
+
+    this.combineSources();
+
+    this.activeWindowTitle = PLAYLISTS_DEFAULT_TITLE;
     this.isMinimised = true;
     this.playerPlaylistsWindow = document.getElementById("player-playlists");
 
-
+    this.loadSongViaId(0, 0);
   }
 
-  displayPlaylist(sov: any) {
-    this.currDisplayedPlaylist = sov;
-    this.activeWindowTitle = sov.title;
+  combineSources() {
+    this.playlists = [];
+    for(let sov of this.sovInfo) {
+      this.playlists.push(sov.repertoire);
+    }    
+    for(let playlist of this.myPlaylists) {
+      this.playlists.push(playlist);
+    }
+  }
+
+  displayPlaylist(playlist: Playlist) {
+    this.currDisplayedPlaylist = playlist;
+    this.activeWindowTitle = playlist.name;
     this.playerPlaylistsWindow.scroll(0, 0);
+  }
+
+  getDefaultPlaylists(): Playlist[] {
+    return this.playlists.filter(x => x.isDefault);
+  }
+
+  getMyPlaylists(): Playlist[] {
+    return this.playlists.filter(x => !x.isDefault);
   }
 
   onBackClick() {
     this.currDisplayedPlaylist = null;
-    this.activeWindowTitle = playlistTitle;
+    this.activeWindowTitle = PLAYLISTS_DEFAULT_TITLE;
     this.playerPlaylistsWindow.scroll(0, 0);
   }
 
   loadSongViaId(playlistId: number, songId: number) {
-    const selected: Song = this.sovInfo[playlistId].repertoire.tracks[songId];
+    console.log("Loading '" + this.playlists[playlistId].tracks[songId].title + "' of playlist '" + this.playlists[playlistId].name + "'");
+    const selected: Song = this.playlists[playlistId].tracks[songId];
     this.audioSources = [
       {
         src: selected.src,
@@ -75,10 +105,10 @@ export class PlayerComponent implements OnInit {
       }
     ]
     this.nowPlaying = selected;
-    this.currActivePlaylist = this.sovInfo[playlistId];
+    this.currActivePlaylist = this.playlists[playlistId];
   }
 
-  loadSong(song: Song) {
+  loadSong(playlist: Playlist, song: Song) {
     this.audioSources = [
       {
         src: song.src,
@@ -86,29 +116,33 @@ export class PlayerComponent implements OnInit {
       },
     ];
     this.nowPlaying = song;
-    this.currActivePlaylist = this.sovInfo[song.playlistId];
+    this.currActivePlaylist = playlist;
+
+    console.log("Loading '" + song.title + "' of playlist '" + playlist.name + "'");
   }
 
   loadNextSong() {
-    const playlistId = this.nowPlaying.playlistId;
-    let nextSongId = this.nowPlaying.id + 1;
+    let currPlaylistIndex = this.playlists.indexOf(this.currActivePlaylist);
+    let currSongIndex = this.currActivePlaylist.tracks.indexOf(this.nowPlaying);
+    let nextSongIndex = currSongIndex + 1;
 
-    if(nextSongId >= this.currActivePlaylist.repertoire.tracks.length) {
-      nextSongId = 0;
+    if(nextSongIndex >= this.currActivePlaylist.tracks.length) {
+      nextSongIndex = 0;
     }
 
-    this.loadSongViaId(playlistId, nextSongId);
+    this.loadSongViaId(currPlaylistIndex, nextSongIndex);
   }
 
   loadPrevSong() {
-    const playlistId = this.nowPlaying.playlistId;
-    let prevSongId = this.nowPlaying.id - 1;
+    let currPlaylistIndex = this.playlists.indexOf(this.currActivePlaylist);
+    let currSongIndex = this.currActivePlaylist.tracks.indexOf(this.nowPlaying);
+    let prevSongIndex = currSongIndex + 1;
 
-    if(prevSongId < 0) {
-      prevSongId = 0;
+    if(prevSongIndex < this.currActivePlaylist.tracks.length) {
+      prevSongIndex = 0;
     }
 
-    this.loadSongViaId(playlistId, prevSongId);
+    this.loadSongViaId(currPlaylistIndex, prevSongIndex);
   }
 
   onBigPlayClick(event) {
