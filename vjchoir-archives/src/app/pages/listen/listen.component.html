@@ -50,25 +50,12 @@
           </div>
         </div>
 
-        <ng-template #deleteModal let-modal>
-          <div class="container-fluid p-4">
-            <h4>Delete "{{playlist.name}}"?</h4>
-            <hr/>
-            <p>This action is irreversible. Once you delete this playlist, the existing data will be wiped from your local storage!</p>
-
-            <div class="row justify-content-end d-flex mx-0">
-              <button class="btn btn-outline-secondary mr-2" (click)="modal.dismiss()">Cancel</button>
-              <button class="btn btn-danger" (click)=" deletePlaylist(playlist); modal.dismiss();">Delete Playlist</button>
-            </div>
-          </div>
-        </ng-template>
-
       </div>
       <hr class="m-0" />
-      <div class="playlist-songs" class="col m-0 p-0">
+      <div class="playlist-songs" class="col m-0 p-0" [ngClass]="playlist.tracks.length > 0 ? '' : 'd-none'">
         <div class="song-title-row row m-0 py-2">
           <p class="m-0 p-0 add-button-filler"></p>
-          <div class="d-flex flex-grow-1 row">
+          <div class="d-flex flex-grow-1 row m-0">
             <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
@@ -76,15 +63,33 @@
         </div>
         <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''">
 
-          <i class="fa fa-plus text-center my-auto p-0 m-0 add-button small"></i>
-          <div class="d-flex flex-grow-1 row">
+          <div class="add-button text-center my-auto" (click)="removeSongFromPlaylist(song, playlist)">
+            <i class="fa fa-times text-danger small"></i>
+          </div>
+          <div class="d-inline-flex flex-grow-1 row m-0">
             <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
           </div>
         </div>
       </div>
+      <div class="playlist-songs-placeholder text-center justify-content-center mt-2" [ngClass]="playlist.tracks.length <= 0 ? 'd-flex' : 'd-none'">
+        <p class="col-6"><small>It looks like you don't have any songs added to this playlist yet! Click on the '+' button next to the songs to add them to your playlist!</small></p>
+      </div>
     </div>
+
+    <ng-template #deleteModal let-modal>
+      <div class="container-fluid p-4">
+        <h4>Delete "{{playlist.name}}"?</h4>
+        <hr/>
+        <p>This action is irreversible. Once you delete this playlist, the existing data will be wiped from your local storage!</p>
+
+        <div class="row justify-content-end d-flex mx-0">
+          <button class="btn btn-outline-secondary mr-2" (click)="modal.dismiss()">Cancel</button>
+          <button class="btn btn-danger" (click)=" deletePlaylist(playlist); modal.dismiss();">Delete Playlist</button>
+        </div>
+      </div>
+    </ng-template>
 
     <hr *ngIf="!isLast" class="m-0" />
 
@@ -126,7 +131,7 @@
       <div class="playlist-songs" class="col m-0 p-0">
         <div class="song-title-row row m-0 py-2">
           <p class="m-0 p-0 add-button-filler"></p>
-          <div class="d-flex flex-grow-1 row">
+          <div class="d-flex flex-grow-1 row m-0">
             <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
@@ -142,7 +147,7 @@
               <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="p-0 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
             </div>
           </div>
-          <div class="d-flex flex-grow-1 row">
+          <div class="d-flex flex-grow-1 row m-0">
             <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>

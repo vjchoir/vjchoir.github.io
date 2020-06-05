@@ -77,4 +77,11 @@ export class ListenComponent implements OnInit {
 
     this.listenService.savePlaylists(this.myPlaylistsInfo);
   }
+
+  removeSongFromPlaylist(song: Song, playlist: Playlist) {
+    playlist.tracks = playlist.tracks.filter(x => x != song);
+    playlist.duration.subtract(song.duration);
+
+    this.listenService.savePlaylists(this.myPlaylistsInfo);
+  }
 }
