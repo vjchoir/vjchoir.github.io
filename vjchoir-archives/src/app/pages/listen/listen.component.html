@@ -39,7 +39,7 @@
           <div class="m-0 p-0 text-left col">
             <div class="d-flex">
               <h4 class="flex-grow-1 m-0">
-                <input #name id="name" class="col-10 p-1" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="name.blur()" (blur)="onKeyEnter(playlist, desc)" autocomplete="off">
+                <input #name id="name" class="col-10 p-1" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="name.blur()" (blur)="onKeyEnter(playlist, name)" autocomplete="off">
               </h4>
               <button class="btn btn-outline-danger col-2" onclick="event.stopPropagation()" (click)="modalService.open(deleteModal);">Delete Playlist</button>
               <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
@@ -67,14 +67,14 @@
       <hr class="m-0" />
       <div class="playlist-songs" class="col m-0 p-0">
         <div class="song-title-row row m-0 py-2">
-          <p class="m-0 p-0 add-button"></p>
+          <p class="m-0 p-0 add-button-filler"></p>
           <div class="d-flex flex-grow-1 row">
             <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
           </div>
         </div>
-        <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index">
+        <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''">
 
           <i class="fa fa-plus text-center my-auto p-0 m-0 add-button small"></i>
           <div class="d-flex flex-grow-1 row">
@@ -125,21 +125,21 @@
       <hr class="m-0" />
       <div class="playlist-songs" class="col m-0 p-0">
         <div class="song-title-row row m-0 py-2">
-          <p class="m-0 p-0 add-button"></p>
+          <p class="m-0 p-0 add-button-filler"></p>
           <div class="d-flex flex-grow-1 row">
             <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
             <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
           </div>
         </div>
-        <div class="song row m-0 py-2" *ngFor="let song of sov.repertoire.tracks; let i = index">
+        <div class="song row m-0 py-2" *ngFor="let song of sov.repertoire.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''">
 
-          <div placement="bottom-left" class=" my-auto p-0 m-0 add-button small text-center" display="static" ngbDropdown>
-            <i id="dropdownBasic2" class="fa fa-plus" ngbDropdownToggle></i>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic2">
-              <button ngbDropdownItem>Action - 1</button>
-              <button ngbDropdownItem>Another Action</button>
-              <button ngbDropdownItem>Something else is here</button>
+          <div placement="bottom-left" class=" my-auto p-0 m-0 text-center add-button" display="static" ngbDropdown>
+            <i class="fa fa-plus small d-block p-1" ngbDropdownToggle></i>
+            <div ngbDropdownMenu>
+              <p class="mx-3 my-0"><small><b>Add song to...</b></small></p>
+              <div class="dropdown-divider"></div>
+              <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="p-0 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
             </div>
           </div>
           <div class="d-flex flex-grow-1 row">

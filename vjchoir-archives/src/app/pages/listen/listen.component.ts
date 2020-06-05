@@ -4,6 +4,7 @@ import { SovService } from '../sov/sov.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Playlist } from 'src/app/music/model/Playlist';
 import moment from 'moment';
+import { Song } from 'src/app/music/model/Song';
 
 @Component({
   selector: 'app-listen',
@@ -44,6 +45,8 @@ export class ListenComponent implements OnInit {
 
     playlist[property] = element.value;
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    console.log("Updated '" + property + "' to '" + element.value + "'!");
   }
 
   createNewPlaylist(playlist: Playlist) {
@@ -58,11 +61,20 @@ export class ListenComponent implements OnInit {
 
     this.myPlaylistsInfo.push(tempPlaylist);
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    console.log("Created new playlist!");
   }
 
   deletePlaylist(playlist: Playlist) {
     this.myPlaylistsInfo = this.myPlaylistsInfo.filter(x => x != playlist);
     console.log("Deleted playlist: " + playlist.name);
+    this.listenService.savePlaylists(this.myPlaylistsInfo);
+  }
+
+  addSongToPlaylist(song: Song, playlist: Playlist) {
+    playlist.tracks.push(song);
+    playlist.duration.add(song.duration);
+
     this.listenService.savePlaylists(this.myPlaylistsInfo);
   }
 }

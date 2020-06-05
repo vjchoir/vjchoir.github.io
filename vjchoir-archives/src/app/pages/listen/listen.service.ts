@@ -15,7 +15,6 @@ export class ListenService {
   constructor() {
     let json = localStorage.getItem(MY_PLAYLISTS_STRING);
     console.log("Loading playlists json...");
-    console.log(json);
 
     if (!json || json == "") {
       this.myPlaylists = [];
@@ -23,6 +22,9 @@ export class ListenService {
       this.myPlaylists = JSON.parse(json);
       this.myPlaylists.map((playlist) => {
         playlist.duration = moment.duration(playlist.duration);
+        for(let song of playlist.tracks) {
+            song.duration = moment.duration(song.duration);
+        }
         playlist.isOpen = false;
         return playlist;
       });
@@ -45,7 +47,7 @@ export class ListenService {
 
   resetStorage() {
     localStorage.setItem(MY_PLAYLISTS_STRING, "");
-    console.log("Storage has been reset");
+    console.log("Storage has been reset!");
     console.log(localStorage.getItem(MY_PLAYLISTS_STRING));
 
     this.myPlaylists = [];

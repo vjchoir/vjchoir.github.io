@@ -24,7 +24,6 @@
 }
 
 .song {
-  border-bottom: 1px solid $sider-background-color;
   .song-composer,
   .song-number {
     color: $sider-primary-color;
@@ -42,6 +41,9 @@
       color: $sider-background-color-inv;
     }
   }
+  .border-bottom {
+    border-bottom: 1px solid $sider-background-color;
+  }
 }
 
 .song-title-row {
@@ -53,13 +55,27 @@
 }
 
 .add-button {
-  width: 50px;
-  padding: 0px 8px 0px 8px;
-  color: $sider-primary-color;
-  &:hover {
-    color: $accent-color;
+  i {
+    width: 50px;
+    height: 20px;
+    color: $sider-primary-color;
+    &:hover {
+      color: $accent-color;
+    }
   }
   .dropdown-toggle::after {
     display: none;
   }
+  .dropdown-item {
+    font-family: $primary-text-font;
+    max-width: 300px;
+    &:active {
+      outline: none;
+      background: $accent-color;
+    }
+  }
+}
+
+.add-button-filler {
+  width: 50px;
 }
