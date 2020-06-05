@@ -1,10 +1,11 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
 import { ListenService } from './listen.service';
 import { SovService } from '../sov/sov.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Playlist } from 'src/app/music/model/Playlist';
 import moment from 'moment';
 import { Song } from 'src/app/music/model/Song';
+import { PlayerService } from 'src/app/music/player/player.service';
 
 @Component({
   selector: 'app-listen',
@@ -18,7 +19,7 @@ export class ListenComponent implements OnInit {
   myPlaylistsInfo: Playlist[];
   currActiveHeader;
 
-  constructor(private listenService: ListenService, private sovService: SovService, private modalService: NgbModal) { }
+  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.listenService.getHeader().subscribe(content => {
@@ -63,12 +64,24 @@ export class ListenComponent implements OnInit {
     this.listenService.savePlaylists(this.myPlaylistsInfo);
 
     console.log("Created new playlist!");
+
+    this.playerService.onPlaylistUpdate({
+      type: "Create playlist",
+      playlist: tempPlaylist
+    });
   }
 
   deletePlaylist(playlist: Playlist) {
-    this.myPlaylistsInfo = this.myPlaylistsInfo.filter(x => x != playlist);
-    console.log("Deleted playlist: " + playlist.name);
+    const playlistIndex = this.myPlaylistsInfo.indexOf(playlist);
+    this.myPlaylistsInfo.splice(playlistIndex, 1);
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    console.log("Deleted playlist: " + playlist.name);
+
+    this.playerService.onPlaylistUpdate({
+      type: "Delete playlist",
+      playlist: playlist
+    });
   }
 
   addSongToPlaylist(song: Song, playlist: Playlist) {
@@ -76,6 +89,11 @@ export class ListenComponent implements OnInit {
     playlist.duration.add(song.duration);
 
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    this.playerService.onPlaylistUpdate({
+      type: "Add song",
+      playlist: playlist
+    });
   }
 
   removeSongFromPlaylist(song: Song, playlist: Playlist) {
@@ -83,5 +101,10 @@ export class ListenComponent implements OnInit {
     playlist.duration.subtract(song.duration);
 
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    this.playerService.onPlaylistUpdate({
+      type: "Remove song",
+      playlist: playlist
+    });
   }
 }

@@ -74,7 +74,7 @@
         </div>
       </div>
       <div class="playlist-songs-placeholder text-center justify-content-center mt-2" [ngClass]="playlist.tracks.length <= 0 ? 'd-flex' : 'd-none'">
-        <p class="col-6"><small>It looks like you don't have any songs added to this playlist yet! Click on the '+' button next to the songs to add them to your playlist!</small></p>
+        <p class="col-10"><small>It looks like you don't have any songs added to this playlist yet! Click on the '+' button next to the songs to add them to your playlist!</small></p>
       </div>
     </div>
 
@@ -144,7 +144,7 @@
             <div ngbDropdownMenu>
               <p class="mx-3 my-0"><small><b>Add song to...</b></small></p>
               <div class="dropdown-divider"></div>
-              <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="p-0 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
+              <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="py-2 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
             </div>
           </div>
           <div class="d-flex flex-grow-1 row m-0">
@@ -161,4 +161,3 @@
   </div>
 
 </div>
-<div class="bottom-padder"></div>

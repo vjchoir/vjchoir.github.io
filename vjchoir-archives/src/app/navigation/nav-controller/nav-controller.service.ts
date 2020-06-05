@@ -3,8 +3,6 @@ import { Injectable, ViewChild } from "@angular/core";
 import menuJSON from "../../../assets/data/menu.json";
 import { MenuItem } from "../model/MenuItem";
 import { Observable, of, Subject } from "rxjs";
-import { PlayerComponent } from 'src/app/music/player/player.component';
-import { EventEmitter } from 'protractor';
 
 @Injectable({
   providedIn: "root",
