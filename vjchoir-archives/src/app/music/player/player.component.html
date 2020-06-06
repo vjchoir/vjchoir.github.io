@@ -54,7 +54,7 @@
       <button class="btn" [ngClass]="currDisplayedPlaylist ? '' : 'd-none'" (click)="onBackClick()"><small><i class="fa fa-arrow-left"></i></small></button>
       <div class="d-flex justify-content-between">
         <h6 class="text-left p-2 m-0 my-auto">{{activeWindowTitle}}</h6>
-        <span *ngIf="currDisplayedPlaylist && currDisplayedPlaylist.isDefault" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{sovInfo[currDisplayedPlaylist.id].abbr}}" (click)="onLinkClick(sovInfo[currDisplayedPlaylist.id].abbr)">PAGE</span>
+        <span *ngIf="currDisplayedPlaylist && currDisplayedPlaylist.isDefault" class="badge badge-primary badge-pill my-auto" routerLink="/sov" fragment="{{sovInfo[currDisplayedPlaylistId].abbr}}" (click)="onLinkClick(sovInfo[currDisplayedPlaylistId].abbr)">PAGE</span>
       </div>
     </div>
     <div id="player-playlists" class="player-playlists d-flex flex-column">
@@ -69,8 +69,8 @@
           <p class="m-0 p-0 text-center mb-2 col-10"><small>You haven't created any playlists of your own! Go to the <a routerLink="/listen" (click)="onLinkClick('listen')">Listen</a> page to start now!</small></p>
         </div>
         <p class="py-1 px-2 m-0 text-left"><small><b>Default Playlists</b></small></p>
-        <div class="player-playlists-item row m-0" *ngFor="let playlist of getDefaultPlaylists()" (click)="displayPlaylist(playlist)">
-          <img src="{{sovInfo[playlist.id].artwork}}">
+        <div class="player-playlists-item row m-0" *ngFor="let playlist of getDefaultPlaylists(); index as index" (click)="displayPlaylist(playlist)">
+          <img src="{{sovInfo[index].artwork}}">
           <p class="my-auto ml-3">{{playlist.name}}</p>
         </div>
       </div>

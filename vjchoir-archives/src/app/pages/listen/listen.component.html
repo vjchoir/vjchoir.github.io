@@ -40,6 +40,10 @@
 <div class="listen-your-playlists">
   <div class="d-flex mb-2">
     <h5 class="flex-grow-1 my-auto">Your Playlists</h5>
+    <button class="btn btn-outline-primary mr-2" (click)="modalService.open(importPlaylistModal)" onclick="this.blur();">
+        <i class="fa fa-file-import small my-auto mx-0 mr-2"></i>
+        Import Playlist
+    </button>
     <button class="btn btn-outline-primary" (click)="createNewPlaylist();" onclick="this.blur();">
         <i class="fa fa-plus small my-auto mx-0 mr-2"></i>
         Create Playlist
@@ -65,11 +69,14 @@
           <!-- <img src="{{playlist.artwork}}" class="playlist-artwork w-25 col m-0 pl-0 pr-3"> -->
           <div class="m-0 p-0 text-left col">
             <div class="d-flex">
-              <h4 class="flex-grow-1 m-0">
-                <input #name id="name" class="col-10 p-1" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="name.blur()" (blur)="onKeyEnter(playlist, name)" autocomplete="off">
+              <h4 class="flex-grow-1 m-0 col-6 p-0">
+                <input #name id="name" class="p-1" value="{{playlist.name}}" onclick="event.stopPropagation();" (keyup.enter)="name.blur()" (blur)="onKeyEnter(playlist, name)" autocomplete="off">
               </h4>
-              <button class="btn btn-outline-danger col-2" onclick="event.stopPropagation()" (click)="modalService.open(deleteModal);">Delete Playlist</button>
-              <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
+              <div class="col-6 d-flex justify-content-end">
+                <button class="btn btn-outline-primary mr-2" onclick="event.stopPropagation()" (click)="exportPlaylist(playlist)"><i class="fa fa-file-export mr-2"></i>Export Playlist</button>
+                <button class="btn btn-outline-danger" onclick="event.stopPropagation()" (click)="modalService.open(deleteModal);"><i class="fa fa-times mr-2"></i>Delete Playlist</button>
+                <i class="fas fa-caret-up m-0 my-auto ml-3"></i>
+              </div>
             </div>
             <p class="d-block m-0">
               <input #desc id="desc" class="col-12 p-1 my-1" value="{{playlist.desc}}" onclick="event.stopPropagation();" (keyup.enter)="desc.blur()" (blur)="onKeyEnter(playlist, desc)" autocomplete="off">
@@ -123,6 +130,20 @@
     <hr *ngIf="!isLast" class="m-0" />
 
   </div>
+
+  <ng-template #importPlaylistModal let-modal>
+    <div class="container-fluid p-4">
+      <h4>Import playlist</h4>
+      <hr/>
+      <p>Use the code given to you to import a playlist into our system!</p>
+      <textarea class="form-control mb-3" aria-label="With textarea"></textarea>
+
+      <div class="row justify-content-end d-flex mx-0">
+        <button class="btn btn-outline-secondary mr-2" (click)="modal.dismiss()">Cancel</button>
+        <button class="btn btn-primary" (click)="modal.dismiss()">Import</button>
+      </div>
+    </div>
+  </ng-template>
 </div>
 <hr/>
 

@@ -53,7 +53,7 @@ export class SovService {
       }
 
       let tempRepertoire: Playlist = <Playlist>{
-        id: i,
+        id: jsonItem.id,
         name: jsonItem.title,
         tracks: tempTracks,
         duration: repertoireDuration,

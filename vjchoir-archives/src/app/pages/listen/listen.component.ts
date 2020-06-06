@@ -119,6 +119,16 @@ export class ListenComponent implements OnInit {
     this.listenService.resetStorage();
   }
 
+  importPlaylist(code: string) {
+    this.listenService.decompressPlaylist(code);
+    console.log()
+  }
+
+  exportPlaylist(playlist: Playlist) {
+    let string = this.listenService.compressPlaylist(playlist);
+    console.log(string);
+  }
+
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {
     moveItemInArray(playlist.tracks, event.previousIndex, event.currentIndex);
     this.listenService.savePlaylists(this.myPlaylistsInfo);

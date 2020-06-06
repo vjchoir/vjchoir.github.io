@@ -31,6 +31,7 @@ export class PlayerComponent implements OnInit {
 
   activeWindowTitle: string;
   currDisplayedPlaylist: Playlist;
+  currDisplayedPlaylistId: number;
   currActivePlaylist: Playlist;
   
   nowPlaying: Song;
@@ -94,6 +95,7 @@ export class PlayerComponent implements OnInit {
 
   displayPlaylist(playlist: Playlist) {
     this.currDisplayedPlaylist = playlist;
+    this.currDisplayedPlaylistId = this.playlists.indexOf(playlist);
     this.activeWindowTitle = playlist.name;
     this.playerPlaylistsWindow.scroll(0, 0);
   }

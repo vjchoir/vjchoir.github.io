@@ -55,6 +55,23 @@ p {
   }
 }
 
+.btn-primary {
+  font-family: $title-text-font;
+  background: $accent-color;
+  color: white;
+  border: none;
+  &:hover {
+    color: white !important;
+    background: $accent-color;
+  }
+  &:focus,
+  &.active {
+    background: $accent-color;
+    box-shadow: none !important;
+    outline: 0px !important;
+  }
+}
+
 .btn-outline-secondary {
   font-family: $title-text-font;
   &:hover {
@@ -120,5 +137,13 @@ ngb-carousel {
   display: flex;
   padding: 3rem 0rem 3rem 0rem;
 }
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

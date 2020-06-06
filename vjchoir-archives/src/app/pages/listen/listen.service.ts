@@ -20,13 +20,8 @@ export class ListenService {
       this.myPlaylists = [];
     } else {
       this.myPlaylists = JSON.parse(json);
-      this.myPlaylists.map((playlist) => {
-        playlist.duration = moment.duration(playlist.duration);
-        for(let song of playlist.tracks) {
-            song.duration = moment.duration(song.duration);
-        }
-        playlist.isOpen = false;
-        return playlist;
+      this.myPlaylists.map(playlistJSON => {
+        return this.jsonToPlaylist(playlistJSON);
       });
     }
   }
@@ -52,5 +47,23 @@ export class ListenService {
     console.log(localStorage.getItem(MY_PLAYLISTS_STRING));
 
     this.myPlaylists = [];
+  }
+
+  jsonToPlaylist(playlist: any): Playlist {
+    playlist.duration = moment.duration(playlist.duration);
+    for(let song of playlist.tracks) {
+        song.duration = moment.duration(song.duration);
+    }
+    playlist.isOpen = false;
+
+    return playlist;
+  }
+
+  decompressPlaylist(code: string) {
+  
+  }
+
+  compressPlaylist(playlist: Playlist) {
+
   }
 }

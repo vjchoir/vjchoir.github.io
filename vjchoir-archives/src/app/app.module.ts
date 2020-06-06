@@ -22,6 +22,7 @@ import { PlayerComponent } from './music/player/player.component';
 import { FormatDurationPipe } from './pipes/format-duration.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LZStringModule, LZStringService } from 'ng-lz-string';
 
 @NgModule({
   declarations: [
@@ -51,9 +52,10 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     NgbDropdownModule,
     PlyrModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    LZStringModule
   ],
-  providers: [],
+  providers: [ LZStringService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
