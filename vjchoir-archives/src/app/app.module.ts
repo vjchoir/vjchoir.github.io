@@ -20,6 +20,8 @@ import { AppendNamesPipe } from './pipes/append-names.pipe';
 import { SafePipe } from './pipes/safe-link-pipe';
 import { PlayerComponent } from './music/player/player.component';
 import { FormatDurationPipe } from './pipes/format-duration.pipe';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { FormatDurationPipe } from './pipes/format-duration.pipe';
     NgbCarouselModule,
     NgbModalModule,
     NgbDropdownModule,
-    PlyrModule
+    PlyrModule,
+    BrowserAnimationsModule,
+    DragDropModule
   ],
   providers: [],
   bootstrap: [AppComponent]

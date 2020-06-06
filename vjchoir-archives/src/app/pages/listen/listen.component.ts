@@ -6,6 +6,7 @@ import { Playlist } from 'src/app/music/model/Playlist';
 import moment from 'moment';
 import { Song } from 'src/app/music/model/Song';
 import { PlayerService } from 'src/app/music/player/player.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-listen',
@@ -110,5 +111,10 @@ export class ListenComponent implements OnInit {
 
   playSong(playlist: Playlist, song: Song) {
     this.playerService.onSongRequest(playlist, song);
+  }
+
+  drop(playlist: Playlist, event: CdkDragDrop<string[]>) {
+    moveItemInArray(playlist.tracks, event.previousIndex, event.currentIndex);
+    this.listenService.savePlaylists(this.myPlaylistsInfo);
   }
 }

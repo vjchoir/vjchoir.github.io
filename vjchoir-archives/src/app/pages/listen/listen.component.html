@@ -62,15 +62,16 @@
             <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
           </div>
         </div>
-        <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''">
-
-          <div class="add-button text-center my-auto" (click)="removeSongFromPlaylist(song, playlist)">
-            <i class="fa fa-times text-danger small"></i>
-          </div>
-          <div class="d-inline-flex flex-grow-1 row m-0">
-            <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
-            <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
-            <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+        <div cdkDropList (cdkDropListDropped)="drop(playlist, $event)">
+          <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''" cdkDrag>
+            <div class="add-button text-center my-auto" (click)="removeSongFromPlaylist(song, playlist)">
+              <i class="fa fa-times text-danger small"></i>
+            </div>
+            <div class="d-inline-flex flex-grow-1 row m-0">
+              <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
+              <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
+              <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+            </div>
           </div>
         </div>
       </div>
