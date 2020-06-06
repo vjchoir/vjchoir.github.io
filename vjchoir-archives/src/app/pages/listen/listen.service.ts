@@ -1,18 +1,27 @@
-import { Injectable, ChangeDetectorRef } from "@angular/core";
+import { Injectable } from "@angular/core";
 
 import listenJSON from "../../../assets/data/listen.json";
+
 import { Observable, of } from "rxjs";
 import { Playlist } from "src/app/music/model/Playlist";
 import moment from "moment";
+import { SovService } from '../sov/sov.service';
 
 const MY_PLAYLISTS_STRING = "myPlaylists";
+
+const PLAYLIST_SEPARATOR = "p";
+const TRACKS_SEPARATOR = "t";
+const SONG_SEPARATOR = "s";
+const POS_SEPARATOR = "i";
 
 @Injectable({
   providedIn: "root",
 })
 export class ListenService {
   myPlaylists: Playlist[];
-  constructor() {
+  sovInfo: any;
+
+  constructor(private sovService: SovService) {
     let json = localStorage.getItem(MY_PLAYLISTS_STRING);
     console.log("Loading playlists json...");
 
@@ -24,6 +33,8 @@ export class ListenService {
         return this.jsonToPlaylist(playlistJSON);
       });
     }
+
+    this.sovService.getSovInfo().subscribe(info => this.sovInfo = info);
   }
 
   getHeader(): Observable<any> {
@@ -59,11 +70,95 @@ export class ListenService {
     return playlist;
   }
 
-  decompressPlaylist(code: string) {
-  
+  parametersToPlaylist(code: string): any {
+    try {
+      let params = [];
+      let playlistParams = code.split(PLAYLIST_SEPARATOR);
+      playlistParams.shift();
+      for(let playlistParam of playlistParams) {
+        let plIdAndTracks = playlistParam.split(TRACKS_SEPARATOR);
+        let plId = plIdAndTracks[0];
+        let tracks = plIdAndTracks[1].split(SONG_SEPARATOR);
+        tracks.shift();
+
+        for(let track of tracks) {
+          let trackInfo = track.split(POS_SEPARATOR);
+          let trackId = trackInfo[0];
+          let pos = trackInfo[1];
+
+          params.push({
+            pl_id: plId,
+            id: trackId,
+            pos: pos
+          })
+        }
+      }
+
+      let songs = params.map(param => {
+        let sov = this.sovInfo.filter(x => x.id == parseInt(param.pl_id))[0];
+        let song = sov.repertoire.tracks[parseInt(param.id)];
+
+        return {
+          pos: param.pos,
+          song: song
+        }
+      });
+
+      let playlist: Playlist = {
+        tracks: songs.sort((a, b) => a.pos - b.pos).map(x => x.song)
+      }
+      return playlist;
+    } catch(e) {
+      console.log(e);
+    }
   }
 
-  compressPlaylist(playlist: Playlist) {
+  playlistToParameters(playlist: Playlist): any {
+    const tracks = playlist.tracks;
+    let plIds = [];
+    let params = [];
 
+    let output = '';
+
+    for(let i = 0; i < tracks.length; i ++) {
+      let song = tracks[i];
+      let param = {
+        pl_pos: i.toString(),
+        id: song.id.toString(),
+        pl_id: song.album_info.id,
+      }
+
+      if(param.pl_pos.length != 2) {
+        param.pl_pos = '0' + param.pl_pos;
+      }
+
+      if(param.id.length != 2 ) {
+        param.id = '0' + param.id;
+      }
+
+      params.push(param);
+
+      if(!plIds.includes(param.pl_id)) {
+        plIds.push(param.pl_id);
+      }
+    }
+
+    for(let plId of plIds) {
+      let str: string = ''
+      str +=(PLAYLIST_SEPARATOR + plId + TRACKS_SEPARATOR);
+
+      let songsWithThisId = params.filter(x => x.pl_id == plId);
+
+      for(let song of songsWithThisId) {
+        str += SONG_SEPARATOR + song.id + POS_SEPARATOR + song.pl_pos;
+      }
+
+      output += str;
+    }
+
+    console.log(output);
+    console.log(this.parametersToPlaylist(output));
+
+    return output;
   }
 }

@@ -10,6 +10,7 @@ export interface Song {
     album_info?: {
         title: string;
         abbr: string;
+        id: number;
     }
 
 }

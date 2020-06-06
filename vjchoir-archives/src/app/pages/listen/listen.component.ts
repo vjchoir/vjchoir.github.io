@@ -120,12 +120,12 @@ export class ListenComponent implements OnInit {
   }
 
   importPlaylist(code: string) {
-    this.listenService.decompressPlaylist(code);
+    this.listenService.parametersToPlaylist(code);
     console.log()
   }
 
   exportPlaylist(playlist: Playlist) {
-    let string = this.listenService.compressPlaylist(playlist);
+    let string = this.listenService.playlistToParameters(playlist);
     console.log(string);
   }
 

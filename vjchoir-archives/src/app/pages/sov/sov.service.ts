@@ -31,7 +31,7 @@ export class SovService {
       for (let j = 0; j < jsonItem.repertoire.length; j++) {
         const tempJSON = jsonItem.repertoire[j];
         let tempSong: Song = <Song>{
-          playlistId: i,
+          playlistId: jsonItem.id,
           id: j,
           title: tempJSON.name,
           composer: tempJSON.composer,
@@ -40,7 +40,8 @@ export class SovService {
           artwork: jsonItem.artwork,
           album_info: {
             title: jsonItem.title,
-            abbr: jsonItem.abbr
+            abbr: jsonItem.abbr,
+            id: jsonItem.id
           }
         };
 
@@ -61,7 +62,7 @@ export class SovService {
       };
 
       let tempSOV = <SymphVoices>{
-        id: i,
+        id: jsonItem.id,
         title: jsonItem.title,
         abbr: jsonItem.abbr,
         info: {
