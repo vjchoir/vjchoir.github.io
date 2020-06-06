@@ -19,6 +19,7 @@ export class ListenComponent implements OnInit {
   sovInfo;
   myPlaylistsInfo: Playlist[];
   currActiveHeader;
+  isHeaderVisible: boolean = true;
 
   constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal) { }
 
@@ -111,6 +112,11 @@ export class ListenComponent implements OnInit {
 
   playSong(playlist: Playlist, song: Song) {
     this.playerService.onSongRequest(playlist, song);
+  }
+
+  resetStorage() {
+    this.myPlaylistsInfo = [];
+    this.listenService.resetStorage();
   }
 
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {

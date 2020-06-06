@@ -1,5 +1,12 @@
 @import "../../../styles.scss";
 @import "https://fonts.googleapis.com/css?family=Catamaran:300,400,500,600,700";
+.listen-header-buttons {
+  &:hover {
+    cursor: pointer;
+    background: $sider-background-color;
+  }
+}
+
 .playlist-header {
   &:hover {
     cursor: pointer;
