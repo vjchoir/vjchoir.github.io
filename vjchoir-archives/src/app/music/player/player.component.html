@@ -22,7 +22,7 @@
               <i class="fas fa-play mt-1 mr-2 my-auto" [ngClass]="isMinimised && isPlaying ? 'd-none' : ''"></i>
               <i class="fas fa-pause mt-1 mr-2 my-auto" [ngClass]="isMinimised && !isPlaying ? 'd-none' : ''"></i>
             </button>
-          <button class="btn big-play-button p-0" [disabled]="nowPlaying.id + 1 >= currActivePlaylist.length" (click)="onBigNextClick($event)">
+          <button class="btn big-play-button p-0" [disabled]="nowPlaying.id + 1 >= currActivePlaylist.tracks.length" (click)="onBigNextClick($event)">
                 <i class="fas fa-step-forward mt-1 mr-2 my-auto" ></i>
             </button>
         </div>

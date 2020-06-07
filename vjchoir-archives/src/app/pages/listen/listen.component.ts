@@ -52,7 +52,7 @@ export class ListenComponent implements OnInit {
     console.log("Updated '" + property + "' to '" + element.value + "'!");
   }
 
-  createNewPlaylist(playlist: Playlist) {
+  createNewPlaylist() {
     let tempPlaylist = <Playlist>{
       name: "Default playlist name",
       desc: "Default description name",
@@ -135,5 +135,9 @@ export class ListenComponent implements OnInit {
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {
     moveItemInArray(playlist.tracks, event.previousIndex, event.currentIndex);
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+  }
+
+  openModal(modal) {
+    this.modalService.open(modal);
   }
 }

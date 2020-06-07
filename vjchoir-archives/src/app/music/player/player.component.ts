@@ -15,7 +15,7 @@ const PLAYLISTS_DEFAULT_TITLE = "Playlists";
   styleUrls: ["./player.component.scss"],
 })
 export class PlayerComponent implements OnInit {
-  @ViewChild(PlyrComponent, { static: false })
+  @ViewChild(PlyrComponent)
   plyr: PlyrComponent;
 
   @Output() linkClickEmitter = new EventEmitter();

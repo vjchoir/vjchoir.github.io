@@ -22,22 +22,22 @@ import { PlayerComponent } from "src/app/music/player/player.component";
   styleUrls: ["./nav-controller.component.scss"],
 })
 export class NavControllerComponent implements OnInit {
-  @ViewChild(HomeComponent, { static: false })
+  @ViewChild(HomeComponent)
   homeComponent: HomeComponent;
 
-  @ViewChild(AboutComponent, { static: false })
+  @ViewChild(AboutComponent)
   aboutComponent: AboutComponent;
 
-  @ViewChild(BatchesComponent, { static: false })
+  @ViewChild(BatchesComponent)
   batchesComponent: BatchesComponent;
 
   @ViewChildren("sovComponents")
   public sovComponents: QueryList<SovComponent>;
   private sovComponent;
 
-  private menu: MenuItem[];
-  private controller: NavControllerComponent;
-  private currActive: MenuItem;
+  menu: MenuItem[];
+  controller: NavControllerComponent;
+  currActive: MenuItem;
 
   constructor(
     private navControllerService: NavControllerService,
