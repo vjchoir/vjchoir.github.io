@@ -7,6 +7,9 @@ import moment from 'moment';
 import { Song } from 'src/app/music/model/Song';
 import { PlayerService } from 'src/app/music/player/player.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
+import { ActivatedRoute } from '@angular/router';
+
+const PLAYLIST_QUERY_PARAM = 'pl';
 
 @Component({
   selector: 'app-listen',
@@ -21,7 +24,9 @@ export class ListenComponent implements OnInit {
   currActiveHeader;
   isHeaderVisible: boolean = true;
 
-  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal) { }
+  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal, private route: ActivatedRoute) { 
+    
+  }
 
   ngOnInit() {
     this.listenService.getHeader().subscribe(content => {
@@ -40,6 +45,13 @@ export class ListenComponent implements OnInit {
 
     this.listenService.getPlaylists().subscribe(myPlaylists => {
       this.myPlaylistsInfo = this.listenService.myPlaylists;
+    });
+
+    this.route.queryParams.subscribe(params => {
+      console.log(params[PLAYLIST_QUERY_PARAM]);
+      if(params[PLAYLIST_QUERY_PARAM]) {
+        this.importPlaylist(params[PLAYLIST_QUERY_PARAM]);
+      }
     });
   }
 
@@ -128,8 +140,11 @@ export class ListenComponent implements OnInit {
   exportPlaylist(playlist: Playlist): string {
     let string = this.listenService.playlistToParameters(playlist);
     
-    document.execCommand('copy');
     return string;
+  }
+
+  getPlaylistLink(playlist: Playlist): string {
+    return window.location.origin + '/listen?' + PLAYLIST_QUERY_PARAM + '=' + this.exportPlaylist(playlist)
   }
 
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {

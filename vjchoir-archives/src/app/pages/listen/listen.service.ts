@@ -9,6 +9,9 @@ import { SovService } from '../sov/sov.service';
 
 const MY_PLAYLISTS_STRING = "myPlaylists";
 
+const DEFAULT_TITLE = "Imported playlist";
+const DEFAULT_DESCRIPTION = "This playlist was imported!"
+
 const PLAYLIST_SEPARATOR = "p";
 const TRACKS_SEPARATOR = "t";
 const SONG_SEPARATOR = "s";
@@ -105,8 +108,18 @@ export class ListenService {
       });
 
       let playlist: Playlist = {
+        name: DEFAULT_TITLE,
+        desc: DEFAULT_DESCRIPTION,
         tracks: songs.sort((a, b) => a.pos - b.pos).map(x => x.song)
       }
+
+      let repertoireDuration = moment.duration();
+      for(let j = 0; j < playlist.tracks.length; j ++) {
+        repertoireDuration.add(playlist.tracks[j].duration);
+      }
+
+      playlist.duration = repertoireDuration;
+      
       return playlist;
     } catch(e) {
       console.log(e);

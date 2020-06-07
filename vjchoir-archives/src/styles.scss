@@ -147,3 +147,14 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.icon-primary {
+  color: $base-color;
+  &:hover {
+    color: $accent-color;
+  }
+}
+
+.icon-danger {
+  color: red;
+}
