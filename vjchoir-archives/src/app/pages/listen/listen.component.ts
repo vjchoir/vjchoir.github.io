@@ -7,7 +7,7 @@ import moment from 'moment';
 import { Song } from 'src/app/music/model/Song';
 import { PlayerService } from 'src/app/music/player/player.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const PLAYLIST_QUERY_PARAM = 'pl';
 
@@ -24,7 +24,7 @@ export class ListenComponent implements OnInit {
   currActiveHeader;
   isHeaderVisible: boolean = true;
 
-  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal, private route: ActivatedRoute) { 
+  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { 
     
   }
 
@@ -52,6 +52,8 @@ export class ListenComponent implements OnInit {
       if(params[PLAYLIST_QUERY_PARAM]) {
         this.importPlaylist(params[PLAYLIST_QUERY_PARAM]);
       }
+
+      this.router.navigate(['listen'], { replaceUrl: true });
     });
   }
 
