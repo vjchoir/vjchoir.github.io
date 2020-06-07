@@ -15,6 +15,7 @@ import { AboutComponent } from "src/app/pages/about/about.component";
 import { BatchesComponent } from "src/app/pages/batches/batches.component";
 import { SovComponent } from "src/app/pages/sov/sov.component";
 import { PlayerComponent } from "src/app/music/player/player.component";
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: "nav-controller",
@@ -47,6 +48,7 @@ export class NavControllerComponent implements OnInit {
       if (val instanceof NavigationEnd) {
         console.log(val);
         this.navControllerService.onRouteUpdate(val);
+        this.navigateToLink(val.url);
       }
     });
     this.navControllerService.clickedLink.subscribe((val) => {
@@ -95,13 +97,15 @@ export class NavControllerComponent implements OnInit {
     window.scroll(0, 0);
   }
 
+
+  pages = ['home', 'about', 'batches', 'sov', 'listen', 'contribute', 'misc']
   navigateToLink(url: string) {
-    if (url.toLowerCase().includes("sov")) {
-      let temp = this.menu.filter((x) => x.linkName.includes("sov"));
-      this.navigateTo(temp[0]);
-    } else if (url.toLowerCase().includes("listen")) {
-      let temp = this.menu.filter((x) => x.linkName.includes("listen"));
-      this.navigateTo(temp[0]);
+    for(let i = 0; i < this.pages.length; i ++) {
+      if(url.toLowerCase().includes(this.pages[i])) {
+        let temp = this.menu.filter(x => x.linkName.includes(this.pages[i]));
+        this.navigateTo(temp[0]);
+        return;
+      }
     }
   }
 }
