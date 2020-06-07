@@ -21,8 +21,8 @@ import { SafePipe } from './pipes/safe-link-pipe';
 import { PlayerComponent } from './music/player/player.component';
 import { FormatDurationPipe } from './pipes/format-duration.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DragDropModule } from '@angular/cdk/drag-drop';
-import { LZStringModule, LZStringService } from 'ng-lz-string';
+import { DragDropModule } from '@angular/cdk/drag-drop/drag-drop-module'
+import { ClipboardModule } from '@angular/cdk/clipboard/clipboard-module'
 
 @NgModule({
   declarations: [
@@ -53,9 +53,9 @@ import { LZStringModule, LZStringService } from 'ng-lz-string';
     PlyrModule,
     BrowserAnimationsModule,
     DragDropModule,
-    LZStringModule
+    ClipboardModule
   ],
-  providers: [ LZStringService ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

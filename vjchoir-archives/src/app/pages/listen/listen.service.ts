@@ -132,7 +132,7 @@ export class ListenService {
         param.pl_pos = '0' + param.pl_pos;
       }
 
-      if(param.id.length != 2 ) {
+      if(param.id.length != 2) {
         param.id = '0' + param.id;
       }
 
@@ -155,9 +155,6 @@ export class ListenService {
 
       output += str;
     }
-
-    console.log(output);
-    console.log(this.parametersToPlaylist(output));
 
     return output;
   }

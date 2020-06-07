@@ -120,13 +120,16 @@ export class ListenComponent implements OnInit {
   }
 
   importPlaylist(code: string) {
-    this.listenService.parametersToPlaylist(code);
-    console.log()
+    let playlist = this.listenService.parametersToPlaylist(code);
+    this.myPlaylistsInfo.push(playlist);
+    this.listenService.savePlaylists(this.myPlaylistsInfo);
   }
 
-  exportPlaylist(playlist: Playlist) {
+  exportPlaylist(playlist: Playlist): string {
     let string = this.listenService.playlistToParameters(playlist);
-    console.log(string);
+    
+    document.execCommand('copy');
+    return string;
   }
 
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {
