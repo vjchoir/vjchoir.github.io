@@ -64,19 +64,13 @@
 
     <hr/>
 
-    <div class="youtube">
-      <h3>YouTube</h3>
-      <p [innerHTML]="currActive.links.yt.desc"></p>
-      <!-- <div class="embed-responsive embed-responsive-16by9 w-75 m-auto" *ngIf="currActive.links.yt.link">
-        <iframe class="embed-responsive-item" [src]="currActive.links.yt.link | safe" allowfullscreen></iframe>
-      </div> -->
-    </div>
-
-    <hr/>
-
     <div class="links">
       <h3>Links</h3>
       <p [innerHTML]="currActive.links.dls.intro"></p>
+      <div *ngIf="currActive.links.yt.link">
+        <h4>YouTube</h4>
+        <p>Click <a href="{{currActive.links.yt.link}}" target="_blank">here</a> to view this year's Symphony of Voices on YouTube.</p>
+      </div>
       <div class="row">
         <div *ngFor="let section of currActive.links.dls.sections" class="col link-col">
           <h4>{{section.title}}</h4>

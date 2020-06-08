@@ -82,8 +82,8 @@
         <div *ngIf="currDisplayedPlaylist.tracks.length != 0">
           <div class="song row m-0 py-2" *ngFor="let song of currDisplayedPlaylist.tracks; let i = index" (click)="loadSong(currDisplayedPlaylist, song)" [ngClass]="nowPlaying == song ? 'active' : ''">
             <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
-            <p class="song-title text-left text-truncate col-10 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
-            <p class="song-duration text-center col-1 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+            <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
+            <p class="song-duration text-center col-2 m-0 p-0 pr-1"><small>{{song.duration | formatDuration}}</small></p>
           </div>
         </div>
       </div>
