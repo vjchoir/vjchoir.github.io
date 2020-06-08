@@ -10,7 +10,7 @@ import { SovService } from '../sov/sov.service';
 const MY_PLAYLISTS_STRING = "myPlaylists";
 
 const DEFAULT_TITLE = "Imported playlist";
-const DEFAULT_DESCRIPTION = "This playlist was imported on " + moment().format("dddd, , MMMM Do YYYY, h:mm a");
+const DEFAULT_DESCRIPTION = "This playlist was imported on " + moment().format("dddd, MMMM Do YYYY, h:mm a");
 
 const PLAYLIST_SEPARATOR = "p";
 const TRACKS_SEPARATOR = "t";

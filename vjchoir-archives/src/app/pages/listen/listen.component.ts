@@ -8,10 +8,12 @@ import { Song } from 'src/app/music/model/Song';
 import { PlayerService } from 'src/app/music/player/player.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Toaster } from 'src/app/services/toaster.service';
 import { ToastrService } from 'ngx-toastr';
+import { Clipboard } from '@angular/cdk/clipboard';
 
 const PLAYLIST_QUERY_PARAM = 'pl';
+
+const LISTEN_PAGE_SETTINGS_ID = 'listenSettings';
 
 @Component({
   selector: 'app-listen',
@@ -19,6 +21,10 @@ const PLAYLIST_QUERY_PARAM = 'pl';
   styleUrls: ['./listen.component.scss']
 })
 export class ListenComponent implements OnInit {
+
+  // Settings related
+  areToastsEnabled: boolean;
+  isHeaderClosedOnStart: boolean;
 
   headerContent;
   sovInfo;
@@ -32,11 +38,27 @@ export class ListenComponent implements OnInit {
     private modalService: NgbModal, 
     private router: Router, 
     private route: ActivatedRoute,
-    private toaster: ToastrService) { 
+    private toaster: ToastrService,
+    private clipboard: Clipboard) { 
     
   }
 
   ngOnInit() {
+    let settings = localStorage.getItem(LISTEN_PAGE_SETTINGS_ID);
+    if(settings == null || settings == undefined || settings == '') {
+      console.log("No settings! Loading default..")
+      this.areToastsEnabled = true;
+      this.isHeaderClosedOnStart = false;
+    } else {
+      let settingsJSON = JSON.parse(settings);
+      console.log(settingsJSON);
+      this.areToastsEnabled = settingsJSON.areToastsEnabled;
+      this.isHeaderClosedOnStart = settingsJSON.isHeaderClosedOnStart;
+    }
+
+    this.isHeaderVisible = !this.isHeaderClosedOnStart;
+
+
     this.listenService.getHeader().subscribe(content => {
       this.headerContent = content
       this.currActiveHeader = this.headerContent.sections[0];
@@ -56,7 +78,6 @@ export class ListenComponent implements OnInit {
     });
 
     this.route.queryParams.subscribe(params => {
-      console.log(params[PLAYLIST_QUERY_PARAM]);
       if(params[PLAYLIST_QUERY_PARAM]) {
         this.importPlaylist(params[PLAYLIST_QUERY_PARAM]);
       }
@@ -93,8 +114,10 @@ export class ListenComponent implements OnInit {
       type: "Create playlist",
       playlist: tempPlaylist
     });
-
-    this.toaster.success("Created new playlist!");
+    this.createToast({
+      type: "success",
+      msg: "Created a new playlist!"
+    });
   }
 
   deletePlaylist(playlist: Playlist) {
@@ -108,6 +131,10 @@ export class ListenComponent implements OnInit {
       type: "Delete playlist",
       playlist: playlist
     });
+    this.createToast({
+      type: "error",
+      msg: "Deleted playlist '" + playlist.name + "'!"
+    });
   }
 
   addSongToPlaylist(song: Song, playlist: Playlist) {
@@ -119,6 +146,11 @@ export class ListenComponent implements OnInit {
     this.playerService.onPlaylistUpdate({
       type: "Add song",
       playlist: playlist
+    });
+
+    this.createToast({
+      type: "success",
+      msg: "Added '" + song.title + "' to '" + playlist.name + "'!"
     });
   }
 
@@ -132,6 +164,11 @@ export class ListenComponent implements OnInit {
       type: "Remove song",
       playlist: playlist
     });
+    
+    this.createToast({
+      type: "error",
+      msg: "Removed '" + song.title + "' from '" + playlist.name + "'!"
+    });
   }
 
   playSong(playlist: Playlist, song: Song) {
@@ -141,12 +178,22 @@ export class ListenComponent implements OnInit {
   resetStorage() {
     this.myPlaylistsInfo = [];
     this.listenService.resetStorage();
+
+    this.createToast({
+      type: "error",
+      msg: "Storage has been reset!"
+    });
   }
 
   importPlaylist(code: string) {
     let playlist = this.listenService.parametersToPlaylist(code);
     this.myPlaylistsInfo.push(playlist);
     this.listenService.savePlaylists(this.myPlaylistsInfo);
+
+    this.createToast({
+      type: "success",
+      msg: "Imported a new playlist from the link provided!"
+    });
   }
 
   exportPlaylist(playlist: Playlist): string {
@@ -155,8 +202,12 @@ export class ListenComponent implements OnInit {
     return string;
   }
 
-  getPlaylistLink(playlist: Playlist): string {
-    return window.location.origin + '/listen?' + PLAYLIST_QUERY_PARAM + '=' + this.exportPlaylist(playlist)
+  getPlaylistLink(playlist: Playlist) {
+    this.createToast({
+      type: "success",
+      msg: "Playlist link has been copied to your clipboard!"
+    });
+    this.clipboard.copy(window.location.origin + '/listen?' + PLAYLIST_QUERY_PARAM + '=' + this.exportPlaylist(playlist));
   }
 
   drop(playlist: Playlist, event: CdkDragDrop<string[]>) {
@@ -166,5 +217,28 @@ export class ListenComponent implements OnInit {
 
   openModal(modal) {
     this.modalService.open(modal);
+  }
+  
+  createToast(params) {
+    if(!this.areToastsEnabled) {
+      return;
+    }
+
+    if(params.type == "success") {
+      this.toaster.success(params.msg);
+    } else if(params.type == "error") {
+      this.toaster.error(params.msg);
+    }
+  }
+
+  saveSettings() {
+    let settingsJSON = {
+      areToastsEnabled: this.areToastsEnabled,
+      isHeaderClosedOnStart: this.isHeaderClosedOnStart
+    }
+
+    console.log(settingsJSON);
+    localStorage.setItem(LISTEN_PAGE_SETTINGS_ID, JSON.stringify(settingsJSON));
+    console.log("Settings have been saved.");
   }
 }

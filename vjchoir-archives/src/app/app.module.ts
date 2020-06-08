@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgbCarouselModule, NgbModalModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
@@ -24,6 +25,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ClipboardModule } from '@angular/cdk/clipboard/';
 import { ToastrModule } from 'ngx-toastr';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,7 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     FontAwesomeModule,
     AppRoutingModule,
     NgbCarouselModule,
@@ -56,7 +59,12 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     DragDropModule,
     ClipboardModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 2000,
+      positionClass: 'toast-top-center',
+      preventDuplicates: true
+    }),
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

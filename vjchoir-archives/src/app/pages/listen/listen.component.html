@@ -11,10 +11,10 @@
   <div *ngIf="isHeaderVisible">
     <h3>{{currActiveHeader.header}}</h3>
     <div [innerHTML]="currActiveHeader.content"></div>
-
     <div *ngIf="currActiveHeader.title == 'Settings'">
       <h3>Settings</h3>
       <p>This is the settings page for the 'Listen' page of the website. Below, you will find some controls that are meant to alter your playlists / your experience in making these playlists.</p>
+      <hr/>
       <div class="col m-0 p-0">
         <button class="btn btn-outline-danger mb-2" (click)="openModal(resetStorageModal)">Reset storage</button>
         <p>You currently have <b>{{myPlaylistsInfo.length}} playlists</b> stored.<br/>This button will <b>reset your storage</b>, removing all your playlists that you have created and imported. This action is irreversible.</p>
@@ -31,6 +31,23 @@
             </div>
           </div>
         </ng-template>
+      </div>
+      <hr/>
+      <div class="col m-0 p-0">
+        <div>
+          <mat-slide-toggle id="toastSwitch" [(ngModel)]="areToastsEnabled" (change)="saveSettings()"></mat-slide-toggle>
+          <p *ngIf="areToastsEnabled" class="m-0">Toasts are <b>enabled</b></p>
+          <p *ngIf="!areToastsEnabled" class="m-0">Toasts are <b>disabled</b></p>
+          <p>Toasts are the pop-ups at the top of the website. To enable or disable them for the 'Listen' page, use this switch.</p>
+        </div>
+        <br/>
+        <div>
+          <mat-slide-toggle id="headerSwitch" [(ngModel)]="isHeaderClosedOnStart" (change)="saveSettings()"></mat-slide-toggle>
+          <p *ngIf="isHeaderClosedOnStart" class="m-0">Header will be <b>closed</b> on start</p>
+          <p *ngIf="!isHeaderClosedOnStart" class="m-0">Header will be <b>opened</b> on start</p>
+          <p>The header includes the introduction, tutorials etc. part of the 'Listen' page. To make it start off as closed when you load up this page, use this switch.</p>
+
+        </div>
       </div>
     </div>
   </div>
@@ -74,7 +91,7 @@
               </h4>
               <div class="col-6 d-flex justify-content-end">
                 <!-- <i class="fa fa-file-export icon-primary mr-3 my-auto" placement="top" ngbTooltip="Get playlist code" [cdkCopyToClipboard]="exportPlaylist(playlist)" onclick="event.stopPropagation();"></i> -->
-                <i class="fa fa-link icon-primary mr-3 my-auto" placement="top" ngbTooltip="Copy playlist link" [cdkCopyToClipboard]="getPlaylistLink(playlist)" onclick="event.stopPropagation();"></i>
+                <i class="fa fa-link icon-primary mr-3 my-auto" placement="top" ngbTooltip="Copy playlist link" (click)="getPlaylistLink(playlist)" onclick="event.stopPropagation();"></i>
                 <i class="fa fa-times icon-danger mr-4 my-auto" placement="top" ngbTooltip="Delete playlist" (click)="openModal(deleteModal);" onclick="event.stopPropagation();"></i>
                 <i class="fa fa-caret-up my-auto"></i>
               </div>
@@ -131,20 +148,6 @@
     <hr *ngIf="!isLast" class="m-0" />
 
   </div>
-
-  <ng-template #importPlaylistModal let-modal>
-    <div class="container-fluid p-4">
-      <h4>Import playlist</h4>
-      <hr/>
-      <p>Use the code given to you to import a playlist into our system!</p>
-      <textarea class="form-control mb-3" aria-label="With textarea"></textarea>
-
-      <div class="row justify-content-end d-flex mx-0">
-        <button class="btn btn-outline-secondary mr-2" (click)="modal.dismiss()">Cancel</button>
-        <button class="btn btn-primary" (click)="modal.dismiss()">Import</button>
-      </div>
-    </div>
-  </ng-template>
 </div>
 <hr/>
 
