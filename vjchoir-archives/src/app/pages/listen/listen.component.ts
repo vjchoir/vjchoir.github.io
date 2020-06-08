@@ -8,6 +8,8 @@ import { Song } from 'src/app/music/model/Song';
 import { PlayerService } from 'src/app/music/player/player.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Toaster } from 'src/app/services/toaster.service';
+import { ToastrService } from 'ngx-toastr';
 
 const PLAYLIST_QUERY_PARAM = 'pl';
 
@@ -24,7 +26,13 @@ export class ListenComponent implements OnInit {
   currActiveHeader;
   isHeaderVisible: boolean = true;
 
-  constructor(private listenService: ListenService, private sovService: SovService, private playerService: PlayerService, private modalService: NgbModal, private router: Router, private route: ActivatedRoute) { 
+  constructor(private listenService: ListenService, 
+    private sovService: SovService, 
+    private playerService: PlayerService, 
+    private modalService: NgbModal, 
+    private router: Router, 
+    private route: ActivatedRoute,
+    private toaster: ToastrService) { 
     
   }
 
@@ -85,6 +93,8 @@ export class ListenComponent implements OnInit {
       type: "Create playlist",
       playlist: tempPlaylist
     });
+
+    this.toaster.success("Created new playlist!");
   }
 
   deletePlaylist(playlist: Playlist) {

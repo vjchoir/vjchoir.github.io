@@ -21,8 +21,9 @@ import { SafePipe } from './pipes/safe-link-pipe';
 import { PlayerComponent } from './music/player/player.component';
 import { FormatDurationPipe } from './pipes/format-duration.pipe';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { DragDropModule } from '@angular/cdk/drag-drop'
-import { ClipboardModule } from '@angular/cdk/clipboard/'
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { ClipboardModule } from '@angular/cdk/clipboard/';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ClipboardModule } from '@angular/cdk/clipboard/'
     PlyrModule,
     BrowserAnimationsModule,
     DragDropModule,
-    ClipboardModule
+    ClipboardModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]
