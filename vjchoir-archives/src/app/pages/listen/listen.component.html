@@ -1,12 +1,14 @@
 <div class="listen-header d-block">
   <div class="listen-header-buttons d-flex mb-4" (click)="isHeaderVisible = !isHeaderVisible">
-    <div class="d-flex flex-grow-1 row mx-0">
+    <div class="d-flex row mx-0">
       <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 my-auto" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item" onclick="this.blur(); event.stopPropagation()">
           {{item.title}}
       </button>
     </div>
-    <i class="fa fa-caret-up m-0 my-auto mr-3" *ngIf="isHeaderVisible"></i>
-    <i class="fa fa-caret-down m-0 my-auto mr-3" *ngIf="!isHeaderVisible"></i>
+    <div class="d-flex flex-grow-1 justify-content-end rounded listen-header-close">
+      <i class="fa fa-caret-up m-0 my-auto mr-3" *ngIf="isHeaderVisible"></i>
+      <i class="fa fa-caret-down m-0 my-auto mr-3" *ngIf="!isHeaderVisible"></i>
+    </div>
   </div>
   <div *ngIf="isHeaderVisible">
     <h3>{{currActiveHeader.header}}</h3>
