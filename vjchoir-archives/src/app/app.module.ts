@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgbCarouselModule, NgbModalModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
@@ -49,6 +50,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     AppRoutingModule,
     NgbCarouselModule,
@@ -64,7 +66,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
       positionClass: 'toast-top-center',
       preventDuplicates: true
     }),
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

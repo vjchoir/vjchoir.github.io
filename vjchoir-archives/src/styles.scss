@@ -182,3 +182,31 @@ body {
     }
   }
 }
+
+form {
+  font-family: $primary-text-font;
+  .form-control {
+    &:focus {
+      border-color: $accent-color;
+      box-shadow: none;
+    }
+  }
+  .custom-select {
+    &:focus {
+      border-color: $accent-color;
+      box-shadow: none;
+    }
+  }
+}
+
+.invalid {
+  font-family: $primary-text-font;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.required {
+  color: #dc3545;
+}

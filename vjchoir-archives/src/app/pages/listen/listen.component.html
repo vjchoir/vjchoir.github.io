@@ -1,7 +1,7 @@
 <div class="listen-header d-block">
-  <div class="listen-header-buttons d-flex mb-4" (click)="isHeaderVisible = !isHeaderVisible">
+  <div class="listen-header-buttons d-flex mb-4">
     <div class="d-flex row mx-0">
-      <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 my-auto" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item" onclick="this.blur(); event.stopPropagation()">
+      <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 my-auto" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item; isHeaderVisible = true;" onclick="this.blur(); event.stopPropagation()">
           {{item.title}}
       </button>
     </div>
