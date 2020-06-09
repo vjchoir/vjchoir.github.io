@@ -8,6 +8,7 @@
 <hr/>
 
 <div>
+  <h4>Feedback / Suggestion / Question Form</h4>
   <form [formGroup]="contributeForm">
     <div class="form-row">
       <div class="form-group col-md-6">
@@ -50,10 +51,10 @@
       <label for="inputFeedback">Feedback / Comments / Suggestions <span class="required">*</span></label>
       <textarea class="form-control" id="inputFeedback" rows="5" formControlName="text"></textarea>
       <div *ngIf="getFeedback().invalid && (getFeedback().dirty || getFeedback().touched)">
-        <div *ngIf="getFeedback().errors.required" class="invalid">Some text is required.</div>
+        <div *ngIf="getFeedback().errors.required" class="invalid" placeholder="Let me know what you think about the website! Or if you have something to submit, feel free to let me know!">Some text is required.</div>
       </div>
     </div>
-    
+
     <button type="submit" class="btn btn-outline-primary" (click)="submitForm()" value="Send">Submit</button>
     <p><span class="invalid">* Required entries</span></p>
   </form>
