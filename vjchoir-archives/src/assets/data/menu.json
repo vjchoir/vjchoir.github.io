@@ -50,7 +50,7 @@
     },
     {
       "id": 6,
-      "name": "MISC",
+      "name": "MISCELLANEOUS",
       "linkName": "/misc",
       "icon": "fas fa-ellipsis-h",
       "active": false,
