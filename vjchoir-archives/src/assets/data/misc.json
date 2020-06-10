@@ -1,7 +1,7 @@
 {
   "sections": [{
-      "title": "Home",
-      "id": "home",
+      "title": "Main",
+      "id": "main",
       "content": "<p>Welcome to the Miscellaneous page of the website! This is the part of the site that will contain all the information that doesn't really relate to anything under the stuff on the sidebar and doesn't deserve its own spot there too. Enjoy!</p>"
     },
     {
