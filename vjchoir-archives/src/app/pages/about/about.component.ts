@@ -4,6 +4,7 @@ import { AboutService } from "./about.service";
 import { NavControllerService } from "src/app/navigation/nav-controller/nav-controller.service";
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: "app-about",
@@ -17,7 +18,8 @@ export class AboutComponent implements OnInit {
   constructor(
     private navControllerService: NavControllerService,
     private aboutService: AboutService,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
@@ -39,9 +41,10 @@ export class AboutComponent implements OnInit {
       for (let item of this.aboutJSON.sections) {
         if (fragment.includes(item.id)) {
           this.currActive = item;
-          return;
+          break;
         }
       }
     }
+    this.titleService.setTitle(this.currActive.title);
   }
 }

@@ -12,6 +12,9 @@ import { NavControllerService } from "src/app/navigation/nav-controller/nav-cont
 import { PlayerService } from "src/app/music/player/player.service";
 import { Playlist } from "src/app/music/model/Playlist";
 import { Song } from "src/app/music/model/Song";
+import { Title } from '@angular/platform-browser';
+
+const SOV_TITLE = "Symphony of Voices";
 
 @Component({
   selector: "app-sov",
@@ -29,7 +32,8 @@ export class SovComponent implements OnInit {
     private navControllerService: NavControllerService,
     private sovService: SovService,
     private playerService: PlayerService,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {
   }
 
@@ -66,11 +70,13 @@ export class SovComponent implements OnInit {
       for (let item of this.sovInfo) {
         if (fragment.includes(item.abbr)) {
           this.currActive = item;
+          this.titleService.setTitle(this.currActive.title);
           return;
         }
       }
 
       this.currActive = null;
     }
+    this.titleService.setTitle(SOV_TITLE);
   }
 }

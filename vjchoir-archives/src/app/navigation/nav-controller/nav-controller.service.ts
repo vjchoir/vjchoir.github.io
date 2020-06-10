@@ -4,7 +4,7 @@ import menuJSON from '../../../assets/data/menu.json';
 import { MenuItem } from '../model/MenuItem';
 import { Observable, of, Subject } from 'rxjs';
 
-const MENU_ARRAY = ['about', 'batches', 'sov'];
+const MENU_ARRAY = ['about', 'batches', 'sov', 'misc'];
 
 @Injectable({
   providedIn: 'root',

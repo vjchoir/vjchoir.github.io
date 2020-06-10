@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ContributeService } from './contribute.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+
+const CONTRIBUTE_TITLE = "Contribute";
 
 @Component({
   selector: 'app-contribute',
@@ -20,7 +23,9 @@ export class ContributeComponent implements OnInit {
     "text": ""
   }
 
-  constructor(private contributeService: ContributeService, private formBuilder: FormBuilder) { }
+  constructor(private contributeService: ContributeService, 
+    private formBuilder: FormBuilder,
+    private titleService: Title) { }
 
   ngOnInit() {
     this.contributeService.getContent().subscribe(content => this.contributeInfo = content);
@@ -32,6 +37,8 @@ export class ContributeComponent implements OnInit {
       "type": new FormControl(this.formInfo.type, [Validators.required]),
       "text": new FormControl(this.formInfo.text, [Validators.required])
     })
+
+    this.titleService.setTitle(CONTRIBUTE_TITLE);
   }
 
   validateForm() {

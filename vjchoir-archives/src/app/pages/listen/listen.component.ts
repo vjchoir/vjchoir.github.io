@@ -10,10 +10,12 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { Title } from '@angular/platform-browser';
 
 const PLAYLIST_QUERY_PARAM = 'pl';
 
 const LISTEN_PAGE_SETTINGS_ID = 'listenSettings';
+const LISTEN_TITLE = "Listen";
 
 @Component({
   selector: 'app-listen',
@@ -39,7 +41,8 @@ export class ListenComponent implements OnInit {
     private router: Router, 
     private route: ActivatedRoute,
     private toaster: ToastrService,
-    private clipboard: Clipboard) { 
+    private clipboard: Clipboard,
+    private titleService: Title) { 
     
   }
 
@@ -84,6 +87,8 @@ export class ListenComponent implements OnInit {
 
       this.router.navigate(['listen'], { replaceUrl: true });
     });
+
+    this.titleService.setTitle(LISTEN_TITLE);
   }
 
   onKeyEnter(playlist: Playlist, element: any) {

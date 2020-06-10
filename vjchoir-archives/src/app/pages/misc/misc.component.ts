@@ -3,6 +3,9 @@ import { MiscService } from './misc.service';
 import { UpdateLog } from './model/UpdateLog';
 import { Router } from '@angular/router';
 import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
+import { Title } from '@angular/platform-browser';
+
+const MISC_TITTLE = "Miscellaneous";
 
 @Component({
   selector: 'app-misc',
@@ -16,7 +19,10 @@ export class MiscComponent implements OnInit {
 
   currActive;
 
-  constructor(private miscService: MiscService, private navControllerService: NavControllerService, private router: Router) { }
+  constructor(private miscService: MiscService, 
+    private navControllerService: NavControllerService, 
+    private router: Router,
+    private titleService: Title) { }
 
   ngOnInit() {
     this.miscService.getUpdateLog().subscribe(updateLog => this.updateLog = updateLog);
@@ -27,9 +33,7 @@ export class MiscComponent implements OnInit {
 
     this.navControllerService.routerUpdates.subscribe(val => {
       this.handleFragment();
-    });
-
-    
+    }); 
   }
 
   private handleFragment() {
@@ -40,9 +44,11 @@ export class MiscComponent implements OnInit {
       for (let item of this.miscJSON.sections) {
         if (fragment.includes(item.id)) {
           this.currActive = item;
+          this.titleService.setTitle(this.currActive.title);
           return;
         }
       }
     }
+    this.titleService.setTitle(MISC_TITTLE);
   }
 }
