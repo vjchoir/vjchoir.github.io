@@ -5,6 +5,7 @@ import { NavControllerService } from "src/app/navigation/nav-controller/nav-cont
 import { Router } from "@angular/router";
 import { Location } from "@angular/common";
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 @Component({
   selector: "app-about",
@@ -19,7 +20,8 @@ export class AboutComponent implements OnInit {
     private navControllerService: NavControllerService,
     private aboutService: AboutService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private loadingService: LoadingService
   ) {}
 
   ngOnInit() {
@@ -31,6 +33,8 @@ export class AboutComponent implements OnInit {
     this.navControllerService.routerUpdates.subscribe(val => {
       this.handleFragment();
     });
+
+    this.loadingService.setLoading(false);
   }
 
   private handleFragment() {
@@ -46,5 +50,6 @@ export class AboutComponent implements OnInit {
       }
     }
     this.titleService.setTitle(this.currActive.title);
+    this.loadingService.setLoading(false);
   }
 }

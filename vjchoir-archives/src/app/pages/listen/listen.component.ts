@@ -11,6 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 const PLAYLIST_QUERY_PARAM = 'pl';
 
@@ -42,7 +43,8 @@ export class ListenComponent implements OnInit {
     private route: ActivatedRoute,
     private toaster: ToastrService,
     private clipboard: Clipboard,
-    private titleService: Title) { 
+    private titleService: Title,
+    private loadingService: LoadingService) { 
     
   }
 
@@ -89,6 +91,7 @@ export class ListenComponent implements OnInit {
     });
 
     this.titleService.setTitle(LISTEN_TITLE);
+    this.loadingService.setLoading(false);
   }
 
   onKeyEnter(playlist: Playlist, element: any) {

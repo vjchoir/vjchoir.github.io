@@ -4,8 +4,9 @@ import { UpdateLog } from './model/UpdateLog';
 import { Router } from '@angular/router';
 import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
-const MISC_TITTLE = "Miscellaneous";
+const MISC_TITLE = "Miscellaneous";
 
 @Component({
   selector: 'app-misc',
@@ -22,7 +23,8 @@ export class MiscComponent implements OnInit {
   constructor(private miscService: MiscService, 
     private navControllerService: NavControllerService, 
     private router: Router,
-    private titleService: Title) { }
+    private titleService: Title,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.miscService.getUpdateLog().subscribe(updateLog => this.updateLog = updateLog);
@@ -33,7 +35,7 @@ export class MiscComponent implements OnInit {
 
     this.navControllerService.routerUpdates.subscribe(val => {
       this.handleFragment();
-    }); 
+    });
   }
 
   private handleFragment() {
@@ -49,6 +51,7 @@ export class MiscComponent implements OnInit {
         }
       }
     }
-    this.titleService.setTitle(MISC_TITTLE);
+    this.titleService.setTitle(MISC_TITLE);
+    this.loadingService.setLoading(false);
   }
 }

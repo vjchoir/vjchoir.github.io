@@ -13,6 +13,7 @@ import { PlayerService } from "src/app/music/player/player.service";
 import { Playlist } from "src/app/music/model/Playlist";
 import { Song } from "src/app/music/model/Song";
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 const SOV_TITLE = "Symphony of Voices";
 
@@ -33,7 +34,8 @@ export class SovComponent implements OnInit {
     private sovService: SovService,
     private playerService: PlayerService,
     private router: Router,
-    private titleService: Title
+    private titleService: Title,
+    private loadingService: LoadingService
   ) {
   }
 
@@ -47,6 +49,8 @@ export class SovComponent implements OnInit {
     this.navControllerService.routerUpdates.subscribe(val => {
       this.handleFragment();
     });
+    
+    this.loadingService.setLoading(false);
   }
 
   navigateToFragment(fragmentCode) {
@@ -71,6 +75,7 @@ export class SovComponent implements OnInit {
         if (fragment.includes(item.abbr)) {
           this.currActive = item;
           this.titleService.setTitle(this.currActive.title);
+          this.loadingService.setLoading(false);
           return;
         }
       }
@@ -78,5 +83,6 @@ export class SovComponent implements OnInit {
       this.currActive = null;
     }
     this.titleService.setTitle(SOV_TITLE);
+    this.loadingService.setLoading(false);
   }
 }

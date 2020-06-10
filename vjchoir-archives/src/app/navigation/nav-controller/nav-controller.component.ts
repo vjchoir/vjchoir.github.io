@@ -16,6 +16,7 @@ import { BatchesComponent } from "src/app/pages/batches/batches.component";
 import { SovComponent } from "src/app/pages/sov/sov.component";
 import { PlayerComponent } from "src/app/music/player/player.component";
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 @Component({
   selector: "nav-controller",
@@ -23,18 +24,6 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ["./nav-controller.component.scss"],
 })
 export class NavControllerComponent implements OnInit {
-  @ViewChild(HomeComponent)
-  homeComponent: HomeComponent;
-
-  @ViewChild(AboutComponent)
-  aboutComponent: AboutComponent;
-
-  @ViewChild(BatchesComponent)
-  batchesComponent: BatchesComponent;
-
-  @ViewChildren("sovComponents")
-  public sovComponents: QueryList<SovComponent>;
-  private sovComponent;
 
   menu: MenuItem[];
   controller: NavControllerComponent;
@@ -42,10 +31,12 @@ export class NavControllerComponent implements OnInit {
 
   constructor(
     private navControllerService: NavControllerService,
-    private router: Router
+    private router: Router,
+    private loadingService: LoadingService
   ) {
     this.router.events.subscribe((val) => {
       if (val instanceof NavigationEnd) {
+        this.loadingService.setLoading(true);
         console.log(val);
         this.navControllerService.onRouteUpdate(val);
         this.navigateToLink(val.url);
@@ -60,12 +51,6 @@ export class NavControllerComponent implements OnInit {
     this.getMenu();
     this.setCurrActive();
     this.controller = this;
-  }
-
-  ngAfterViewInit(): void {
-    this.sovComponents.changes.subscribe((sovs: QueryList<SovComponent>) => {
-      this.sovComponent = sovs.first;
-    });
   }
 
   private getMenu() {

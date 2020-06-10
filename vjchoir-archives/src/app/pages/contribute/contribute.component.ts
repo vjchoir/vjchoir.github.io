@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ContributeService } from './contribute.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 const CONTRIBUTE_TITLE = "Contribute";
 
@@ -25,7 +26,8 @@ export class ContributeComponent implements OnInit {
 
   constructor(private contributeService: ContributeService, 
     private formBuilder: FormBuilder,
-    private titleService: Title) { }
+    private titleService: Title,
+    private loadingService: LoadingService) { }
 
   ngOnInit() {
     this.contributeService.getContent().subscribe(content => this.contributeInfo = content);
@@ -39,6 +41,7 @@ export class ContributeComponent implements OnInit {
     })
 
     this.titleService.setTitle(CONTRIBUTE_TITLE);
+    this.loadingService.setLoading(false);
   }
 
   validateForm() {

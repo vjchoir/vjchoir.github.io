@@ -4,6 +4,7 @@ import { BatchItem } from './model/BatchItem';
 import { NavControllerService } from 'src/app/navigation/nav-controller/nav-controller.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { LoadingService } from 'src/app/loading/loading.service';
 
 const BATCHES_NAME = "Batches";
 const BATCH_OF = "Batch of ";
@@ -22,7 +23,8 @@ export class BatchesComponent implements OnInit {
   constructor(private navControllerService: NavControllerService, 
     private batchesService: BatchesService, 
     private router: Router,
-    private titleService: Title) { 
+    private titleService: Title,
+    private loadingService: LoadingService) { 
   
   }
 
@@ -47,6 +49,7 @@ export class BatchesComponent implements OnInit {
         if (fragment.includes(item.id)) {
           this.currActive = item;
           this.titleService.setTitle(BATCH_OF + this.currActive.name);
+          this.loadingService.setLoading(false);
           return;
         }
       }
@@ -54,5 +57,6 @@ export class BatchesComponent implements OnInit {
     }
     
     this.titleService.setTitle(BATCHES_NAME);
+    this.loadingService.setLoading(false);
   }
 }

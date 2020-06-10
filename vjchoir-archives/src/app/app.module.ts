@@ -6,6 +6,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NgbCarouselModule, NgbModalModule, NgbDropdownModule, NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { PlyrModule } from 'ngx-plyr';
+import { LazyLoadImageModule } from 'ng-lazyload-image';
+
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './navigation/sidebar/sidebar.component';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
@@ -27,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { ClipboardModule } from '@angular/cdk/clipboard/';
 import { ToastrModule } from 'ngx-toastr';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     PlayerComponent,
     AppendNamesPipe,
     SafePipe,
-    FormatDurationPipe
+    FormatDurationPipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +71,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
       preventDuplicates: true
     }),
     MatSlideToggleModule,
-    HttpClientModule
+    HttpClientModule,
+    LazyLoadImageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
