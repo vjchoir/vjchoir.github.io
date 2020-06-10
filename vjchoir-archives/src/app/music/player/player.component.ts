@@ -26,8 +26,10 @@ export class PlayerComponent implements OnInit {
   playlists: Playlist[] = [];
 
   isMinimised: boolean;
-  isJustLoaded: boolean = true;
   isPlaying: boolean = false;
+
+  isCanPlay: boolean = false;
+  isBuffering: boolean = true;
 
   activeWindowTitle: string;
   currDisplayedPlaylist: Playlist;
@@ -52,12 +54,12 @@ export class PlayerComponent implements OnInit {
     });
 
     this.playerService.songRequestUpdates.subscribe(val => {
-      this.loadSong(val.playlist, val.song);
+      this.loadSong(val.playlist, val.song, true);
     })
 
     this.navController.clickedSong.subscribe(val => {
       const song: Song = val;
-      this.loadSongViaId(val.playlistId, val.id);
+      this.loadSongViaId(val.playlistId, val.id, true);
     });
   }
 
@@ -68,16 +70,12 @@ export class PlayerComponent implements OnInit {
     this.isMinimised = true;
     this.playerPlaylistsWindow = document.getElementById("player-playlists");
 
-    this.loadSongViaId(0, 0);
+    this.loadSongViaId(0, 0, false);
   }
 
   loadPlaylists(justLoaded?: boolean) {
     this.sovService.getSovInfo().subscribe((info) => {
       this.sovInfo = info
-
-      if(justLoaded) {
-        setTimeout(() => this.isJustLoaded = false, 2000);
-      }
     });
 
     this.listenService.getPlaylists().subscribe(playlists => {
@@ -116,7 +114,7 @@ export class PlayerComponent implements OnInit {
     this.playerPlaylistsWindow.scroll(0, 0);
   }
 
-  loadSongViaId(playlistId: number, songId: number) {
+  loadSongViaId(playlistId: number, songId: number, isPlayOnLoad: boolean) {
     console.log("Loading '" + this.playlists[playlistId].tracks[songId].title + "' of playlist '" + this.playlists[playlistId].name + "'");
     const selected: Song = this.playlists[playlistId].tracks[songId];
     this.audioSources = [
@@ -127,9 +125,11 @@ export class PlayerComponent implements OnInit {
     ]
     this.nowPlaying = selected;
     this.currActivePlaylist = this.playlists[playlistId];
+    this.isCanPlay = isPlayOnLoad;
   }
 
-  loadSong(playlist: Playlist, song: Song) {
+  loadSong(playlist: Playlist, song: Song, isPlayOnLoad: boolean = true) {
+    console.log("Loading '" + song.title + "' of playlist '" + playlist.name + "'");
     this.audioSources = [
       {
         src: song.src,
@@ -138,8 +138,7 @@ export class PlayerComponent implements OnInit {
     ];
     this.nowPlaying = song;
     this.currActivePlaylist = playlist;
-
-    console.log("Loading '" + song.title + "' of playlist '" + playlist.name + "'");
+    this.isCanPlay = isPlayOnLoad;
   }
 
   loadNextSong() {
@@ -151,7 +150,7 @@ export class PlayerComponent implements OnInit {
       nextSongIndex = 0;
     }
 
-    this.loadSongViaId(currPlaylistIndex, nextSongIndex);
+    this.loadSongViaId(currPlaylistIndex, nextSongIndex, true);
   }
 
   loadPrevSong() {
@@ -163,7 +162,7 @@ export class PlayerComponent implements OnInit {
       prevSongIndex = 0;
     }
 
-    this.loadSongViaId(currPlaylistIndex, prevSongIndex);
+    this.loadSongViaId(currPlaylistIndex, prevSongIndex, true);
   }
 
   onBigPlayClick(event) {
@@ -186,7 +185,7 @@ export class PlayerComponent implements OnInit {
   }
 
   onCanPlay() {
-    if(!this.isJustLoaded) {
+    if(this.isCanPlay) {
       this.plyr.player.play();
     }
   }

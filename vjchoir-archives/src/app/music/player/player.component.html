@@ -18,7 +18,10 @@
           <button class="btn big-play-button p-0" [disabled]="nowPlaying.id - 1 < 0" (click)="onBigPrevClick($event)">
                 <i class="fas fa-step-backward mt-1 mr-2 my-auto"></i>
             </button>
-          <button class="btn big-play-button p-0" (click)="onBigPlayClick($event)">
+          <div *ngIf="isBuffering" class="spinner-border spinner-border-sm mt-1 mr-1" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+          <button *ngIf="!isBuffering" class="btn big-play-button p-0" (click)="onBigPlayClick($event)">
               <i class="fas fa-play mt-1 mr-2 my-auto" [ngClass]="isMinimised && isPlaying ? 'd-none' : ''"></i>
               <i class="fas fa-pause mt-1 mr-2 my-auto" [ngClass]="isMinimised && !isPlaying ? 'd-none' : ''"></i>
             </button>
@@ -48,7 +51,8 @@
           </p>
         </div>
       </div>
-      <plyr plyrType="audio" [plyrSources]="audioSources" (plyrCanPlay)="onCanPlay()" (plyrEnded)="loadNextSong()" (plyrPlay)="isPlaying = true" (plyrPause)="isPlaying = false"></plyr>
+      <plyr plyrType="audio" [plyrSources]="audioSources" (plyrWaiting)="isBuffering = true;" (plyrCanPlay)="onCanPlay();" (plyrCanPlayThrough)=" isBuffering = false;" (plyrEnded)="loadNextSong()" (plyrPlay)="isPlaying = true; isCanPlay = false;" (plyrPause)="isPlaying = false">
+      </plyr>
     </div>
     <div class="player-active-window-header row p-0 m-0">
       <button class="btn" [ngClass]="currDisplayedPlaylist ? '' : 'd-none'" (click)="onBackClick()"><small><i class="fa fa-arrow-left"></i></small></button>
