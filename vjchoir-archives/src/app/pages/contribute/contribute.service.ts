@@ -27,8 +27,6 @@ export class ContributeService {
     }
 
     sendFormToServer(data: any) {
-        return this.http.post(FORM_URL, data, HTTP_OPTIONS).subscribe(response => {
-            console.log(response);
-        });
+        return this.http.post(FORM_URL, data, HTTP_OPTIONS);
     }
 }

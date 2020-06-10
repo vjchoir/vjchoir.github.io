@@ -130,6 +130,9 @@ ngb-carousel {
   &:focus {
     outline: none;
   }
+  img {
+    animation: none;
+  }
 }
 
 .bottom-padder {

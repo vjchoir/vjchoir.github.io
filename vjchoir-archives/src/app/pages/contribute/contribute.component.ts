@@ -3,8 +3,10 @@ import { ContributeService } from './contribute.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { LoadingService } from 'src/app/loading/loading.service';
+import { Toast, ToastrService } from 'ngx-toastr';
 
 const CONTRIBUTE_TITLE = "Contribute";
+const FORM_URL = "formspree.io";
 
 @Component({
   selector: 'app-contribute',
@@ -15,6 +17,8 @@ export class ContributeComponent implements OnInit {
 
   contributeInfo;
   contributeForm: FormGroup;
+
+  isSubmitting: boolean = false;
 
   formInfo = {
     "name": "",
@@ -27,7 +31,8 @@ export class ContributeComponent implements OnInit {
   constructor(private contributeService: ContributeService, 
     private formBuilder: FormBuilder,
     private titleService: Title,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private toaster: ToastrService) { }
 
   ngOnInit() {
     this.contributeService.getContent().subscribe(content => this.contributeInfo = content);
@@ -35,7 +40,7 @@ export class ContributeComponent implements OnInit {
     this.contributeForm = this.formBuilder.group({
       "name": new FormControl(this.formInfo.name, [Validators.required]),
       "batch": new FormControl(this.formInfo.batch, [Validators.required]),
-      "email": new FormControl(this.formInfo.email),
+      "email": new FormControl(this.formInfo.email, [Validators.required, Validators.email]),
       "type": new FormControl(this.formInfo.type, [Validators.required]),
       "text": new FormControl(this.formInfo.text, [Validators.required])
     })
@@ -76,12 +81,16 @@ export class ContributeComponent implements OnInit {
         control.markAsTouched({ onlySelf: true });
       });
     } else {
+      this.isSubmitting = true;
       this.contributeService.sendFormToServer({
           name: this.getName().value,
           batch: this.getBatch().value,
           email: this.getEmail().value,
           type: this.getType().value,
           text: this.getFeedback().value
+      }).subscribe(response => {
+            this.isSubmitting = false;
+            this.toaster.success("Form has been submitted!");
       });
     }
     
