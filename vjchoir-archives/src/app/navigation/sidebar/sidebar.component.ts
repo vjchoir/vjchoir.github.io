@@ -17,22 +17,16 @@ export class SidebarComponent implements OnInit {
   @Input() currActive;
 
   isDarkMode: boolean;
-  isSidebarActive: boolean = false;
 
   sidebarActiveItem: MenuItem;
 
-  constructor(private navControllerService: NavControllerService, private darkModeService: DarkModeService) { }
+  constructor(private darkModeService: DarkModeService) { }
 
   ngOnInit() {
     this.currActive.active = true;
     this.sidebarActiveItem = this.currActive;
     this.isDarkMode = this.darkModeService.getLocalSettings();
     this.turnOnMode();
-
-    this.navControllerService.sidebarToggle.subscribe(val => {
-      this.isSidebarActive = !this.isSidebarActive;
-      console.log(this.isSidebarActive);
-    });
   }
 
   setActive() {

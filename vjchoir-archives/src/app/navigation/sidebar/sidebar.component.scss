@@ -31,20 +31,4 @@
   .active {
     background: $accent-color;
   }
-
-}
-
-.sidebar-active {
-  left: 0px !important;
-  transition: all 0.3s;
-}
-
-@media only screen and (max-width: 768px) {
-  .sidebar-wrapper {
-    left: -250px;
-    transition: all 0.3s;
-    &.sticky-top {
-      position: relative;
-    }
-  }
 }
