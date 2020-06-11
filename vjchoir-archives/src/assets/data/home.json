@@ -1,7 +1,8 @@
 {
   "header": {
     "title": "Welcome to the...",
-    "image": "../assets/images/logo/VJChoir-black.png",
+    "image_light": "../assets/images/logo/VJChoir-black.png",
+    "image_dark": "../assets/images/logo/VJChoir.png",
     "intro_msg": "Welcome to the unofficial official webpage for the Victoria Junior College Choir. In this website, there is a repository of batch information, songs and other cool stuff that you can peruse. Enjoy!"
   },
   "sections": [{
