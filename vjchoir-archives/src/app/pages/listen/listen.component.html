@@ -5,7 +5,7 @@
           {{item.title}}
       </button>
     </div>
-    <div class="d-flex flex-grow-1 justify-content-end rounded listen-header-close">
+    <div class="d-flex flex-grow-1 justify-content-end rounded listen-header-close" (click)="isHeaderVisible = !isHeaderVisible">
       <i class="fa fa-caret-up m-0 my-auto mr-3" *ngIf="isHeaderVisible"></i>
       <i class="fa fa-caret-down m-0 my-auto mr-3" *ngIf="!isHeaderVisible"></i>
     </div>

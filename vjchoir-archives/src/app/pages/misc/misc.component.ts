@@ -47,6 +47,7 @@ export class MiscComponent implements OnInit {
         if (fragment.includes(item.id)) {
           this.currActive = item;
           this.titleService.setTitle(this.currActive.title);
+          this.loadingService.setLoading(false);
           return;
         }
       }

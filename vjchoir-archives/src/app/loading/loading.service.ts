@@ -15,6 +15,7 @@ export class LoadingService {
     }
 
     setLoading(value: boolean) {
+        console.log("Are we loading? " + value);
         this.loadingUpdatesSource.next(value);
     }
 }
