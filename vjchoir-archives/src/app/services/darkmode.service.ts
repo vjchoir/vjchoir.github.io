@@ -17,12 +17,11 @@ export class DarkModeService {
   }
 
   getLocalSettings() {
-    let isDarkMode = Boolean(localStorage.getItem(IS_DARK_MODE_ID));
+    let isDarkMode = ('true' == localStorage.getItem(IS_DARK_MODE_ID));
     if(isDarkMode == null) {
         isDarkMode = false;
     }
 
-    console.log("Dark mode is " + isDarkMode);
     return isDarkMode;
   }
 
@@ -32,15 +31,16 @@ export class DarkModeService {
     this.renderer.addClass(document.body, "light-mode");
 
     this.themeToggledSource.next(false);
-    localStorage.setItem(IS_DARK_MODE_ID, (false).toString());
+    localStorage.setItem(IS_DARK_MODE_ID, 'false');
   }
 
   setDarkMode() {
+    const bool = true;
     console.log("Turning on dark mode!");
     this.renderer.addClass(document.body, "dark-mode");
     this.renderer.removeClass(document.body, "light-mode");
 
     this.themeToggledSource.next(true);
-    localStorage.setItem(IS_DARK_MODE_ID, (true).toString());
+    localStorage.setItem(IS_DARK_MODE_ID, 'true');
   }
 }
