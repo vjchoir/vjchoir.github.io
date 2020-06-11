@@ -1,6 +1,6 @@
 <div class="container-fluid row p-0 m-0">
-  <app-sidebar [sidebarItems]="menu" [controller]="controller" [currActive]="currActive"></app-sidebar>
-  <div class="col p-0 m-0">
+  <app-sidebar #sidebar class="content-left" [sidebarItems]="menu" [controller]="controller" [currActive]="currActive" [ngClass]="isSidebarActive ? 'sidebar-active' : ''"></app-sidebar>
+  <div class="col p-0 m-0 content-right flex-grow-1">
     <app-navbar [menu]="menu" [controller]="controller" [currActive]="currActive"></app-navbar>
 
     <div class=" row m-0">

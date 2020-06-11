@@ -1,4 +1,4 @@
-import { Injectable, ViewChild } from '@angular/core';
+import { Injectable, ViewChild, Renderer2, RendererFactory2 } from '@angular/core';
 
 import menuJSON from '../../../assets/data/menu.json';
 import { MenuItem } from '../model/MenuItem';
@@ -22,7 +22,11 @@ export class NavControllerService {
   private routeUpdatesSource = new Subject<any>();
   routerUpdates = this.routeUpdatesSource.asObservable();
 
-  constructor() {}
+  private sidebarToggleSource = new Subject<any>();
+  sidebarToggle = this.sidebarToggleSource.asObservable();
+
+  constructor() {
+  }
 
   getMenuItems(): Observable<MenuItem[]> {
     if(!this.menuItems) {
@@ -71,5 +75,9 @@ export class NavControllerService {
         break;
       }
     }
+  }
+  
+  toggleSidebar() {
+    this.sidebarToggleSource.next();
   }
 }

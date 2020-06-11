@@ -5,6 +5,7 @@ import {
   ViewChild,
   ViewChildren,
   QueryList,
+  ElementRef,
 } from "@angular/core";
 import { MenuItem } from "../model/MenuItem";
 
@@ -24,10 +25,13 @@ import { LoadingService } from 'src/app/loading/loading.service';
   styleUrls: ["./nav-controller.component.scss"],
 })
 export class NavControllerComponent implements OnInit {
+  @ViewChild('sidebar') sidebar;
 
   menu: MenuItem[];
   controller: NavControllerComponent;
   currActive: MenuItem;
+
+  isSidebarActive: boolean = false;
 
   constructor(
     private navControllerService: NavControllerService,
@@ -45,6 +49,10 @@ export class NavControllerComponent implements OnInit {
     this.navControllerService.clickedLink.subscribe((val) => {
       this.navigateToLink(val);
     });
+
+    this.navControllerService.sidebarToggle.subscribe(val => {
+      this.isSidebarActive = !this.isSidebarActive;
+    })
   }
 
   ngOnInit() {

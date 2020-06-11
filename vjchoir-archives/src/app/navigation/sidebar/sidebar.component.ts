@@ -3,6 +3,7 @@ import { AppRoutingModule } from '../../app-routing/app-routing.module';
 
 import { MenuItem } from "../model/MenuItem";
 import { DarkModeService } from 'src/app/services/darkmode.service';
+import { NavControllerService } from '../nav-controller/nav-controller.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -16,16 +17,22 @@ export class SidebarComponent implements OnInit {
   @Input() currActive;
 
   isDarkMode: boolean;
+  isSidebarActive: boolean = false;
 
   sidebarActiveItem: MenuItem;
 
-  constructor(private darkModeService: DarkModeService) { }
+  constructor(private navControllerService: NavControllerService, private darkModeService: DarkModeService) { }
 
   ngOnInit() {
     this.currActive.active = true;
     this.sidebarActiveItem = this.currActive;
     this.isDarkMode = this.darkModeService.getLocalSettings();
     this.turnOnMode();
+
+    this.navControllerService.sidebarToggle.subscribe(val => {
+      this.isSidebarActive = !this.isSidebarActive;
+      console.log(this.isSidebarActive);
+    });
   }
 
   setActive() {

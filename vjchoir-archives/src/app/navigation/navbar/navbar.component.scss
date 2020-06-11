@@ -6,4 +6,16 @@
   }
   border-bottom: 2px solid rgba(black, 0.1);
   background: $navbar-background-color;
+  justify-content: start;
+}
+
+.sidebar-toggle {
+  display: none;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .sidebar-toggle {
+    display: block;
+  }
 }
