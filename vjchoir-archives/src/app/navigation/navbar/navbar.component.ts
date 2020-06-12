@@ -13,11 +13,16 @@ export class NavbarComponent implements OnInit {
   @Input() currActive;
   
   private navTitle: string;
+  private isSidebarActive = false;
   
   constructor(private navControllerService: NavControllerService) { }
 
   ngOnInit() {
     this.navTitle = this.currActive.name;
+
+    this.navControllerService.sidebarToggle.subscribe(val => {
+      this.isSidebarActive = !this.isSidebarActive;
+    })
   }
 
   toggleSidebar() {
