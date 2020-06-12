@@ -92,4 +92,8 @@ export class NavControllerService {
       this.renderer.removeClass(document.body, 'no-scroll');
     }
   }
+
+  getIsSidebarActive() {
+    return this.isSidebarActive;
+  }
 }

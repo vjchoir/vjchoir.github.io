@@ -192,5 +192,12 @@ export class PlayerComponent implements OnInit {
 
   onLinkClick(link: string) {
     this.navController.onLinkClick(link);
+
+    if(window.innerWidth < 1024) {
+      if(this.navController.getIsSidebarActive()) {
+        this.navController.toggleSidebar();
+      }
+      this.isMinimised = !this.isMinimised;
+    }
   }
 }
