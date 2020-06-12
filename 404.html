@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+ <script>
+  (function(){
+    var redirect = sessionStorage.redirect;
+    delete sessionStorage.redirect;
+    if (redirect && redirect != location.href) {
+      history.replaceState(null, null, redirect);
+    }
+  })();
+</script>
+  <script>
+  sessionStorage.redirect = location.href;
+</script>
+<meta http-equiv="refresh" content="0;URL='https://vjchoir.github.io/'">
+</head>
+
+</html>
