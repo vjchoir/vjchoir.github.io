@@ -10,6 +10,8 @@ const MENU_ARRAY = ['about', 'batches', 'sov', 'misc'];
   providedIn: 'root',
 })
 export class NavControllerService {
+
+  private renderer;
   
   private menuItems: MenuItem[];
 
@@ -25,7 +27,10 @@ export class NavControllerService {
   private sidebarToggleSource = new Subject<any>();
   sidebarToggle = this.sidebarToggleSource.asObservable();
 
-  constructor() {
+  private isSidebarActive = false;
+
+  constructor(private rendererFactory: RendererFactory2) {
+    this.renderer = rendererFactory.createRenderer(null, null);
   }
 
   getMenuItems(): Observable<MenuItem[]> {
@@ -79,5 +84,12 @@ export class NavControllerService {
   
   toggleSidebar() {
     this.sidebarToggleSource.next();
+    this.isSidebarActive = !this.isSidebarActive;
+
+    if(this.isSidebarActive) {
+      this.renderer.addClass(document.body, 'no-scroll');
+    } else {
+      this.renderer.removeClass(document.body, 'no-scroll');
+    }
   }
 }

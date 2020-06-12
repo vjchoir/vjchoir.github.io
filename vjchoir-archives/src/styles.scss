@@ -20,8 +20,6 @@ $dark-background-color: rgb(48, 9, 24);
 $dark-primary-text-color: rgb(250, 250, 250);
 $dark-border-color: rgba(255,255,255,.2);
 
-
-
 $title-text-font: 'Poppins',
 sans-serif;
 $primary-text-font: 'Karla',
@@ -47,6 +45,93 @@ p {
   display: block;
   background: $sider-background-color;
   min-height: 95vh;
+}
+
+.invalid {
+  font-family: $primary-text-font;
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+.required {
+  color: #dc3545;
+}
+
+img {
+  animation: fadeIn ease 1s;
+  -webkit-animation: fadeIn ease 1s;
+  -moz-animation: fadeIn ease 1s;
+  -o-animation: fadeIn ease 1s;
+  -ms-animation: fadeIn ease 1s;
+}
+
+.ngx-toastr {
+  margin-top: 12px !important;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+.toast-success,
+.toast-error,
+.toast-info,
+.toast-warning {
+  font-family: $primary-text-font !important;
+}
+
+ngb-carousel {
+  &:focus {
+    outline: none;
+  }
+  img {
+    animation: none;
+  }
+}
+.bottom-padder {
+  color: none;
+  background: none;
+  height: 1px;
+  display: flex;
+  padding: 3rem 0rem 3rem 0rem;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -578,99 +663,27 @@ p {
 }
 
 
-.invalid {
-  font-family: $primary-text-font;
-  width: 100%;
-  margin-top: .25rem;
-  font-size: 80%;
-  color: #dc3545;
-}
-.required {
-  color: #dc3545;
-}
-
-img {
-  animation: fadeIn ease 1s;
-  -webkit-animation: fadeIn ease 1s;
-  -moz-animation: fadeIn ease 1s;
-  -o-animation: fadeIn ease 1s;
-  -ms-animation: fadeIn ease 1s;
-}
-
-.ngx-toastr {
-  margin-top: 12px !important;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-}
-.toast-success,
-.toast-error,
-.toast-info,
-.toast-warning {
-  font-family: $primary-text-font !important;
-}
-
-ngb-carousel {
-  &:focus {
-    outline: none;
-  }
-  img {
-    animation: none;
-  }
-}
-.bottom-padder {
-  color: none;
-  background: none;
-  height: 1px;
-  display: flex;
-  padding: 3rem 0rem 3rem 0rem;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-o-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@-ms-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/* Responsive handling */
 
 @media only screen and (max-width: 1024px) {
-  h1, h2, h3, h4, h5, h6 {
-    font-size: large !important;
+  h1 {
+    font-size: 2.0rem !important;
   }
 
+  h2 {
+    font-size: 1.75rem !important;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+  }
   p {
     font-size: medium !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .no-scroll {
+    overflow: hidden;
   }
 }

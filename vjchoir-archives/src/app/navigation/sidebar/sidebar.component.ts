@@ -20,7 +20,7 @@ export class SidebarComponent implements OnInit {
 
   sidebarActiveItem: MenuItem;
 
-  constructor(private darkModeService: DarkModeService) { }
+  constructor(private navControllerSerivce: NavControllerService, private darkModeService: DarkModeService) { }
 
   ngOnInit() {
     this.currActive.active = true;
@@ -32,7 +32,7 @@ export class SidebarComponent implements OnInit {
   setActive() {
     this.sidebarActiveItem.active = false;
     this.sidebarActiveItem = this.currActive;
-    this.currActive.active = true;   
+    this.currActive.active = true;
   }
 
   changeMode() {
@@ -44,6 +44,13 @@ export class SidebarComponent implements OnInit {
       this.darkModeService.setDarkMode();
     } else {
       this.darkModeService.setLightMode();
+    }
+  }
+
+  toggleSidebar() {
+    console.log(window.innerWidth);
+    if(window.innerWidth <= 1024) {
+      this.navControllerSerivce.toggleSidebar();
     }
   }
 }

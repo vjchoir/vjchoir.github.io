@@ -1,3 +1,13 @@
+.content-right {
+  flex-grow: 1 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .sider {
+    display: none !important;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   .main-content {
     overflow-x: hidden;
@@ -22,5 +32,7 @@
 
   .content-right {
     min-width: 100%;
+    flex-grow: 0 !important;
   }
+
 }

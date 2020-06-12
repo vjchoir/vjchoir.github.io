@@ -1,6 +1,6 @@
 <div class="header">
   <h1>{{homeJSON.header.title}}</h1>
-  <div class="col-sm-12 col-xl-8 my-3">
+  <div class="col-sm-12 col-md-8 col-xl-8 my-3">
     <img src="{{logoImage}}" class="img-fluid">
   </div>
   <p class="my-4">{{homeJSON.header.intro_msg}}</p>
@@ -19,7 +19,7 @@
 
   <div class="section">
     <h3>{{homeJSON.featured_photos.title}}</h3>
-    <ngb-carousel *ngIf="homeJSON.featured_photos.images" class="mx-5 my-3">
+    <ngb-carousel *ngIf="homeJSON.featured_photos.images" class="mx-md-5 my-3">
       <ng-template ngbSlide *ngFor="let image of homeJSON.featured_photos.images">
         <div>
           <img [src]="image.link" class="img-fluid">
