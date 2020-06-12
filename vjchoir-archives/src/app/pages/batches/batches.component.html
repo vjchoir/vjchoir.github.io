@@ -28,7 +28,7 @@
 
     <div>
       <h3>Batch of {{currActive.name}}</h3>
-      <img src="{{currActive.image}}" class="col-12 col-xl-6 mx-0 px-0 mb-2 rounded">
+      <img src="{{currActive.image}}" class="col-12 col-md-6 mx-0 px-0 mb-2 rounded">
       <p [innerHTML]="currActive.desc">
       </p>
     </div>
@@ -40,7 +40,7 @@
       <div class="container-fluid">
         <h4 class="text-center">Committees</h4>
         <div class="row justify-content-center mb-5">
-          <div class="text-center col-12 col-lg-6" *ngFor="let comm of currActive.comms">
+          <div class="text-center col-12 col-md-6" *ngFor="let comm of currActive.comms">
             <h5 class="text-center">{{comm.name}}</h5>
             <img src="{{comm.img}}" class="img-fluid rounded" />
             <p class="text-center">{{comm.members | appendNames}}</p>
@@ -49,8 +49,8 @@
         </div>
 
         <h4 class="text-center">Members</h4>
-        <div class="row container-fluid text-center">
-          <div *ngFor="let section of currActive.sections" class="col">
+        <div class="row container-fluid text-center m-0">
+          <div *ngFor="let section of currActive.sections" class="col-sm-12 col-md-6 col-lg-3 mt-2">
             <h5>{{section.name}}</h5>
             <ul class="list-group">
               <li class="list-group-item justify-content-between align-items-center">
@@ -71,7 +71,7 @@
       <hr/>
       <h4>Featured Photos</h4>
 
-      <ngb-carousel class="mx-5 my-3">
+      <ngb-carousel class="mx-auto my-3 col-sm-12 col-md-8">
         <ng-template ngbSlide *ngFor="let image of currActive.photos">
           <div class="text-center">
             <img src="{{image}}" class="img-fluid">
