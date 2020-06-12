@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Output, EventEmitter, HostListener } from '@angular/core';
 import { ListenService } from './listen.service';
 import { SovService } from '../sov/sov.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
@@ -25,9 +25,16 @@ const LISTEN_TITLE = "Listen";
 })
 export class ListenComponent implements OnInit {
 
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.innerWidth = window.innerWidth;
+  }
+
   // Settings related
   areToastsEnabled: boolean;
   isHeaderClosedOnStart: boolean;
+
+  innerWidth = window.innerWidth;
 
   headerContent;
   sovInfo;

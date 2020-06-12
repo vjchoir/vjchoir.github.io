@@ -1,13 +1,13 @@
 <div class="listen-header d-block">
   <div class="listen-header-buttons d-flex mb-4">
     <div class="d-flex row mx-0">
-      <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 my-auto" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item; isHeaderVisible = true;" onclick="this.blur(); event.stopPropagation()">
+      <button *ngFor="let item of headerContent.sections" class="btn btn-outline-primary mx-1 mb-2 mb-md-0" [ngClass]="item == currActiveHeader ? 'active' : ''" (click)="currActiveHeader = item; isHeaderVisible = true;" onclick="this.blur(); event.stopPropagation()">
           {{item.title}}
       </button>
     </div>
     <div class="d-flex flex-grow-1 justify-content-end rounded listen-header-close" (click)="isHeaderVisible = !isHeaderVisible">
-      <i class="fa fa-caret-up m-0 my-auto mr-3" *ngIf="isHeaderVisible"></i>
-      <i class="fa fa-caret-down m-0 my-auto mr-3" *ngIf="!isHeaderVisible"></i>
+      <i class="fa fa-caret-up m-0 my-auto mr-md-3 mx-2" *ngIf="isHeaderVisible"></i>
+      <i class="fa fa-caret-down m-0 my-auto mr-md-3 mx-2" *ngIf="!isHeaderVisible"></i>
     </div>
   </div>
   <div *ngIf="isHeaderVisible">
@@ -70,8 +70,8 @@
   </div>
   <div *ngFor="let playlist of myPlaylistsInfo; last as isLast" class="container-fluid p-0">
     <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" (click)="playlist.isOpen = !playlist.isOpen" *ngIf="!playlist.isOpen">
-      <p class="col-8 m-0 pl-2"><b>{{playlist.name}}</b></p>
-      <div class="col-4 text-right d-inline-block row p-0">
+      <p class="col-6 m-0 pl-2 text-truncate"><b>{{playlist.name}}</b></p>
+      <div class="col-6 text-right d-inline-block row p-0">
         <div class="d-inline">
           <span class="badge badge-pill badge-secondary mr-2">{{playlist.duration.hours() + "H " + playlist.duration.minutes() + "M"}}</span>
           <span class="badge badge-pill badge-primary">{{playlist.tracks.length}} SONGS</span>
@@ -101,7 +101,7 @@
             <p class="d-block m-0">
               <input #desc id="desc" class="col-12 p-1 my-1" value="{{playlist.desc}}" onclick="event.stopPropagation();" (keyup.enter)="desc.blur()" (blur)="onKeyEnter(playlist, desc)" autocomplete="off">
             </p>
-            <button class="btn btn-outline-primary my-2" (click)="playSong(playlist, playlist.tracks[0])"><i class="fa fa-play mr-2"></i>Play</button>
+            <button class="btn btn-outline-primary my-2" (click)="playSong(playlist, playlist.tracks[0])" onclick="event.stopPropagation();"><i class="fa fa-play mr-2"></i>Play</button>
           </div>
         </div>
 
@@ -109,22 +109,28 @@
       <hr class="m-0" />
       <div class="playlist-songs" class="col m-0 p-0" [ngClass]="playlist.tracks.length > 0 ? '' : 'd-none'">
         <div class="song-title-row row m-0 py-2">
-          <p class="m-0 p-0 add-button-filler"></p>
-          <div class="d-flex flex-grow-1 row m-0">
-            <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
-            <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
-            <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
+          <div class="d-inline-flex col-12 m-0 p-0">
+            <p class="m-0 p-0 col-2 col-md-1"></p>
+            <p class="song-number text-center col-1 col-md-1 m-0 p-0"><small>NO.</small></p>
+            <p class="song-title text-left text-truncate col-8 col-md-9 m-0 p-0"><small>TITLE</small></p>
+            <p class="song-duration text-center col-1 col-md-1 m-0 p-0"><small>DUR.</small></p>
           </div>
         </div>
         <div cdkDropList (cdkDropListDropped)="drop(playlist, $event)">
           <div class="song row m-0 py-2" *ngFor="let song of playlist.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''" cdkDrag>
-            <div class="add-button text-center my-auto" (click)="removeSongFromPlaylist(song, playlist)">
-              <i class="fa fa-times text-danger small"></i>
-            </div>
-            <div class="d-inline-flex flex-grow-1 row m-0">
-              <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
-              <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
-              <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+
+            <div class="d-inline-flex col-12 m-0 p-0">
+              <div class="add-button text-center p-0 m-0 col-2 col-md-1 d-flex justify-content-around" (click)="removeSongFromPlaylist(song, playlist)">
+                <div cdkDragHandle>
+                  <i class="fa fa-bars small"></i>
+                </div>
+                <div>
+                  <i class="fa fa-times text-danger small"></i>
+                </div>
+              </div>
+              <p class="song-number text-center col-1 col-md-1 m-0 p-0"><small>{{i+1}}</small></p>
+              <p class="song-title text-left text-truncate col-8 col-md-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
+              <p class="song-duration text-center col-1 col-md-1 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
             </div>
           </div>
         </div>
@@ -157,8 +163,9 @@
   <h5 class="mt-4">Default Playlists</h5>
   <div *ngFor="let sov of sovInfo; last as isLast" class="container-fluid p-0">
     <div class="playlist-header container-fluid row my-auto m-0 px-0 py-2" (click)="sov.isOpen = !sov.isOpen" *ngIf="!sov.isOpen">
-      <p class="col-8 m-0 pl-2"><b>{{sov.title}}</b></p>
-      <div class="col-4 text-right d-inline-block row p-0">
+      <p *ngIf="innerWidth > 600" class="col-6 m-0 pl-2 text-truncate"><b>{{sov.title}}</b></p>
+      <p *ngIf="innerWidth <= 600" class="col-6 m-0 pl-2 text-truncate"><b>{{sov.abbr}}</b></p>
+      <div class="col-6 text-right d-inline-block row p-0">
         <div class="d-inline">
           <span class="badge badge-pill badge-secondary mr-2">{{sov.repertoire.duration.hours() + "H " + sov.repertoire.duration.minutes() + "M"}}</span>
           <span class="badge badge-pill badge-primary">{{sov.repertoire.tracks.length}} SONGS</span>
@@ -179,7 +186,7 @@
               <i class="fas fa-caret-up m-0 my-auto mx-3"></i>
             </div>
             <p class="d-block m-0" [innerHTML]="sov.intro"></p>
-            <button class="btn btn-outline-primary my-2" (click)="playSong(sov.repertoire, sov.repertoire.tracks[0])"><i class="fa fa-play mr-2"></i>Play</button>
+            <button class="btn btn-outline-primary my-2" (click)="playSong(sov.repertoire, sov.repertoire.tracks[0])" onclick="event.stopPropagation();"><i class="fa fa-play mr-2"></i>Play</button>
           </div>
         </div>
 
@@ -187,27 +194,28 @@
       <hr class="m-0" />
       <div class="playlist-songs" class="col m-0 p-0">
         <div class="song-title-row row m-0 py-2">
-          <p class="m-0 p-0 add-button-filler"></p>
-          <div class="d-flex flex-grow-1 row m-0">
+          <div class="d-inline-flex col-12 m-0 p-0">
+            <p class="m-0 p-0 col-1"></p>
             <p class="song-number text-center col-1 m-0 p-0"><small>NO.</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0"><small>TITLE</small></p>
-            <p class="song-duration text-center col-2 m-0 p-0"><small>DUR.</small></p>
+            <p class="song-duration text-center col-1 m-0 p-0"><small>DUR.</small></p>
           </div>
         </div>
         <div class="song row m-0 py-2" *ngFor="let song of sov.repertoire.tracks; let i = index; last as isLast" [ngClass]="!isLast ? 'border-bottom' : ''">
 
-          <div placement="bottom-left" class=" my-auto p-0 m-0 text-center add-button" display="static" ngbDropdown>
-            <i class="fa fa-plus small d-block p-1" ngbDropdownToggle></i>
-            <div ngbDropdownMenu>
-              <p class="mx-3 my-0"><small><b>Add song to...</b></small></p>
-              <div class="dropdown-divider"></div>
-              <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="py-2 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
+
+          <div class="d-inline-flex col-12 m-0 p-0">
+            <div placement="bottom-left" class=" my-auto p-0 m-0 col-1 text-center add-button" display="static" ngbDropdown>
+              <i class="fa fa-plus small d-block p-1 mx-auto" ngbDropdownToggle></i>
+              <div ngbDropdownMenu>
+                <p class="mx-3 my-0"><small><b>Add song to...</b></small></p>
+                <div class="dropdown-divider"></div>
+                <button ngbDropdownItem *ngFor="let playlist of myPlaylistsInfo" class="py-2 px-3 text-truncate" (click)="addSongToPlaylist(song, playlist)">{{playlist.name}}</button>
+              </div>
             </div>
-          </div>
-          <div class="d-flex flex-grow-1 row m-0">
             <p class="song-number text-center col-1 m-0 p-0"><small>{{i+1}}</small></p>
             <p class="song-title text-left text-truncate col-9 m-0 p-0">{{song.title}} <small class="song-composer">{{song.composer}}</small></p>
-            <p class="song-duration text-center col-2 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
+            <p class="song-duration text-center col-1 m-0 p-0"><small>{{song.duration | formatDuration}}</small></p>
           </div>
         </div>
       </div>
