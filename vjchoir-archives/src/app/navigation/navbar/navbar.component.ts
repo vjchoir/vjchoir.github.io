@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   @Input() currActive;
   
   private navTitle: string;
-  private isSidebarActive = false;
+  isSidebarActive = false;
   
   constructor(private navControllerService: NavControllerService) { }
 
